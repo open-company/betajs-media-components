@@ -1,0 +1,121 @@
+$css: "ba-videoplayer-carrot-theme";
+$csscommon: "ba-commoncss";
+$cssie8: "ba-videoplayer-ie8";
+$cssnoie8: "ba-videoplayer-noie8";
+$fontello_name: "bjsmc";
+
+$loader_size: 5px;
+$loader_frame_thickness: 0.6em;
+
+$message_bgcolor: #000000;
+$message_opacity: 0.75;
+$message_color: #eeeeee;
+
+$font_family: sans-serif;
+$text_fontfamily: Helvetica Neue, Helvetica, Arial, sans-serif;
+$text_fontsize: 13px;
+$text_color: #eeeeee;
+$text_secondary_color: rgba(250, 254, 255, 0.35);
+
+// cover
+$cover_playbutton_color: #eeeeee;
+$cover_playbutton_hover_color: #000000;
+$cover_playbutton_shadow: #000000;
+$cover_playbutton_border_color: #eeeeee;
+$cover_playbutton_border_hover_color: #000000;
+$cover_playbutton_hover_shadow: #eeeeee;
+
+
+$topmessage_bgcolor: black;
+$topmessage_opacity: 0.3;
+$topmessage_fontsize: 12px;
+$topmessage_height: 50px;
+$topmessage_fontweight: bold;
+
+$focus_button_color: #1b7fcc;
+$focus_overlay_color: #000000;
+
+$playbutton_size: 50px;
+$playbutton_frame_thickness: 0.6em;
+$playbutton_default_opacity: 0.6;
+$playbutton_hover_opacity: 0.9;
+$playbutton_transition_time: .25s;
+$playbutton_background_opacity: 0.2;
+$playbutton_font_size: 7px;
+
+$controlbar_playbutton_font_size: 2.5em;
+$controlbar_header_height: 40px;
+$controlbar_video_title_font_size: 12px;
+$controlbar_button_padding: 7px;
+$controlbar_side_padding: 4%;
+
+$full_screen_background: #b2b2b2;
+
+$dashboard_transition: 0.5s;
+$controlbar_height: 100%;
+$controlbar_background: rgba(0, 0, 0, 0.4);
+$button_fontsize: 13px;
+$button_width: 40px;
+$button_color: #eeeeee;
+$button_border_color: #979797;
+$time_value_width: 100px;
+$ie8_margintop: 6px;
+$controls_bgcolor: rgba( 255, 255, 255, 0.2);
+$volume_width: 60px;
+$volume_height: 6px;
+$volumebar_inner_color: #979797;
+$volumebar_position_bg: #eeeeee;
+$progressbar_cache_bgcolor: rgba( 255, 255, 255, 0.3);
+$progressbar_cache_bgcolor: #eeeeee;
+$progressbar_button_overflow: #979797;
+$progressbar_container_height: 15px;
+$progressbar_height: 4px;
+$stream_label_bg_color: #979797;
+$stream_label_color: rgba(255, 255, 255, 1);
+
+$icon_size: 0.7em;
+
+
+$rerecord_text_color: #eeeeee;
+$rerecord_font_family: sans-serif;
+
+$rerecord_height: 48px;
+$rerecord_opacity: 0.5;
+$rerecord_bgcolor: black;
+$rerecord_padding: 24px;
+$rerecord_padding: 16px;
+$rerecord_primarybutton_radius: 0;
+$rerecord_primarybutton_color: #000000;
+$rerecord_primarybutton_text_color: #eeeeee;
+$rerecord_primarybutton_padding: 9px 20px;
+$rerecord_primarybutton_vertical_padding: 16px;
+$rerecord_primarybutton_font_weight: 100;
+$rerecord_primarybutton_font_size: 12px;
+$rerecord_letter_spacing: .1em;
+
+// Sidebar share
+$share_container_top: 50px;
+$share_container_width: 90px;
+$share_container_right: 15px;
+$open_share_button_color: #ffffff;
+$open_share_button_border_radius: 5px;
+$open_share_button_size: 13px;
+$open_share_button_top: 30px;
+$open_share_button_box_size: 45px;
+$open_share_button_font_size: 14px;
+$open_share_button_z-index: 100;
+$share_icon_font_size: 14px;
+$share_icon_container_height: 45px;
+$share_icon_container_width: 45px;
+
+// Theme Colors
+$theme_color_blue: #2a74eb;
+$theme_color_red: #eb6a74;
+$theme_color_green: #5daa96;
+
+$colors: (
+  'red': $theme_color_red,
+  'blue': $theme_color_blue,
+  'green': $theme_color_green,
+  'default': ''
+);

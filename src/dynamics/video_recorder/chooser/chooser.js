@@ -18,7 +18,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Chooser", [
                     "css": "ba-videorecorder",
                     "allowrecord": true,
                     "allowupload": true,
-                    "allowscreen": false,
+                    "allowscreen": true,
 
                     "primaryrecord": true,
                     "recordviafilecapture": false,

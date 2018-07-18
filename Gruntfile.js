@@ -415,6 +415,62 @@ module.exports = function(grunt) {
     ], 'dist/themes/minimalist/style.css')
     .cssminTask('cssmin-minimalist-theme', 'dist/themes/minimalist/style.css', 'dist/themes/minimalist/style.min.css')
 
+    /* Compile Carrot Theme */
+    .concatTask('concat-carrot-theme', [
+      'src/fragments/theme-begin.js-fragment',
+      'src/themes/video_player/carrot/theme.js',
+      'src/themes/video_recorder/carrot/theme.js',
+        'src/themes/image_viewer/carrot/theme.js',
+        'src/themes/audio_player/carrot/theme.js',
+      'src/fragments/end.js-fragment'
+    ], 'dist/themes/carrot/script.js', {
+        process: betajsTemplates.concatProcess(grunt)
+    })
+    .uglifyTask('uglify-carrot-theme', 'dist/themes/carrot/script.js', 'dist/themes/carrot/script.min.js')
+    .concatsassTask('concat-carrot-theme-css', [
+      'src/themes/common/mixins.scss',
+      'src/themes/video_player/carrot/theme.scss',
+        'src/themes/common/fontello_icon.scss',
+        'src/themes/common/fontello_icons_generated.scss',
+        'src/themes/common/fontello_icons_color.scss',
+      'src/themes/video_player/default/player.scss',
+      'src/themes/video_player/default/adplayer.scss',
+      'src/themes/video_player/default/loader.scss',
+      'src/themes/video_player/default/topmessage.scss',
+      'src/themes/video_player/carrot/*.scss',
+
+      'src/themes/video_recorder/carrot/theme.scss',
+        'src/../src/themes/common/fontello_icon.scss',
+        'src/../src/themes/common/fontello_icons_generated.scss',
+        'src/../src/themes/common/fontello_icons_color.scss',
+      'src/themes/video_recorder/default/recorder.scss',
+      'src/themes/video_recorder/default/chooser.scss',
+      'src/themes/video_recorder/default/topmessage.scss',
+      'src/themes/video_recorder/default/imagegallery.scss',
+      'src/themes/video_recorder/default/controlbar.scss',
+      'src/themes/video_recorder/default/settings.scss',
+      'src/themes/video_recorder/carrot/*.scss',
+      'src/themes/video_recorder/carrot/**/*.scss',
+
+        'src/themes/image_viewer/carrot/theme.scss',
+        'src/../src/../src/themes/common/fontello_icon.scss',
+        'src/../src/../src/themes/common/fontello_icons_generated.scss',
+        'src/../src/../src/themes/common/fontello_icons_color.scss',
+        'src/themes/image_viewer/default/viewer.scss',
+        'src/themes/image_viewer/default/topmessage.scss',
+        'src/themes/image_viewer/carrot/*.scss',
+
+        'src/themes/audio_player/carrot/theme.scss',
+        'src/../src/../src/../src/themes/common/fontello_icon.scss',
+        'src/../src/../src/../src/themes/common/fontello_icons_generated.scss',
+        'src/../src/../src/../src/themes/common/fontello_icons_color.scss',
+        'src/themes/audio_player/default/player.scss',
+        'src/themes/audio_player/default/loader.scss',
+        'src/themes/audio_player/carrot/*.scss'
+
+    ], 'dist/themes/carrot/style.css')
+    .cssminTask('cssmin-carrot-theme', 'dist/themes/carrot/style.css', 'dist/themes/carrot/style.min.css')
+
     /* Testing */
     .browserqunitTask(null, 'tests/tests.html', true)
     .closureTask(null, [
@@ -436,7 +492,8 @@ module.exports = function(grunt) {
       'dist/themes/minimalist/style.css',
       'dist/themes/modern/style.css',
       'dist/themes/space/style.css',
-      'dist/themes/theatre/style.css'
+      'dist/themes/theatre/style.css',
+      'dist/themes/carrot/style.css'
     ])
 
     /* External Configurations */
@@ -524,6 +581,7 @@ module.exports = function(grunt) {
         "cube-theme",
         "elevate-theme",
         "minimalist-theme",
+        "carrot-theme",
         "modern-theme",
         "space-theme",
         "theatre-theme"
@@ -575,6 +633,14 @@ module.exports = function(grunt) {
     'uglify-minimalist-theme',
     'concat-minimalist-theme-css',
     'cssmin-minimalist-theme'
+  ]);
+
+  // **  Carrot THEME **//
+  grunt.registerTask('carrot-theme', [
+    'concat-carrot-theme',
+    'uglify-carrot-theme',
+    'concat-carrot-theme-css',
+    'cssmin-carrot-theme'
   ]);
   
   
