@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.109 - 2018-07-18
+betajs-media-components - v0.0.110 - 2018-07-18
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1006,7 +1006,7 @@ Public.exports();
 	return Public;
 }).call(this);
 /*!
-betajs-media-components - v0.0.109 - 2018-07-18
+betajs-media-components - v0.0.110 - 2018-07-18
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1022,7 +1022,7 @@ Scoped.binding('dynamics', 'global:BetaJS.Dynamics');
 Scoped.define("module:", function () {
 	return {
     "guid": "7a20804e-be62-4982-91c6-98eb096d2e70",
-    "version": "0.0.109"
+    "version": "0.0.110"
 };
 });
 Scoped.assumeVersion('base:version', '~1.0.96');
@@ -5637,7 +5637,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Chooser", [
                     "css": "ba-videorecorder",
                     "allowrecord": true,
                     "allowupload": true,
-                    "allowscreen": true,
+                    "allowscreen": false,
 
                     "primaryrecord": true,
                     "recordviafilecapture": false,
@@ -5715,6 +5715,12 @@ Scoped.define("module:VideoRecorder.Dynamics.Chooser", [
                                 break;
                         }
                     }, this);
+
+                    // Go directly to video recorder
+                    var that = this;
+                    window.setTimeout(function() {
+                        that.trigger("record");
+                    }, 100);
                 },
 
                 functions: {
@@ -5847,13 +5853,13 @@ Scoped.define("module:VideoRecorder.Dynamics.Controlbar", [
             "cameraunhealthy": "Lighting is not optimal",
             "microphonehealthy": "Sound is good",
             "microphoneunhealthy": "Cannot pick up any sound",
-            "record": "Record",
+            "record": "Start",
             "record-tooltip": "Click here to record.",
             "rerecord": "Redo",
             "rerecord-tooltip": "Click here to redo.",
             "upload-covershot": "Upload Cover",
             "upload-covershot-tooltip": "Click here to upload custom cover shot",
-            "stop": "Stop",
+            "stop": "Done",
             "stop-tooltip": "Click here to stop.",
             "skip": "Skip",
             "skip-tooltip": "Click here to skip.",
@@ -6067,7 +6073,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Loader", [
         }, function(inherited) {
             return {
 
-                template: "\n<div class=\"{{css}}-loader-container\">\n    <div data-selector=\"recorder-loader-block\" class=\"{{css}}-loader-loader\" title=\"{{tooltip || ''}}\">\n    </div>\n</div>\n<div data-selector=\"recorder-loader-label-container\" class=\"{{css}}-loader-label\" ba-show=\"{{label}}\">\n\t{{label}}\n</div>\n",
+                template: "\n<div class=\"{{css}}-loader-container\">\n    <div data-selector=\"recorder-loader-block\" class=\"{{css}}-loader-loader\" title=\"{{tooltip || ''}}\">\n    </div>\n</div>\n<div data-selector=\"recorder-loader-label-container\" class=\"{{css}}-loader-label\" ba-show=\"{{label}}\">\n\t{{label}}...\n</div>\n",
 
                 attrs: {
                     "css": "ba-videorecorder",

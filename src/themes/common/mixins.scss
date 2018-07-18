@@ -88,6 +88,13 @@
     @include align-full-bottom();
 }
 
+@mixin absolute-align-full-bottom-below-control-bar($ctrlbar_height) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -#{$ctrlbar_height};
+}
+
 @mixin absolute-align-full-bottom-above-control-bar($ctrlbar_height) {
     position: absolute;
     left: 0;
@@ -319,6 +326,15 @@
     left: 0;
     position: absolute;
     right: auto;
+    top: 0;
+    width: $width;
+}
+
+@mixin absolute_right_sidebar($width) {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    left: auto;
     top: 0;
     width: $width;
 }

@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.109 - 2018-07-18
+betajs-media-components - v0.0.110 - 2018-07-18
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -502,6 +502,31 @@ Apache-2.0 Software License.
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e813'; }
+
+.ba-videoplayer-carrot-theme-icon-check:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e814'; }
 
 .ba-videoplayer-carrot-theme-icon-cc:before {
   font-family: "bjsmc";
@@ -2538,6 +2563,31 @@ Apache-2.0 Software License.
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e813'; }
 
+.ba-videorecorder-theme-carrot-icon-check:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e814'; }
+
 .ba-videorecorder-theme-carrot-icon-cc:before {
   font-family: "bjsmc";
   font-style: normal;
@@ -3084,11 +3134,11 @@ div.ba-videorecorder-theme-carrot-disabled {
   -webkit-border-radius: 50px;
   border-radius: 50px;
   background-color: #000000;
-  color: #eeeeee;
+  color: #FFFFFF;
   padding: 6px;
   padding-left: 8px;
   padding-right: 8px;
-  font-family: sans-serif;
+  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
   font-size: 14px;
   text-align: center;
   position: relative;
@@ -3097,7 +3147,7 @@ div.ba-videorecorder-theme-carrot-disabled {
 .ba-videorecorder-theme-carrot-chooser-button-1, .ba-videorecorder-theme-carrot-chooser-button-2 {
   cursor: pointer;
   color: #666666;
-  font-family: sans-serif;
+  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
   font-size: 14px;
   text-align: center;
   padding: 8px;
@@ -3115,10 +3165,10 @@ div.ba-videorecorder-theme-carrot-disabled {
   left: 0;
   right: 0;
   top: 0;
-  font-family: sans-serif;
+  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
   font-size: 15px;
   font-weight: bold;
-  color: #eeeeee;
+  color: #FFFFFF;
   padding: 8.5px;
   text-align: center; }
 
@@ -3192,7 +3242,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   position: relative;
   text-align: center;
   cursor: pointer;
-  color: #eeeeee;
+  color: #FFFFFF;
   font-size: 13px; }
 
 .ba-videorecorder-theme-carrot-overlay div[tabindex] {
@@ -3259,10 +3309,10 @@ div.ba-videorecorder-theme-carrot-disabled {
   left: 0;
   right: 0;
   top: 0;
-  font-family: sans-serif;
+  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
   font-size: 15px;
   font-weight: bold;
-  color: #eeeeee;
+  color: #FFFFFF;
   padding: 15px;
   text-align: center; }
 
@@ -3286,8 +3336,8 @@ div.ba-videorecorder-theme-carrot-disabled {
   float: right;
   height: 100%;
   cursor: pointer;
-  padding-left: 8px;
-  padding-right: 8px; }
+  padding-left: 16px;
+  padding-right: 16px; }
 
 .ba-videorecorder-theme-carrot-centerbutton-container {
   -webkit-transform: translateX(-50%);
@@ -3300,8 +3350,8 @@ div.ba-videorecorder-theme-carrot-disabled {
   position: relative;
   left: 50%;
   height: 100%;
-  padding-left: 8px;
-  padding-right: 8px; }
+  padding-left: 16px;
+  padding-right: 16px; }
 
 .ba-videorecorder-theme-carrot-lefticon-container {
   float: left;
@@ -3322,17 +3372,17 @@ div.ba-videorecorder-theme-carrot-disabled {
   position: relative;
   text-align: center;
   cursor: pointer;
-  border-radius: 18px;
+  border-radius: 100px;
   margin-left: 5px;
   margin-right: 5px;
-  padding: 8px;
+  padding: 16px;
   padding-left: 16px;
   padding-right: 16px;
   background-color: #000000;
-  color: #eeeeee;
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 12px;
+  color: #FFFFFF;
+  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+  font-weight: normal;
+  font-size: 16px;
   border: none; }
 
 .ba-videorecorder-theme-carrot-button-inner {
@@ -3344,13 +3394,13 @@ div.ba-videorecorder-theme-carrot-disabled {
   top: 50%;
   position: relative;
   text-align: center;
-  color: #eeeeee;
+  color: #FFFFFF;
   cursor: pointer;
   font-size: 20px;
   margin-left: 5px;
   margin-right: 5px;
   padding: 3px;
-  border: 1px solid #eeeeee;
+  border: 1px solid #FFFFFF;
   border-radius: 50%; }
 
 .ba-videorecorder-theme-carrot-icon-inner {
@@ -3362,20 +3412,20 @@ div.ba-videorecorder-theme-carrot-disabled {
   top: 50%;
   position: relative;
   text-align: center;
-  color: #eeeeee;
+  color: #FFFFFF;
   font-size: 20px;
   margin-left: 5px;
   margin-right: 5px;
   padding: 3px;
   padding-left: 7px;
   padding-right: 7px;
-  border: 1px solid #eeeeee;
+  border: 1px solid #FFFFFF;
   border-radius: 50%; }
 
 .ba-videorecorder-theme-carrot-button-selected {
   border: 1px solid #000000;
   color: #000000;
-  background-color: #eeeeee; }
+  background-color: #FFFFFF; }
 
 .ba-videorecorder-theme-carrot-size-small .ba-videorecorder-theme-carrot-lefticon-container {
   display: none; }
@@ -3384,7 +3434,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   position: absolute;
   left: 0;
   bottom: 48px;
-  color: #eeeeee;
+  color: #FFFFFF;
   margin: 4px;
   padding: 4px; }
 
@@ -3405,12 +3455,12 @@ div.ba-videorecorder-theme-carrot-disabled {
   right: 0;
   top: 0;
   bottom: 0;
-  font-family: sans-serif;
+  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
   font-size: 12px; }
 
 .ba-videorecorder-theme-carrot-settings hr {
   border-top: none;
-  border-bottom-color: #eeeeee;
+  border-bottom-color: #FFFFFF;
   margin: 2px;
   margin-left: 48px;
   margin-right: 48px; }
@@ -3497,14 +3547,14 @@ div.ba-videorecorder-theme-carrot-disabled {
 
 .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-button-circle-selected, .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-button-inner:hover,
 .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-button-selected, .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-loader-label {
-  color: #5daa96; }
+  color: #3fbd7c; }
 .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-chooser-button-0, .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-button-primary,
 .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-settings span, .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-imagegallery-rightbutton, .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-imagegallery-leftbutton {
-  background-color: #5daa96; }
+  background-color: #3fbd7c; }
 .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-imagegallery-image:hover {
-  border-color: #5daa96; }
+  border-color: #3fbd7c; }
 .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-message-message a {
-  color: #5daa96; }
+  color: #3fbd7c; }
 
 .ba-videorecorder-theme-carrot-overlay div[tabindex] {
   transition: all 0.3s ease-in-out;
@@ -3536,73 +3586,83 @@ div.ba-videorecorder-theme-carrot-disabled {
   bottom: 0;
   height: 100%; }
 
-.ba-videorecorder-theme-carrot-settings-left-sidebar {
+.ba-videorecorder-theme-carrot-settings-right-sidebar {
   display: table;
   height: 100%;
   text-align: center;
   bottom: 0;
-  left: 0;
+  right: 0;
   position: absolute;
-  right: auto;
+  left: auto;
   top: 0;
-  width: 55px; }
-  .ba-videorecorder-theme-carrot-settings-left-sidebar .ba-videorecorder-theme-carrot-controlbar-left-section {
-    display: table-cell;
-    vertical-align: middle; }
-    .ba-videorecorder-theme-carrot-settings-left-sidebar .ba-videorecorder-theme-carrot-controlbar-left-section .ba-videorecorder-theme-carrot-circle-button-container {
+  width: 115px; }
+  .ba-videorecorder-theme-carrot-settings-right-sidebar .ba-videorecorder-theme-carrot-controlbar-right-section {
+    display: table-cell; }
+    .ba-videorecorder-theme-carrot-settings-right-sidebar .ba-videorecorder-theme-carrot-controlbar-right-section .ba-videorecorder-theme-carrot-circle-button-container {
       margin: 2px auto; }
 
-.ba-videorecorder-theme-carrot-controlbar-middle-section .ba-videorecorder-theme-carrot-timer-container {
-  display: table;
-  cursor: default;
-  height: 100%;
-  position: absolute;
-  width: 100%; }
-  .ba-videorecorder-theme-carrot-controlbar-middle-section .ba-videorecorder-theme-carrot-timer-container .ba-videorecorder-theme-carrot-label-container {
-    display: table-cell;
-    float: none;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    width: auto; }
-    .ba-videorecorder-theme-carrot-controlbar-middle-section .ba-videorecorder-theme-carrot-timer-container .ba-videorecorder-theme-carrot-label-container .ba-videorecorder-theme-carrot-button-primary {
-      margin: 0;
-      padding: 7px 16px; }
+.ba-videorecorder-theme-carrot-controlbar-middle-section {
+  height: 100%; }
+  .ba-videorecorder-theme-carrot-controlbar-middle-section .ba-videorecorder-theme-carrot-timer-container {
+    display: table;
+    cursor: default;
+    height: 100%;
+    position: absolute;
+    width: 100%; }
+    .ba-videorecorder-theme-carrot-controlbar-middle-section .ba-videorecorder-theme-carrot-timer-container .ba-videorecorder-theme-carrot-label-container {
+      display: table-cell;
+      float: none;
+      position: relative;
+      text-align: center;
+      vertical-align: top;
+      width: auto; }
+      .ba-videorecorder-theme-carrot-controlbar-middle-section .ba-videorecorder-theme-carrot-timer-container .ba-videorecorder-theme-carrot-label-container .ba-videorecorder-theme-carrot-button-primary {
+        margin: 10px 0 0;
+        padding: 7px 16px;
+        font-size: 14px;
+        color: white;
+        opacity: 0.5; }
 
 .ba-videorecorder-theme-carrot-controlbar {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-  height: 55px;
-  padding: 0 10px; }
+  bottom: -96px;
+  width: 100%;
+  height: 96px;
+  margin-top: 96px;
+  background-color: #2A343E; }
 
 .ba-videorecorder-theme-carrot-long-rounded-button {
-  -moz-border-radius: 18px;
-  -webkit-border-radius: 18px;
-  border-radius: 18px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
   display: inline-block; }
   .ba-videorecorder-theme-carrot-long-rounded-button > p {
-    font-family: sans-serif;
-    font-size: 12px;
+    font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
     padding: 7px;
     margin: 0; }
 
 .ba-videorecorder-theme-carrot-circle-button {
-  background-color: #979797;
-  background-color: rgba(0, 0, 0, 0.4);
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  color: #eeeeee;
+  color: white;
   display: inline-block;
   height: 40px;
   line-height: 40px;
   text-align: center;
-  width: 40px; }
+  width: 100%; }
+
+.ba-videorecorder-theme-carrot-button-circle-unselected, .ba-videorecorder-theme-carrot-button-inner {
+  color: white;
+  opacity: 0.5;
+  cursor: pointer; }
 
 .ba-videorecorder-theme-carrot-button-circle-selected, .ba-videorecorder-theme-carrot-button-inner:hover, .ba-videorecorder-theme-carrot-button-selected {
-  color: #000000;
+  color: white;
+  opacity: 1;
   cursor: pointer; }
 
 .ba-videorecorder-theme-carrot-button-inner {
@@ -3618,28 +3678,35 @@ div.ba-videorecorder-theme-carrot-disabled {
 .ba-videorecorder-theme-carrot-settings {
   position: inherit; }
   .ba-videorecorder-theme-carrot-settings label {
-    font-family: sans-serif;
-    font-weight: 300;
+    font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-size: 12px; }
   .ba-videorecorder-theme-carrot-settings li {
     padding: 0 8px; }
   .ba-videorecorder-theme-carrot-settings input[type=radio]:checked + span {
-    border: 3px solid #eeeeee; }
+    border: 3px solid #FFFFFF; }
   .ba-videorecorder-theme-carrot-settings span {
     background-color: #000000; }
   .ba-videorecorder-theme-carrot-settings .ba-videorecorder-theme-carrot-circle-button {
     margin: 6px 0; }
 
 .ba-videorecorder-theme-carrot-button-primary {
-  -moz-border-radius: 18px;
-  -webkit-border-radius: 18px;
-  border-radius: 18px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
   display: inline-block;
-  font-family: sans-serif;
-  font-weight: 300;
-  margin-top: 6px;
-  min-width: 3em;
-  padding: 10px 16px;
+  font-family: "AvenirLTStd-Heavy, Muli, Arial, sans-serif";
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  margin-top: 24px;
+  min-width: 120px;
+  padding: 16px 16px;
   position: relative;
   left: 0;
   right: 0;
@@ -3670,7 +3737,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   line-height: 1.2;
   min-width: 270px;
   position: relative;
-  left: 60px; }
+  right: 120px; }
   .ba-videorecorder-theme-carrot-bubble-info:before {
     border-right: 9px solid;
     border-right-color: #7f7f7f;
@@ -3704,7 +3771,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   width: 50%;
   opacity: 0.25; }
   .ba-videorecorder-theme-carrot-label-container .ba-videorecorder-theme-carrot-button-primary {
-    color: #eeeeee;
+    color: #FFFFFF;
     background-color: #979797;
     background-color: rgba(0, 0, 0, 0.4); }
 
@@ -3828,13 +3895,13 @@ div.ba-videorecorder-theme-carrot-disabled {
 .ba-videorecorder-theme-carrot-topmessage-message {
   background-color: #666666;
   background-color: rgba(255, 255, 255, 0.4);
-  -moz-border-radius: 18px;
-  -webkit-border-radius: 18px;
-  border-radius: 18px;
-  color: #eeeeee;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  color: #FFFFFF;
   display: inline-block;
-  font-family: sans-serif;
-  font-size: 12px;
+  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+  font-size: 16px;
   font-weight: 300;
   padding: 7px;
   position: relative;
@@ -4342,6 +4409,31 @@ div.ba-videorecorder-theme-carrot-disabled {
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e813'; }
+
+.ba-imageviewer-carrot-theme-icon-check:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e814'; }
 
 .ba-imageviewer-carrot-theme-icon-cc:before {
   font-family: "bjsmc";
@@ -5682,6 +5774,31 @@ div.ba-videorecorder-theme-carrot-disabled {
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e813'; }
+
+.ba-audioplayer-carrot-theme-icon-check:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e814'; }
 
 .ba-audioplayer-carrot-theme-icon-cc:before {
   font-family: "bjsmc";

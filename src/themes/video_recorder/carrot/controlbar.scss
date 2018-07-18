@@ -17,14 +17,13 @@
   height: 100%;
 }
 
-.#{$css}-settings-left-sidebar {
+.#{$css}-settings-right-sidebar {
     display: table;
     height: 100%;
     text-align: center;
-    @include absolute_left_sidebar($sidebar_width);
-    .#{$css}-controlbar-left-section {
+    @include absolute_right_sidebar($sidebar_width);
+    .#{$css}-controlbar-right-section {
         display: table-cell;
-        vertical-align: middle;
         .#{$css}-circle-button-container{
             margin: 2px auto;
         }
@@ -32,6 +31,7 @@
 }
 
 .#{$css}-controlbar-middle-section {
+  height: 100%;
   .#{$css}-timer-container {
     display: table;
     cursor: default;
@@ -43,20 +43,30 @@
       float: none;
       position: relative;
       text-align: center;
-      vertical-align: middle;
+      vertical-align: top;
       width: auto;
       .#{$css}-button-primary{
-        margin: 0;
+        margin: 10px 0 0;
         padding: 7px 16px;
+        font-size: 14px;
+        color: white;
+        opacity: 1;
+        background-color: transparent;
+
+        i {
+          font-size: 18px;
+        }
       }
     }
   }
 }
 
 .#{$css}-controlbar {
-  @include absolute-align-full-bottom();
+  @include absolute-align-full-bottom-below-control-bar($controlbar_footer_height);
+  width: 100%;
   height: $controlbar_footer_height;
-  padding: 0 10px;
+  margin-top: $controlbar_footer_height;
+  background-color: $controlbar_background_color;
 }
 
 .#{$css}-long-rounded-button {
@@ -64,6 +74,9 @@
   display: inline-block;
   & > p {
     font-family: $font_family;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-size: $controlbar_primarybutton_font_size;
     padding: $controlbar_button_padding;
     margin: 0;
@@ -71,18 +84,23 @@
 }
 
 .#{$css}-circle-button {
-  @include background-rgba(0, 0, 0, 0.4, #979797);
-  @include border-radius($controlbar_button_border_radius);
-  color: $text_color;
+  color: white;
   display: inline-block;
   height: $controlbar_button_size;
   line-height: $controlbar_button_size;
   text-align: center;
-  width: $controlbar_button_size;
+  width: 100%;
+}
+
+.#{$css}-button-circle-unselected, .#{$css}-button-inner {
+  color: white;
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .#{$css}-button-circle-selected, .#{$css}-button-inner:hover, .#{$css}-button-selected {
-  color: $controlbar_button_hover_color;
+  color: white;
+  opacity: 1;
   cursor: pointer;
 }
 
@@ -102,7 +120,10 @@
   position: inherit;
   label {
     font-family: $font_family;
-    font-weight: 300;
+    font-weight: $font_weight;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-size: $settings_font_size ;
   }
   li {
@@ -120,11 +141,15 @@
 .#{$css}-button-primary {
   @include border-radius($controlbar_primarybutton_radius);
   display: inline-block;
-  font-family: $font_family;
-  font-weight: 300;
-  margin-top: 6px;
+  font-family: $bold_font_family;
+  font-weight: $font_weight;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: $text_fontsize;
+  margin-top: 24px;
   min-width: $controlbar_primarybutton_min_width;
-  padding: 10px 16px;
+  padding: 16px 16px;
   @include relative-align-all();
   @include transform-translate(0, 0);
   z-index: 10;
@@ -141,7 +166,7 @@
 
 .#{$css}-bubble-info {
   @include settings_bubble_left_to_right_shape( 270px, 16px, 0, 0, 0, .5, #7f7f7f, 13px );
-  left: $sidebar_width + 5;
+  right: $sidebar_width + 5;
   li {
     text-align: left;
   }

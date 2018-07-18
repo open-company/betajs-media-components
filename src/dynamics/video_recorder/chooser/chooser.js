@@ -18,7 +18,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Chooser", [
                     "css": "ba-videorecorder",
                     "allowrecord": true,
                     "allowupload": true,
-                    "allowscreen": true,
+                    "allowscreen": false,
 
                     "primaryrecord": true,
                     "recordviafilecapture": false,
@@ -96,6 +96,12 @@ Scoped.define("module:VideoRecorder.Dynamics.Chooser", [
                                 break;
                         }
                     }, this);
+
+                    // Go directly to video recorder
+                    var that = this;
+                    window.setTimeout(function() {
+                        that.trigger("record");
+                    }, 100);
                 },
 
                 functions: {

@@ -5,9 +5,13 @@ $cssnoie8: "ba-videorecorder-noie8";
 $fontello_name: "bjsmc";
 $recorder: "ba-videorecorder-theme-carrot";
 
-$font_family: sans-serif;
+$font_family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+$bold_font_family: "AvenirLTStd-Heavy, Muli, Arial, sans-serif";
+$text_fontfamily: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+$font_weight: normal;
+$text_fontsize: 16px;
+$text_color: #FFFFFF;
 $recorder_bgcolor: #000000;
-$text_color: #eeeeee;
 $text_color_secondary: #979797;
 
 $button_color: #000000;
@@ -29,7 +33,7 @@ $topmessage_fontweight: bold;
 
 $loader_size: 5px;
 $loader_frame_thickness: 1.1em;
-$loader_label_fontsize: 40px;
+$loader_label_fontsize: 60px;
 
 $chooser_background: #eeeeee;
 $chooser_buttons_min_width: 10em;
@@ -65,10 +69,10 @@ $settings_item_padding: 8px;
 $settings_radio_color: #eeeeee;
 $settings_radio_color_selected: $button_color;
 
-$sidebar_width: 55px;
+$sidebar_width: 115px;
 
 $controlbar_height: 48px;
-$controlbar_footer_height: 55px;
+$controlbar_footer_height: 96px;
 $controlbar_opacity: 0.5;
 $controlbar_bgcolor: black;
 $controlbar_padding: 16px;
@@ -77,14 +81,14 @@ $controlbar_icon_bad: #F99;
 $controlbar_label_padding: 15px;
 $controlbar_recording_indication_color: red;
 $controlbar_recording_indication_size: 12px;
-$controlbar_button_horizontal_padding: 8px;
-$controlbar_primarybutton_small_text_size: 11px;
-$controlbar_primarybutton_radius: 18px;
-$controlbar_primarybutton_padding: 8px;
+$controlbar_button_horizontal_padding: 16px;
+$controlbar_primarybutton_small_text_size: 14px;
+$controlbar_primarybutton_radius: 100px;
+$controlbar_primarybutton_padding: 16px;
 $controlbar_primarybutton_vertical_padding: 16px;
-$controlbar_primarybutton_font_weight: bold;
-$controlbar_primarybutton_min_width: 3em;
-$controlbar_primarybutton_font_size: 12px;
+$controlbar_primarybutton_font_weight: normal;
+$controlbar_primarybutton_min_width: 120px;
+$controlbar_primarybutton_font_size: 16px;
 $controlbar_primarybutton_border: none;
 $controlbar_primarybutton_horizontal_margin: 5px;
 $controlbar_button_fontsize: 20px;
@@ -96,11 +100,12 @@ $controlbar_button_border: 1px solid $text_color;
 $controlbar_button_size: 40px;
 $controlbar_button_hover_background: #666666;
 $controlbar_button_hover_color: #000000;
+$controlbar_background_color: #2A343E;
 
 // Theme Colors
 $theme_color_blue: #2a74eb;
 $theme_color_red: #fb5e48;
-$theme_color_green: #5daa96;
+$theme_color_green: #3fbd7c;
 
 $colors: (
   'red': $theme_color_red,

@@ -1,9 +1,9 @@
 <div class="{{css}}-dashboard">
 
 	<!-- Sidebar Settings -->
-	<div class="{{css}}-settings-left-sidebar">
+	<div class="{{css}}-settings-right-sidebar">
 
-		<div class="{{css}}-controlbar-left-section" ba-show="{{settingsvisible}}">
+		<div class="{{css}}-controlbar-right-section" ba-show="{{settingsvisible}}">
 
 			<!-- Popup Settings Selections, initially hidden, appear when click button for settings -->
 			<div data-selector="recorder-settings" class="{{css}}-settings {{css}}-settings-button-container">
@@ -29,45 +29,11 @@
 						 data-selector="record-button-icon-cog"
 						 class="{{css}}-button-inner {{css}}-button-circle-{{settingsopen ? 'selected' : 'unselected' }}"
 						 onclick="{{settingsopen=!settingsopen}}"
-						 onmouseenter="{{hover(string('settings'))}}"
-						 onmouseleave="{{unhover()}}"
 					>
 						<i class="{{css}}-icon-cog"></i>
+          {{string('settings')}}
 					</div>
 				</div>
-
-
-                <div class="{{css}}-circle-button" ba-show="{{!noaudio && !allowscreen}}">
-
-                    <div class="{{css}}-bubble-info" ba-show="{{settingsvisible && settingsopen && audio }}">
-                        <ul data-selector="microphone-settings" ba-repeat="{{microphone :: microphones}}" ba-show="{{audio}}">
-                            <li tabindex="0"
-								ba-hotkey:space^enter="{{selectMicrophone(microphone.id)}}" onmouseout="this.blur()"
-								onclick="{{selectMicrophone(microphone.id)}}"
-							>
-                                <input type='radio' name='microphone' value="{{selectedmicrophone == microphone.id}}" />
-                                <span></span>
-                                <label>
-                                    {{microphone.label}}
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div data-selector="record-button-icon-mic" class="{{css}}-button-inner"
-                         onmouseenter="{{hover(string(microphonehealthy ? 'microphonehealthy' : 'microphoneunhealthy'))}}"
-                         onmouseleave="{{unhover()}}">
-                        <i class="{{css}}-icon-mic {{css}}-icon-state-{{microphonehealthy ? 'good' : 'bad' }}"></i>
-                    </div>
-                </div>
-
-                <div class="{{css}}-circle-button" ba-show="{{!novideo && !allowscreen}}">
-                    <div data-selector="record-button-icon-videocam" class="{{css}}-button-inner"
-                         onmouseenter="{{hover(string(camerahealthy ? 'camerahealthy' : 'cameraunhealthy'))}}"
-                         onmouseleave="{{unhover()}}">
-                        <i class="{{css}}-icon-videocam {{css}}-icon-state-{{ camerahealthy ? 'good' : 'bad' }}"></i>
-                    </div>
-                </div>
 
 			</div>
 		</div>
@@ -120,9 +86,8 @@
 					 ba-hotkey:space^enter="{{record()}}" onmouseout="this.blur()"
 					 data-selector="record-primary-button" class="{{css}}-button-primary"
 					 onclick="{{record()}}"
-					 onmouseenter="{{hover(string('record-tooltip'))}}"
-					 onmouseleave="{{unhover()}}"
 				>
+          <i class="{{css}}-icon-videocam"></i>
 					{{string('record')}}
 				</div>
 			</div>
@@ -137,9 +102,8 @@
 					 data-selector="stop-primary-button" class="{{css}}-button-primary {{mintimeindicator ? css + '-disabled': ''}}"
 					 title="{{mintimeindicator ? string('stop-available-after').replace('%d', timeminlimit) : string('stop-tooltip')}}"
 					 onclick="{{stop()}}"
-					 onmouseenter="{{hover(mintimeindicator ? string('stop-available-after').replace('%d', timeminlimit) : string('stop-tooltip'))}}"
-					 onmouseleave="{{unhover()}}"
 				>
+          <i class="{{css}}-icon-check"></i>
 					{{string('stop')}}
 				</div>
 			</div>
