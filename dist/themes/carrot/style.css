@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.110 - 2018-07-18
+betajs-media-components - v0.0.111 - 2018-07-19
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -3138,7 +3138,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   padding: 6px;
   padding-left: 8px;
   padding-right: 8px;
-  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+  font-family: AvenirLTStd-Medium, Muli, Arial, sans-serif;
   font-size: 14px;
   text-align: center;
   position: relative;
@@ -3147,7 +3147,7 @@ div.ba-videorecorder-theme-carrot-disabled {
 .ba-videorecorder-theme-carrot-chooser-button-1, .ba-videorecorder-theme-carrot-chooser-button-2 {
   cursor: pointer;
   color: #666666;
-  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+  font-family: AvenirLTStd-Medium, Muli, Arial, sans-serif;
   font-size: 14px;
   text-align: center;
   padding: 8px;
@@ -3165,7 +3165,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   left: 0;
   right: 0;
   top: 0;
-  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+  font-family: AvenirLTStd-Medium, Muli, Arial, sans-serif;
   font-size: 15px;
   font-weight: bold;
   color: #FFFFFF;
@@ -3309,7 +3309,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   left: 0;
   right: 0;
   top: 0;
-  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+  font-family: AvenirLTStd-Medium, Muli, Arial, sans-serif;
   font-size: 15px;
   font-weight: bold;
   color: #FFFFFF;
@@ -3380,7 +3380,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   padding-right: 16px;
   background-color: #000000;
   color: #FFFFFF;
-  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+  font-family: AvenirLTStd-Medium, Muli, Arial, sans-serif;
   font-weight: normal;
   font-size: 16px;
   border: none; }
@@ -3455,7 +3455,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   right: 0;
   top: 0;
   bottom: 0;
-  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+  font-family: AvenirLTStd-Medium, Muli, Arial, sans-serif;
   font-size: 12px; }
 
 .ba-videorecorder-theme-carrot-settings hr {
@@ -3621,7 +3621,10 @@ div.ba-videorecorder-theme-carrot-disabled {
         padding: 7px 16px;
         font-size: 14px;
         color: white;
-        opacity: 0.5; }
+        opacity: 1;
+        background-color: transparent; }
+        .ba-videorecorder-theme-carrot-controlbar-middle-section .ba-videorecorder-theme-carrot-timer-container .ba-videorecorder-theme-carrot-label-container .ba-videorecorder-theme-carrot-button-primary i {
+          font-size: 18px; }
 
 .ba-videorecorder-theme-carrot-controlbar {
   position: absolute;
@@ -3639,7 +3642,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   border-radius: 100px;
   display: inline-block; }
   .ba-videorecorder-theme-carrot-long-rounded-button > p {
-    font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+    font-family: AvenirLTStd-Medium, Muli, Arial, sans-serif;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -3678,7 +3681,7 @@ div.ba-videorecorder-theme-carrot-disabled {
 .ba-videorecorder-theme-carrot-settings {
   position: inherit; }
   .ba-videorecorder-theme-carrot-settings label {
-    font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+    font-family: AvenirLTStd-Medium, Muli, Arial, sans-serif;
     font-weight: normal;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
@@ -3698,7 +3701,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   -webkit-border-radius: 100px;
   border-radius: 100px;
   display: inline-block;
-  font-family: "AvenirLTStd-Heavy, Muli, Arial, sans-serif";
+  font-family: AvenirLTStd-Heavy, Muli, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -3718,6 +3721,13 @@ div.ba-videorecorder-theme-carrot-disabled {
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
   z-index: 10; }
+  .ba-videorecorder-theme-carrot-button-primary.ba-videorecorder-theme-carrot-disabled {
+    background-color: #1a1a1a;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Web browsers that does not support RGBa the Fallback*/
+    color: #808080;
+    /* IE9/FF/chrome/safari supported */
+    color: rgba(255, 255, 255, 0.5); }
 
 .ba-videorecorder-theme-carrot-settings-button {
   background: #eeeeee;
@@ -3900,7 +3910,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   border-radius: 100px;
   color: #FFFFFF;
   display: inline-block;
-  font-family: "AvenirLTStd-Medium, Muli, Arial, sans-serif";
+  font-family: AvenirLTStd-Medium, Muli, Arial, sans-serif;
   font-size: 16px;
   font-weight: 300;
   padding: 7px;

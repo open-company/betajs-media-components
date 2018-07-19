@@ -96,12 +96,6 @@ Scoped.define("module:VideoRecorder.Dynamics.Chooser", [
                                 break;
                         }
                     }, this);
-
-                    // Go directly to video recorder
-                    var that = this;
-                    window.setTimeout(function() {
-                        that.trigger("record");
-                    }, 100);
                 },
 
                 functions: {

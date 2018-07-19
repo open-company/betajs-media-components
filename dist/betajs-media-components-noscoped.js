@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.110 - 2018-07-18
+betajs-media-components - v0.0.111 - 2018-07-19
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -15,7 +15,7 @@ Scoped.binding('dynamics', 'global:BetaJS.Dynamics');
 Scoped.define("module:", function () {
 	return {
     "guid": "7a20804e-be62-4982-91c6-98eb096d2e70",
-    "version": "0.0.110"
+    "version": "0.0.111"
 };
 });
 Scoped.assumeVersion('base:version', '~1.0.96');
@@ -4708,12 +4708,6 @@ Scoped.define("module:VideoRecorder.Dynamics.Chooser", [
                                 break;
                         }
                     }, this);
-
-                    // Go directly to video recorder
-                    var that = this;
-                    window.setTimeout(function() {
-                        that.trigger("record");
-                    }, 100);
                 },
 
                 functions: {
@@ -5066,7 +5060,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Loader", [
         }, function(inherited) {
             return {
 
-                template: "\n<div class=\"{{css}}-loader-container\">\n    <div data-selector=\"recorder-loader-block\" class=\"{{css}}-loader-loader\" title=\"{{tooltip || ''}}\">\n    </div>\n</div>\n<div data-selector=\"recorder-loader-label-container\" class=\"{{css}}-loader-label\" ba-show=\"{{label}}\">\n\t{{label}}...\n</div>\n",
+                template: "\n<div class=\"{{css}}-loader-container\">\n    <div data-selector=\"recorder-loader-block\" class=\"{{css}}-loader-loader\" title=\"{{tooltip || ''}}\">\n    </div>\n</div>\n<div data-selector=\"recorder-loader-label-container\" class=\"{{css}}-loader-label\" ba-show=\"{{label}}\">\n\t{{label}}\n</div>\n",
 
                 attrs: {
                     "css": "ba-videorecorder",
@@ -6137,6 +6131,10 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.Chooser", [
             }, this, {
                 initcall: true
             });
+            var that = this;
+            window.setTimeout(function() {
+                that.selectRecord();
+            }, 100);
         },
 
         record: function() {
@@ -6449,7 +6447,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.RecordPrepare", [
                     silentTime = Math.min(500, delay - countdown);
                     displayDenominator = (delay - silentTime) / countdown * 1000;
                 } else
-                    this.dyn.set("loaderlabel", this.dyn.get("countdown"));
+                    this.dyn.set("loaderlabel", "" + this.dyn.get("countdown") + "...");
                 var timer = new Timer({
                     context: this,
                     delay: 50,
@@ -6457,7 +6455,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.RecordPrepare", [
                         var now = Time.now();
                         var time_left = Math.max(0, endTime - now);
                         if (now > silentTime + startTime) {
-                            this.dyn.set("loaderlabel", "" + Math.ceil((time_left - silentTime) / displayDenominator));
+                            this.dyn.set("loaderlabel", "" + Math.ceil((time_left - silentTime) / displayDenominator) + "...");
                             this.dyn.trigger("countdown", Math.round((time_left - silentTime) / displayDenominator * 1000));
                         }
                         if (endTime <= now) {

@@ -174,6 +174,10 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.Chooser", [
             }, this, {
                 initcall: true
             });
+            var that = this;
+            window.setTimeout(function() {
+                that.selectRecord();
+            }, 100);
         },
 
         record: function() {
@@ -486,7 +490,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.RecordPrepare", [
                     silentTime = Math.min(500, delay - countdown);
                     displayDenominator = (delay - silentTime) / countdown * 1000;
                 } else
-                    this.dyn.set("loaderlabel", this.dyn.get("countdown"));
+                    this.dyn.set("loaderlabel", "" + this.dyn.get("countdown") + "...");
                 var timer = new Timer({
                     context: this,
                     delay: 50,
@@ -494,7 +498,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.RecordPrepare", [
                         var now = Time.now();
                         var time_left = Math.max(0, endTime - now);
                         if (now > silentTime + startTime) {
-                            this.dyn.set("loaderlabel", "" + Math.ceil((time_left - silentTime) / displayDenominator));
+                            this.dyn.set("loaderlabel", "" + Math.ceil((time_left - silentTime) / displayDenominator) + "...");
                             this.dyn.trigger("countdown", Math.round((time_left - silentTime) / displayDenominator * 1000));
                         }
                         if (endTime <= now) {

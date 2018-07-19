@@ -153,6 +153,11 @@
   @include relative-align-all();
   @include transform-translate(0, 0);
   z-index: 10;
+
+  &.#{$css}-disabled {
+    @include background-rgba(255, 255, 255, .1, #1a1a1a);
+    @include color-rgba(255, 255, 255, .5, #808080);
+  }
 }
 
 .#{$css}-settings-button {
