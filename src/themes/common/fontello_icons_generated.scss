@@ -109,6 +109,16 @@
     content: '\e815';
 }
 
+.#{$css}-icon-right_arrow:before {
+    @include fontello-icon;
+    content: '\e816';
+}
+
+.#{$css}-icon-left_arrow:before {
+    @include fontello-icon;
+    content: '\e817';
+}
+
 .#{$css}-icon-twitter:before {
     @include fontello-icon;
     content: '\f099';

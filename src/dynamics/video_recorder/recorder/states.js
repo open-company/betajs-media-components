@@ -667,7 +667,8 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.CovershotSelection",
             this.dyn.set("rerecordvisible", this.dyn.get("early-rerecord"));
             this.dyn.set("uploadcovershotvisible", this.dyn.get("custom-covershots"));
             this.dyn.set("hovermessage", "");
-            this.dyn.set("topmessage", this.dyn.string('pick-covershot'));
+            this.dyn.set("topmessage", "");
+            this.dyn.trigger("pick_cover_start");
             var imagegallery = this.dyn.scope(">[tagname='ba-videorecorder-imagegallery']").materialize(true);
             imagegallery.loadSnapshots();
             imagegallery.updateContainerSize();
@@ -694,6 +695,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.CovershotSelection",
         },
 
         _nextUploading: function(skippedCovershot) {
+            this.dyn.trigger("pick_cover_end");
             this.next("Uploading");
         }
 

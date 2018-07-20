@@ -3,10 +3,13 @@
     position: absolute;
     margin-left: $imagegallery_buttonmargin;
     margin-right: $imagegallery_buttonmargin;
-    top: 50%;    
+    bottom: 40px;
     left: 0;
     width: $imagegallery_buttonsize;
     height: $imagegallery_buttonsize;
+  i {
+    color: #2F3944;
+  }
 }
 
 .#{$css}-imagegallery-rightbutton {
@@ -14,10 +17,14 @@
     position: absolute;
     margin-left: $imagegallery_buttonmargin;
     margin-right: $imagegallery_buttonmargin;
-    top: 50%;    
+    bottom: 40px;
     right: 0;
     width: $imagegallery_buttonsize;
     height: $imagegallery_buttonsize;
+
+  i {
+    color: #2F3944;
+  }
 }
 
 .#{$css}-imagegallery-container {
@@ -33,7 +40,7 @@
     position: absolute;
     box-sizing: border-box;
     cursor:pointer;
-  border: 2px solid gray;
+  border: 2px solid transparent;
 }
 
 .#{$css}-imagegallery-image:hover {

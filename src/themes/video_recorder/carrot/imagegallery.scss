@@ -3,16 +3,21 @@
   @include border-radius($imagegallery_border_radius);
 }
 
-.#{$css}-imagegallery-image:hover {
-  @include border-rgba( 2px, 0, 0, 0, .4, #b2b2b2 );
-}
-
 .#{$css}-imagegallery-rightbutton, .#{$css}-imagegallery-leftbutton {
-    border-radius: 50%;
-    background-color: #4c4c4c;
-    height: $imagegallery_buttonsize;
-    width: $imagegallery_buttonsize;
-    z-index: 10;
+  border-radius: 50%;
+  background-color: $imagegallery_button_bgcolor;
+  height: $imagegallery_buttonsize;
+  width: $imagegallery_buttonsize;
+  bottom: 30px;
+  right: 0;
+  z-index: 10;
+  position: absolute;
+  margin-left: $imagegallery_buttonmargin;
+  margin-right: $imagegallery_buttonmargin;
+
+  i {
+    color: #2F3944;
+  }
 }
 
 .#{$css}-icon-right-open:before{

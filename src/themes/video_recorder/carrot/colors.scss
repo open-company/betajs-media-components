@@ -8,12 +8,8 @@
       }
 
       .#{$css}-chooser-button-0, .#{$css}-button-primary,
-      .#{$css}-settings span, .#{$css}-imagegallery-rightbutton, .#{$css}-imagegallery-leftbutton {
+      .#{$css}-settings span {
         background-color: $value;
-      }
-
-      .#{$css}-imagegallery-image:hover {
-        border-color: $value;
       }
 
       .#{$css}-message-message a {

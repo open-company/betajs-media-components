@@ -96,7 +96,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Imagegallery", [
                     var id = this.get("imagedelta");
                     var h = this.get("containerheight");
                     image.set("left", 1 + Math.round(i * (iw + id)));
-                    image.set("top", 1 + Math.round((h - ih) / 2));
+                    image.set("top", 1 + Math.round(h - ih - 24));
                     image.set("width", 1 + Math.round(iw));
                     image.set("height", 1 + Math.round(ih));
                     if (image.snapshot && image.snapshotDisplay) {

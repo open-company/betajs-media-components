@@ -158,6 +158,11 @@
     @include background-rgba(255, 255, 255, .1, #1a1a1a);
     @include color-rgba(255, 255, 255, .5, #808080);
   }
+
+  &.#{$css}-button-skip {
+    @include background-rgba(255, 255, 255, .2, #333333);
+    color: white; 
+  }
 }
 
 .#{$css}-settings-button {
