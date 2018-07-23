@@ -39,7 +39,7 @@
     browser, you might need to install Flash or access the page via SSL.
   ba-videorecorder.access-forbidden: Access to the media was forbidden. Click to retry.
   ba-videorecorder.pick-covershot: Pick a covershot.
-  ba-videorecorder.uploading: Uploading
+  ba-videorecorder.uploading: Uploading video
   ba-videorecorder.uploading-failed: Uploading failed - click here to retry.
   ba-videorecorder.verifying: Verifying
   ba-videorecorder.verifying-failed: Verifying failed - click here to retry.

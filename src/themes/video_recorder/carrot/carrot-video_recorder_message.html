@@ -6,6 +6,7 @@
                     <div class="{{css}}-fourth-inner-message-container">
                         <div data-selector="recorder-message-block" class='{{css}}-message-message'>
                             <p>
+                                <i ba-if="{{message_uploading}}" class="{{css}}-icon-uploading"></i>
                                 {{message || ""}}
                             </p>
                             <ul ba-if="{{links && links.length > 0}}" ba-repeat="{{link :: links}}">

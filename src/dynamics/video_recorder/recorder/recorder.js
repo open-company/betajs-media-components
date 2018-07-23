@@ -94,6 +94,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                     "maxuploadingwidth": undefined,
                     "minuploadingheight": undefined,
                     "maxuploadingheight": undefined,
+                    "message_uploading": false,
                     "countdown": 3,
                     "snapshotmax": 15,
                     "framerate-warning": null,
@@ -228,7 +229,8 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                     "display-timer": "boolean",
                     "audio-test-mandatory": "boolean",
                     "allowtexttrackupload": "boolean",
-                    "uploadlocales": "array"
+                    "uploadlocales": "array",
+                    "message_uploading": "bool"
                 },
 
                 extendables: ["states"],
@@ -538,6 +540,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                     var el = this.activeElement().querySelector("[data-video]");
                     var dimensions = Dom.elementDimensions(el);
                     this.__backgroundSnapshotDisplay = this.recorder.createSnapshotDisplay(el, this.__backgroundSnapshot, 0, 0, dimensions.width, dimensions.height);
+                    el.poster = this.__backgroundSnapshotDisplay.src;
                 },
 
                 _hideBackgroundSnapshot: function() {
@@ -546,6 +549,8 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                     if (this.__backgroundSnapshotDisplay)
                         this.recorder.removeSnapshotDisplay(this.__backgroundSnapshotDisplay);
                     delete this.__backgroundSnapshotDisplay;
+                    var el = this.activeElement().querySelector("[data-video]");
+                    el.poster = "";
                     if (this.__backgroundSnapshot)
                         this.recorder.removeSnapshot(this.__backgroundSnapshot);
                     delete this.__backgroundSnapshot;
@@ -827,7 +832,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
             "access-forbidden": "Access to the media was forbidden. Click to retry.",
             "pick-covershot": "Pick a covershot.",
             "framerate-warning": "The video frame rate is very low. We recommend closing all other programs and browser tabs or to use a faster computer.",
-            "uploading": "Uploading",
+            "uploading": "Uploading video",
             "uploading-failed": "Uploading failed - click here to retry.",
             "upload-error-duration": "Length of the uploaded video does not meet the requirements - click here to retry.",
             "resolution-constraint-error": "The file you've selected does not match the required resolution - click here to retry.",

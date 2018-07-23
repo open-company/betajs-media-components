@@ -13,7 +13,8 @@ Scoped.define("module:VideoRecorder.Dynamics.Message", [
                 attrs: {
                     "css": "ba-videorecorder",
                     "message": '',
-                    "links": null
+                    "links": null,
+                    "uploading": false
                 },
 
                 functions: {

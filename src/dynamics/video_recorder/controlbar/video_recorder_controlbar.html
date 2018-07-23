@@ -109,8 +109,6 @@
 				 ba-hotkey:space^enter="{{rerecord()}}" onmouseout="this.blur()"
 				 data-selector="rerecord-primary-button" class="{{css}}-button-primary"
                  onclick="{{rerecord()}}"
-                 onmouseenter="{{hover(string('rerecord-tooltip'))}}"
-                 onmouseleave="{{unhover()}}"
 			>
         		{{string('rerecord')}}
         	</div>
@@ -121,8 +119,6 @@
 				 ba-hotkey:space^enter="{{cancel()}}" onmouseout="this.blur()"
 				 data-selector="cancel-primary-button" class="{{css}}-button-primary"
 				 onclick="{{cancel()}}"
-				 onmouseenter="{{hover(string('cancel-tooltip'))}}"
-				 onmouseleave="{{unhover()}}"
 			>
 				{{string('cancel')}}
 			</div>
@@ -134,8 +130,6 @@
 				 data-selector="stop-primary-button" class="{{css}}-button-primary {{mintimeindicator ? css + '-disabled': ''}}"
 				 title="{{mintimeindicator ? string('stop-available-after').replace('%d', timeminlimit) : string('stop-tooltip')}}"
                  onclick="{{stop()}}"
-                 onmouseenter="{{hover( mintimeindicator ? string('stop-available-after').replace('%d', timeminlimit) : string('stop-tooltip'))}}"
-                 onmouseleave="{{unhover()}}"
 			>
         		{{string('stop')}}
         	</div>
@@ -146,8 +140,6 @@
 				 ba-hotkey:space^enter="{{skip()}}"  onmouseout="this.blur()"
 				 data-selector="skip-primary-button" class="{{css}}-button-primary"
                  onclick="{{skip()}}"
-                 onmouseenter="{{hover(string('skip-tooltip'))}}"
-                 onmouseleave="{{unhover()}}"
 			>
         		{{string('skip')}}
         	</div>

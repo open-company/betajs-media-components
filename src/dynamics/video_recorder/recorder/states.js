@@ -13,6 +13,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.State", [
             this.dyn = this.host.dynamic;
             Objs.iter(Objs.extend({
                 "message": false,
+                "message_uploading": false,
                 "chooser": false,
                 "topmessage": false,
                 "controlbar": false,
@@ -758,12 +759,14 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.Uploading", [
             this.listenOn(uploader, "progress", function(uploaded, total) {
                 this.dyn.trigger("upload_progress", uploaded, total);
                 if (total !== 0 && total > 0 && uploaded >= 0) {
+                    this.dyn.set("message_uploading", true);
                     var up = Math.min(100, Math.round(uploaded / total * 100));
                     if (!isNaN(up)) {
-                        this.dyn.set("message", this.dyn.string("uploading") + ": " + up + "%");
+                        this.dyn.set("message", this.dyn.string("uploading") + " (" + up + "% complete)");
                         this.dyn.set("playertopmessage", this.dyn.get("message"));
                     }
-                }
+                } else
+                    this.dyn.set("message_uploading", false);
             });
             if (this.dyn.get("localplayback") && ((this.dyn.recorder && this.dyn.recorder.supportsLocalPlayback()) || this.dyn._videoFilePlaybackable)) {
                 if (this.dyn.recorder && this.dyn.recorder.supportsLocalPlayback())
@@ -774,7 +777,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.Uploading", [
                     this.dyn.set("playbackposter", this.dyn.recorder.snapshotToLocalPoster(this.dyn.__lastCovershotUpload));
                 this.dyn.set("loader_active", false);
                 this.dyn.set("message_active", false);
-                this.dyn._hideBackgroundSnapshot();
+                // this.dyn._hideBackgroundSnapshot();
                 this.dyn.set("player_active", true);
             }
             this.dyn.set("start-upload-time", Time.now());

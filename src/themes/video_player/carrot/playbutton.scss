@@ -51,13 +51,14 @@
 }
 
 .#{$css}-rerecord-bar {
-    @include absolute-align-full-bottom;
+    top: 0;
+    left: 0;
+    position: absolute;
 }
 
 .#{$css}-rerecord-backbar {  }
 
 .#{$css}-rerecord-frontbar {
-    @include relative-align-full-bottom;
     height: $rerecord_height;
     overflow: hidden;
     padding-left: $rerecord_padding;
@@ -70,9 +71,9 @@
 }
 
 .#{$css}-rerecord-button {
-    background-color: $rerecord_primarybutton_color;
     border-radius: 18px;
     color: $rerecord_primarybutton_text_color;
+    background-color: transparent;
     @include clickable;
     font-family: $rerecord_font_family;
     font-weight: $rerecord_primarybutton_font_weight;

@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.112 - 2018-07-20
+betajs-media-components - v0.0.113 - 2018-07-23
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -602,6 +602,56 @@ Apache-2.0 Software License.
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e817'; }
+
+.ba-videoplayer-carrot-theme-icon-uploading:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e818'; }
+
+.ba-videoplayer-carrot-theme-icon-rerecord:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e819'; }
 
 .ba-videoplayer-carrot-theme-icon-twitter:before {
   font-family: "bjsmc";
@@ -1352,7 +1402,7 @@ Apache-2.0 Software License.
 .ba-videoplayer-carrot-theme-red-color .ba-videoplayer-carrot-theme-cc-active .ba-videoplayer-carrot-theme-icon-subtitle {
   color: #eb6a74; }
 .ba-videoplayer-carrot-theme-red-color .ba-videoplayer-carrot-theme-volumebar-position, .ba-videoplayer-carrot-theme-red-color .ba-videoplayer-carrot-theme-stream-label, .ba-videoplayer-carrot-theme-red-color .ba-videoplayer-carrot-theme-progressbar-position,
-.ba-videoplayer-carrot-theme-red-color .ba-videoplayer-carrot-theme-time-container, .ba-videoplayer-carrot-theme-red-color .ba-videoplayer-carrot-theme-progressbar-button, .ba-videoplayer-carrot-theme-red-color .ba-videoplayer-carrot-theme-rerecord-button,
+.ba-videoplayer-carrot-theme-red-color .ba-videoplayer-carrot-theme-time-container, .ba-videoplayer-carrot-theme-red-color .ba-videoplayer-carrot-theme-progressbar-button,
 .ba-videoplayer-carrot-theme-red-color .ba-videoplayer-carrot-theme-cc-inactive {
   background-color: #eb6a74; }
 .ba-videoplayer-carrot-theme-red-color .ba-videoplayer-carrot-theme-airplay-container svg path {
@@ -1365,7 +1415,7 @@ Apache-2.0 Software License.
 .ba-videoplayer-carrot-theme-blue-color .ba-videoplayer-carrot-theme-cc-active .ba-videoplayer-carrot-theme-icon-subtitle {
   color: #2a74eb; }
 .ba-videoplayer-carrot-theme-blue-color .ba-videoplayer-carrot-theme-volumebar-position, .ba-videoplayer-carrot-theme-blue-color .ba-videoplayer-carrot-theme-stream-label, .ba-videoplayer-carrot-theme-blue-color .ba-videoplayer-carrot-theme-progressbar-position,
-.ba-videoplayer-carrot-theme-blue-color .ba-videoplayer-carrot-theme-time-container, .ba-videoplayer-carrot-theme-blue-color .ba-videoplayer-carrot-theme-progressbar-button, .ba-videoplayer-carrot-theme-blue-color .ba-videoplayer-carrot-theme-rerecord-button,
+.ba-videoplayer-carrot-theme-blue-color .ba-videoplayer-carrot-theme-time-container, .ba-videoplayer-carrot-theme-blue-color .ba-videoplayer-carrot-theme-progressbar-button,
 .ba-videoplayer-carrot-theme-blue-color .ba-videoplayer-carrot-theme-cc-inactive {
   background-color: #2a74eb; }
 .ba-videoplayer-carrot-theme-blue-color .ba-videoplayer-carrot-theme-airplay-container svg path {
@@ -1378,7 +1428,7 @@ Apache-2.0 Software License.
 .ba-videoplayer-carrot-theme-green-color .ba-videoplayer-carrot-theme-cc-active .ba-videoplayer-carrot-theme-icon-subtitle {
   color: #5daa96; }
 .ba-videoplayer-carrot-theme-green-color .ba-videoplayer-carrot-theme-volumebar-position, .ba-videoplayer-carrot-theme-green-color .ba-videoplayer-carrot-theme-stream-label, .ba-videoplayer-carrot-theme-green-color .ba-videoplayer-carrot-theme-progressbar-position,
-.ba-videoplayer-carrot-theme-green-color .ba-videoplayer-carrot-theme-time-container, .ba-videoplayer-carrot-theme-green-color .ba-videoplayer-carrot-theme-progressbar-button, .ba-videoplayer-carrot-theme-green-color .ba-videoplayer-carrot-theme-rerecord-button,
+.ba-videoplayer-carrot-theme-green-color .ba-videoplayer-carrot-theme-time-container, .ba-videoplayer-carrot-theme-green-color .ba-videoplayer-carrot-theme-progressbar-button,
 .ba-videoplayer-carrot-theme-green-color .ba-videoplayer-carrot-theme-cc-inactive {
   background-color: #5daa96; }
 .ba-videoplayer-carrot-theme-green-color .ba-videoplayer-carrot-theme-airplay-container svg path {
@@ -1940,16 +1990,11 @@ Apache-2.0 Software License.
   width: 100%; }
 
 .ba-videoplayer-carrot-theme-rerecord-bar {
-  position: absolute;
+  top: 0;
   left: 0;
-  right: 0;
-  bottom: 0; }
+  position: absolute; }
 
 .ba-videoplayer-carrot-theme-rerecord-frontbar {
-  position: relative;
-  left: 0;
-  right: 0;
-  bottom: 0;
   height: 48px;
   overflow: hidden;
   padding-left: 16px;
@@ -1960,13 +2005,13 @@ Apache-2.0 Software License.
   display: inline-block; }
 
 .ba-videoplayer-carrot-theme-rerecord-button {
-  background-color: #000000;
   border-radius: 18px;
-  color: #eeeeee;
+  color: #FFFFFF;
+  background-color: transparent;
   cursor: pointer;
-  font-family: sans-serif;
-  font-weight: 100;
-  font-size: 12px;
+  font-family: AvenirLTStd-Roman, Muli, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
   padding: 9px 20px;
   letter-spacing: 0.1em; }
 
@@ -2712,6 +2757,56 @@ Apache-2.0 Software License.
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e817'; }
+
+.ba-videorecorder-theme-carrot-icon-uploading:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e818'; }
+
+.ba-videorecorder-theme-carrot-icon-rerecord:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e819'; }
 
 .ba-videorecorder-theme-carrot-icon-twitter:before {
   font-family: "bjsmc";
@@ -3830,6 +3925,10 @@ div.ba-videorecorder-theme-carrot-disabled {
     background-color: #333333;
     background-color: rgba(255, 255, 255, 0.2);
     color: white; }
+  .ba-videorecorder-theme-carrot-button-primary.ba-videorecorder-theme-carrot-rerecord-button {
+    background-color: transparent;
+    color: white;
+    opacity: 0.5; }
 
 .ba-videorecorder-theme-carrot-settings-button {
   background: #eeeeee;
@@ -3839,29 +3938,7 @@ div.ba-videorecorder-theme-carrot-disabled {
     color: #979797; }
 
 .ba-videorecorder-theme-carrot-bubble-info {
-  background-color: #7f7f7f;
-  background-color: rgba(0, 0, 0, 0.5);
-  -moz-border-radius: 16px;
-  -webkit-border-radius: 16px;
-  border-radius: 16px;
-  display: inline-block;
-  padding: 9px 0;
-  line-height: 1.2;
-  min-width: 270px;
-  position: relative;
   right: 120px; }
-  .ba-videorecorder-theme-carrot-bubble-info:before {
-    border-right: 9px solid;
-    border-right-color: #7f7f7f;
-    border-right-color: rgba(0, 0, 0, 0.5);
-    border-bottom: 6px solid transparent;
-    border-top: 6px solid transparent;
-    content: "";
-    height: 0;
-    top: 13px;
-    position: absolute;
-    right: 100%;
-    width: 0; }
   .ba-videorecorder-theme-carrot-bubble-info li {
     text-align: left; }
 
@@ -3901,7 +3978,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   background-color: #FFFFFF;
   height: 48px;
   width: 48px;
-  bottom: 40px;
+  bottom: 30px;
   right: 0;
   z-index: 10;
   position: absolute;
@@ -4624,6 +4701,56 @@ div.ba-videorecorder-theme-carrot-disabled {
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e817'; }
 
+.ba-imageviewer-carrot-theme-icon-uploading:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e818'; }
+
+.ba-imageviewer-carrot-theme-icon-rerecord:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e819'; }
+
 .ba-imageviewer-carrot-theme-icon-twitter:before {
   font-family: "bjsmc";
   font-style: normal;
@@ -5112,22 +5239,16 @@ div.ba-videorecorder-theme-carrot-disabled {
 .ba-imageviewer-carrot-theme-red-color .ba-imageviewer-carrot-theme-right-block .ba-imageviewer-carrot-theme-icon-resize-small,
 .ba-imageviewer-carrot-theme-red-color .ba-imageviewer-carrot-theme-controlbar-top-block .ba-imageviewer-carrot-theme-button-container .ba-imageviewer-carrot-theme-button-inner {
   color: #eb6a74; }
-.ba-imageviewer-carrot-theme-red-color .ba-imageviewer-carrot-theme-rerecord-button {
-  background-color: #eb6a74; }
 
 .ba-imageviewer-carrot-theme-blue-color .ba-imageviewer-carrot-theme-title p, .ba-imageviewer-carrot-theme-blue-color .ba-imageviewer-carrot-theme-button-inner, .ba-imageviewer-carrot-theme-blue-color .ba-imageviewer-carrot-theme-right-block .ba-imageviewer-carrot-theme-icon-resize-full,
 .ba-imageviewer-carrot-theme-blue-color .ba-imageviewer-carrot-theme-right-block .ba-imageviewer-carrot-theme-icon-resize-small,
 .ba-imageviewer-carrot-theme-blue-color .ba-imageviewer-carrot-theme-controlbar-top-block .ba-imageviewer-carrot-theme-button-container .ba-imageviewer-carrot-theme-button-inner {
   color: #2a74eb; }
-.ba-imageviewer-carrot-theme-blue-color .ba-imageviewer-carrot-theme-rerecord-button {
-  background-color: #2a74eb; }
 
 .ba-imageviewer-carrot-theme-green-color .ba-imageviewer-carrot-theme-title p, .ba-imageviewer-carrot-theme-green-color .ba-imageviewer-carrot-theme-button-inner, .ba-imageviewer-carrot-theme-green-color .ba-imageviewer-carrot-theme-right-block .ba-imageviewer-carrot-theme-icon-resize-full,
 .ba-imageviewer-carrot-theme-green-color .ba-imageviewer-carrot-theme-right-block .ba-imageviewer-carrot-theme-icon-resize-small,
 .ba-imageviewer-carrot-theme-green-color .ba-imageviewer-carrot-theme-controlbar-top-block .ba-imageviewer-carrot-theme-button-container .ba-imageviewer-carrot-theme-button-inner {
   color: #5daa96; }
-.ba-imageviewer-carrot-theme-green-color .ba-imageviewer-carrot-theme-rerecord-button {
-  background-color: #5daa96; }
 
 .ba-imageviewer-carrot-theme-overlay div[tabindex] {
   transition: all 0.3s ease-in-out;
@@ -6038,6 +6159,56 @@ div.ba-videorecorder-theme-carrot-disabled {
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e817'; }
+
+.ba-audioplayer-carrot-theme-icon-uploading:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e818'; }
+
+.ba-audioplayer-carrot-theme-icon-rerecord:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e819'; }
 
 .ba-audioplayer-carrot-theme-icon-twitter:before {
   font-family: "bjsmc";

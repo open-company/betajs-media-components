@@ -119,6 +119,16 @@
     content: '\e817';
 }
 
+.#{$css}-icon-uploading:before {
+    @include fontello-icon;
+    content: '\e818';
+}
+
+.#{$css}-icon-rerecord:before {
+    @include fontello-icon;
+    content: '\e819';
+}
+
 .#{$css}-icon-twitter:before {
     @include fontello-icon;
     content: '\f099';
