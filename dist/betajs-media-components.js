@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.113 - 2018-07-23
+betajs-media-components - v0.0.113 - 2018-07-25
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1006,7 +1006,7 @@ Public.exports();
 	return Public;
 }).call(this);
 /*!
-betajs-media-components - v0.0.113 - 2018-07-23
+betajs-media-components - v0.0.113 - 2018-07-25
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -6661,10 +6661,8 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                     this.__backgroundSnapshot = this.recorder.createSnapshot(this.get("snapshottype"));
                     var el = this.activeElement().querySelector("[data-video]");
                     var dimensions = Dom.elementDimensions(el);
-                    console.log("XXX _showBackgroundSnapshot dimensions", dimensions);
                     this.__backgroundSnapshotDisplay = this.recorder.createSnapshotDisplay(el, this.__backgroundSnapshot, 0, 0, dimensions.width, dimensions.height);
                     el.poster = this.__backgroundSnapshotDisplay.src;
-                    console.log("XXX _showBackgroundSnapshot", this.__backgroundSnapshot, el, this.__backgroundSnapshotDisplay);
                 },
 
                 _hideBackgroundSnapshot: function() {
@@ -6678,7 +6676,6 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                     if (this.__backgroundSnapshot)
                         this.recorder.removeSnapshot(this.__backgroundSnapshot);
                     delete this.__backgroundSnapshot;
-                    console.log("XXX _hideBackgroundSnapshot");
                 },
 
                 object_functions: ["record", "rerecord", "stop", "play", "pause", "reset"],
@@ -7614,7 +7611,6 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.Recording", [
 
         _hasStopped: function() {
             this.dyn.set("duration", Time.now() - this._startTime);
-            console.log("XXX _hasStopped");
             this.dyn._showBackgroundSnapshot();
             this.dyn._unbindMedia();
             this.dyn.trigger("recording_stopped");
