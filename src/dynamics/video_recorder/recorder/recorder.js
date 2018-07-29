@@ -84,6 +84,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                     "allowrecord": true,
                     "allowupload": true,
                     "allowcustomupload": true,
+                    "manual-upload": false,
                     "camerafacefront": false,
                     "primaryrecord": true,
                     "allowscreen": false,
@@ -208,6 +209,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                     "enforce-duration": "bool",
                     "webrtcstreaming": "boolean",
                     "webrtconmobile": "boolean",
+                    "manual-upload": "boolean",
                     "webrtcstreamingifnecessary": "boolean",
                     "microphone-volume": "float",
                     "audiobitrate": "int",
@@ -419,6 +421,8 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                                 this.set("selectedmicrophone", selected.audio);
                                 this.set("cameras", new Collection(Objs.values(devices.video)));
                                 this.set("microphones", new Collection(Objs.values(devices.audio)));
+                                this.trigger(Types.is_empty(devices.video) ? "no_camera" : "has_camera");
+                                this.trigger(Types.is_empty(devices.audio) ? "no_microphone" : "has_microphone");
                             }, this);
                             if (!this.get("noaudio"))
                                 this.recorder.testSoundLevel(true);
@@ -577,8 +581,14 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                         this.host.state().selectRecordScreen();
                     },
 
+                    video_file_selected: function(file) {
+                        this.__selected_video_file = file;
+                        if (!this.get("manual-upload"))
+                            this.execute("upload_video");
+                    },
+
                     upload_video: function(file) {
-                        this.host.state().selectUpload(file);
+                        this.host.state().selectUpload(file || this.__selected_video_file);
                     },
 
                     upload_covershot: function(file) {
