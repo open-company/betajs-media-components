@@ -777,7 +777,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.Uploading", [
                     this.dyn.set("playbackposter", this.dyn.recorder.snapshotToLocalPoster(this.dyn.__lastCovershotUpload));
                 this.dyn.set("loader_active", false);
                 this.dyn.set("message_active", false);
-                // this.dyn._hideBackgroundSnapshot();
+                this.dyn._hideBackgroundSnapshot();
                 this.dyn.set("player_active", true);
             }
             this.dyn.set("start-upload-time", Time.now());
