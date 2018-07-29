@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.113 - 2018-07-23
+betajs-media-components - v0.0.115 - 2018-07-27
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1464,7 +1464,10 @@ Apache-2.0 Software License.
   -ms-transition: opacity 0.5s ease-in-out;
   height: 100%;
   overflow: hidden;
-  padding: 0 4%; }
+  padding: 0 4%;
+  background: linear-gradient(to bottom, black, transparent 60px);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px; }
 
 .ba-videoplayer-carrot-theme-dashboard-hidden {
   opacity: 0; }
@@ -3749,6 +3752,10 @@ div.ba-videorecorder-theme-carrot-disabled {
 .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-message-message a {
   color: #3fbd7c; }
 
+.ba-videorecorder-theme-carrot-overlay {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px; }
+
 .ba-videorecorder-theme-carrot-overlay div[tabindex] {
   transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -3777,7 +3784,10 @@ div.ba-videorecorder-theme-carrot-disabled {
   right: 0;
   top: 0;
   bottom: 0;
-  height: 100%; }
+  height: 100%;
+  background: linear-gradient(to bottom, black, transparent 60px);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px; }
 
 .ba-videorecorder-theme-carrot-settings-right-sidebar {
   display: table;
@@ -3795,7 +3805,9 @@ div.ba-videorecorder-theme-carrot-disabled {
       margin: 2px auto; }
 
 .ba-videorecorder-theme-carrot-controlbar-middle-section {
-  height: 100%; }
+  height: 100%;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px; }
   .ba-videorecorder-theme-carrot-controlbar-middle-section .ba-videorecorder-theme-carrot-timer-container {
     display: table;
     cursor: default;
@@ -3827,7 +3839,9 @@ div.ba-videorecorder-theme-carrot-disabled {
   width: 100%;
   height: 96px;
   margin-top: 96px;
-  background-color: #2A343E; }
+  background-color: #2A343E;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px; }
 
 .ba-videorecorder-theme-carrot-long-rounded-button {
   -moz-border-radius: 100px;

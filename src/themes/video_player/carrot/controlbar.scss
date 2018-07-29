@@ -19,6 +19,9 @@
     height: $controlbar_height;
     overflow: hidden;
     padding: 0 $controlbar_side_padding;
+    background: linear-gradient(to bottom, black, transparent 60px);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 .#{$css}-dashboard-hidden {

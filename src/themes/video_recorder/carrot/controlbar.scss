@@ -1,3 +1,7 @@
+.#{$css}-overlay {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px; 
+}
 
 .#{$css}-overlay div[tabindex] {
   @include transition1(all, 0.30s, ease-in-out);
@@ -15,6 +19,9 @@
 .#{$css}-dashboard {
   @include absolute-align-all();
   height: 100%;
+  background: linear-gradient(to bottom, black, transparent 60px);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .#{$css}-settings-right-sidebar {
@@ -32,6 +39,8 @@
 
 .#{$css}-controlbar-middle-section {
   height: 100%;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   .#{$css}-timer-container {
     display: table;
     cursor: default;
@@ -67,6 +76,8 @@
   height: $controlbar_footer_height;
   margin-top: $controlbar_footer_height;
   background-color: $controlbar_background_color;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 .#{$css}-long-rounded-button {
