@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.117 - 2018-07-30
+betajs-media-components - v0.0.118 - 2018-07-30
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -3982,10 +3982,13 @@ div.ba-videorecorder-theme-carrot-disabled {
   text-align: center; }
 
 .ba-videorecorder-theme-carrot-imagegallery-image, .ba-videorecorder-theme-carrot-overlay img {
-  border: none;
+  border: 4px solid transparent;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   border-radius: 6px; }
+
+.ba-videorecorder-theme-carrot-imagegallery-image.ba-videorecorder-theme-carrot-selected-snapshot {
+  border: 4px solid white; }
 
 .ba-videorecorder-theme-carrot-imagegallery-rightbutton, .ba-videorecorder-theme-carrot-imagegallery-leftbutton {
   border-radius: 50%;

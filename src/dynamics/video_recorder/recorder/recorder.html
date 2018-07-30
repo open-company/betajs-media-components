@@ -64,10 +64,13 @@
 			ba-themecolor="{{themecolor}}"
 		    ba-template="{{tmplimagegallery}}"
 		    ba-if="{{imagegallery_active}}"
+        ba-snapshotindex={{snapshotindex}}
+        ba-selectedindex={{selectedindex}}
 		    ba-imagecount="{{gallerysnapshots}}"
 		    ba-imagenativewidth="{{nativeRecordingWidth}}"
 		    ba-imagenativeheight="{{nativeRecordingHeight}}"
 		    ba-event:image-selected="select_image"
+        ba-event:image-hovered="hover_image"
 		></ba-{{dynimagegallery}}>
 
 		<ba-{{dyncontrolbar}}

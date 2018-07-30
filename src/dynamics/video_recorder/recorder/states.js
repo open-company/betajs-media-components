@@ -680,6 +680,10 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.CovershotSelection",
                 this.dyn._uploadCovershot(image);
                 this._nextUploading(false);
             }, this);
+            this.listenOn(this.dyn, "hover-image", function(snapshot) {
+                this.dyn._hideBackgroundSnapshot();
+                this.dyn._displayBackgroundSnapshot(snapshot);
+            }, this);
         },
 
         rerecord: function() {

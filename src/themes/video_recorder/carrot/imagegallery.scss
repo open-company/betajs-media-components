@@ -1,6 +1,10 @@
 .#{$css}-imagegallery-image, .#{$css}-overlay img  {
-  border: none;
+  border: 4px solid transparent;
   @include border-radius($imagegallery_border_radius);
+}
+
+.#{$css}-imagegallery-image.#{$css}-selected-snapshot {
+  border: 4px solid white;
 }
 
 .#{$css}-imagegallery-rightbutton, .#{$css}-imagegallery-leftbutton {

@@ -13,8 +13,13 @@
 	<div data-selector="images-imagegallery-container" ba-repeat="{{image::images}}" class="{{css}}-imagegallery-container" data-gallery-container>
 		<div tabindex="0"
 			 ba-hotkey:space^enter="{{select(image)}}" onmouseout="this.blur()"
-			 class="{{css}}-imagegallery-image"
+			 class="{{css}}-imagegallery-image {{ selectedindex == (snapshotindex + image.index)? css+'-selected-snapshot' : '' }}"
+			 data-spanshotindex="{{snapshotindex}}"
+			 data-selectedindex="{{selectedindex}}"
+			 data-imageindex="{{image.index}}"
 			 ba-styles="{{{left: image.left + 'px', top: image.top + 'px', width: image.width + 'px', height: image.height + 'px'}}}"
+			 data-index="{{snapshotindex + image.index}}"
+			 onmouseover="{{hover(image)}}"
 			 onclick="{{select(image)}}"
 		>
 		</div>

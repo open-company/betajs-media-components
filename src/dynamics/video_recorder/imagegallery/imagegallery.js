@@ -20,6 +20,8 @@ Scoped.define("module:VideoRecorder.Dynamics.Imagegallery", [
                     "imagecount": 3,
                     "imagenativewidth": 0,
                     "imagenativeheight": 0,
+                    "snapshotindex": 0,
+                    "selectedindex": 0,
                     "containerwidth": 0,
                     "containerheight": 0,
                     "containeroffset": 0,
@@ -46,7 +48,8 @@ Scoped.define("module:VideoRecorder.Dynamics.Imagegallery", [
                     this.set("ie10below", Info.isInternetExplorer() && Info.internetExplorerVersion() <= 10);
                     var images = this.auto_destroy(new Collection());
                     this.set("images", images);
-                    this.snapshotindex = 0;
+                    this.set("snapshotindex", 0);
+                    this.set("selectedindex", images.length);
                     this._updateImageCount();
                     this.on("change:imagecount", this._updateImageCount, this);
                     this.on("change:imagewidth change:imageheight change:imagedelta", this._recomputeImageBoxes, this);
@@ -146,29 +149,34 @@ Scoped.define("module:VideoRecorder.Dynamics.Imagegallery", [
 
                 loadSnapshots: function() {
                     this.get("images").iterate(function(image) {
-                        this.loadImageSnapshot(image, this.snapshotindex + image.get("index"));
+                        this.loadImageSnapshot(image, this.get("snapshotindex") + image.get("index"));
                     }, this);
                 },
 
-                nextSnapshots: function() {
-                    this.snapshotindex += this.get("imagecount");
+                nextSnapshots: function(snapshotindex) {
+                    this.set("snapshotindex", snapshotindex + this.get("imagecount"));
                     this.loadSnapshots();
                 },
 
-                prevSnapshots: function() {
-                    this.snapshotindex -= this.get("imagecount");
+                prevSnapshots: function(snapshotindex) {
+                    this.set("snapshotindex", snapshotindex - this.get("imagecount"));
                     this.loadSnapshots();
                 },
 
                 functions: {
                     left: function() {
-                        this.prevSnapshots();
+                        this.prevSnapshots(this.get("snapshotindex"));
                     },
                     right: function() {
-                        this.nextSnapshots();
+                        this.nextSnapshots(this.get("snapshotindex"));
                     },
                     select: function(image) {
                         this.trigger("image-selected", image.snapshot);
+                    },
+                    hover: function(image) {
+                        var snapshotindex = this.get("snapshotindex");
+                        this.set("selectedindex", snapshotindex + image.get("index"));
+                        this.trigger("image-hovered", image.snapshot);
                     }
                 }
 
