@@ -6686,6 +6686,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.CovershotSelection",
         },
 
         _nextUploading: function(skippedCovershot) {
+            this.dyn.trigger("pick_cover_end");
             this.next("Uploading");
         }
 
@@ -6706,7 +6707,6 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.Uploading", [
         dynamics: ["loader", "message"],
 
         _started: function() {
-            this.dyn.trigger("upload_started");
             this.dyn.set("cancancel", true);
             this.dyn.set("skipinitial", this.dyn.get("skipinitial") || this.dyn.get("skipinitialonrerecord"));
             this.dyn.set("settingsvisible", false);
