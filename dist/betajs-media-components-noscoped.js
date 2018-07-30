@@ -4944,7 +4944,6 @@ Scoped.define("module:VideoRecorder.Dynamics.Imagegallery", [
 
                 _updateImageCount: function() {
                     var images = this.get("images");
-                    console.log("XXX imagegallery._updateImageCount", images);
                     var n = this.get("imagecount");
                     while (images.count() < n) {
                         var image = new Properties({
@@ -5004,7 +5003,6 @@ Scoped.define("module:VideoRecorder.Dynamics.Imagegallery", [
                 },
 
                 loadImageSnapshot: function(image, snapshotindex) {
-                    console.log("XXX loadImageSnapshot", image, image.snapshotDisplay, snapshotindex);
                     if (image.snapshotDisplay) {
                         this.parent().recorder.removeSnapshotDisplay(image.snapshotDisplay);
                         image.snapshotDisplay = null;
@@ -5048,11 +5046,8 @@ Scoped.define("module:VideoRecorder.Dynamics.Imagegallery", [
                         this.trigger("image-selected", image.snapshot);
                     },
                     hover: function(image) {
-                        console.log("XXX hover", image, this.get);
                         var snapshotindex = this.get("snapshotindex");
-                        console.log("XXX     snapshotindex", snapshotindex, image.get("index"), snapshotindex + image.get("index"));
                         this.set("selectedindex", snapshotindex + image.get("index"));
-                        console.log("XXX     triggering image-hovered", image.snapshot);
                         this.trigger("image-hovered", image.snapshot);
                     }
                 }
@@ -5665,7 +5660,6 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                 },
 
                 _showBackgroundSnapshot: function() {
-                    console.log("XXX recorder._showBackgroundSnapshot");
                     if (this.get("onlyaudio"))
                         return;
                     this._hideBackgroundSnapshot();
@@ -5673,7 +5667,6 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                 },
 
                 _displayBackgroundSnapshot: function(snapshot) {
-                    console.log("XXX recorder._displayBackgroundSnapshot", snapshot);
                     this.__backgroundSnapshot = snapshot;
                     var el = this.activeElement().querySelector("[data-video]");
                     var dimensions = Dom.elementDimensions(el);
@@ -5681,7 +5674,6 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                 },
 
                 _hideBackgroundSnapshot: function() {
-                    console.log("XXX recorder._hideBackgroundSnapshot");
                     if (this.get("onlyaudio"))
                         return;
                     if (this.__backgroundSnapshotDisplay)
@@ -5763,7 +5755,6 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                     },
 
                     hover_image: function(snapshot) {
-                        console.log("XXX recorder.hover_image", snapshot);
                         this.trigger("hover-image", snapshot);
                     },
 
@@ -6676,7 +6667,6 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.CovershotSelection",
                 this._nextUploading(false);
             }, this);
             this.listenOn(this.dyn, "hover-image", function(snapshot) {
-                console.log("XXX states.on-hover-image", snapshot);
                 this.dyn._hideBackgroundSnapshot();
                 this.dyn._displayBackgroundSnapshot(snapshot);
             }, this);
