@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.118 - 2018-07-30
+betajs-media-components - v0.0.120 - 2018-07-30
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1006,7 +1006,7 @@ Public.exports();
 	return Public;
 }).call(this);
 /*!
-betajs-media-components - v0.0.118 - 2018-07-30
+betajs-media-components - v0.0.120 - 2018-07-30
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1022,7 +1022,7 @@ Scoped.binding('dynamics', 'global:BetaJS.Dynamics');
 Scoped.define("module:", function () {
 	return {
     "guid": "7a20804e-be62-4982-91c6-98eb096d2e70",
-    "version": "0.0.118"
+    "version": "0.0.120"
 };
 });
 Scoped.assumeVersion('base:version', '~1.0.96');
@@ -7693,7 +7693,6 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.CovershotSelection",
         },
 
         _nextUploading: function(skippedCovershot) {
-            this.dyn.trigger("pick_cover_end");
             this.next("Uploading");
         }
 
@@ -7714,6 +7713,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.Uploading", [
         dynamics: ["loader", "message"],
 
         _started: function() {
+            this.dyn.trigger("upload_started");
             this.dyn.set("cancancel", true);
             this.dyn.set("skipinitial", this.dyn.get("skipinitial") || this.dyn.get("skipinitialonrerecord"));
             this.dyn.set("settingsvisible", false);
