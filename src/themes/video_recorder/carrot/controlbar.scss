@@ -107,6 +107,10 @@
   color: white;
   opacity: 0.5;
   cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .#{$css}-button-circle-selected, .#{$css}-button-inner:hover, .#{$css}-button-selected {
@@ -164,6 +168,11 @@
   @include relative-align-all();
   @include transform-translate(0, 0);
   z-index: 10;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
 
   &.#{$css}-disabled {
     @include background-rgba(255, 255, 255, .1, #1a1a1a);
@@ -179,6 +188,10 @@
     background-color: transparent;
     color: white;
     opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 

@@ -10,6 +10,7 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
     "base:Strings",
     "base:Time",
     "base:Timers",
+    "base:TimeFormat",
     "base:States.Host",
     "base:Classes.ClassRegistry",
     "base:Async",
@@ -30,7 +31,7 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
     "dynamics:Partials.StylesPartial",
     "dynamics:Partials.TemplatePartial",
     "dynamics:Partials.HotkeyPartial"
-], function(Class, Assets, Info, Dom, VideoPlayerWrapper, Broadcasting, Types, Objs, Strings, Time, Timers, Host, ClassRegistry, Async, InitialState, PlayerStates, AdProvider, DomEvents, scoped) {
+], function(Class, Assets, Info, Dom, VideoPlayerWrapper, Broadcasting, Types, Objs, Strings, Time, Timers, TimeFormat, Host, ClassRegistry, Async, InitialState, PlayerStates, AdProvider, DomEvents, scoped) {
     return Class.extend({
             scoped: scoped
         }, function(inherited) {
@@ -830,6 +831,11 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                         }
                         if (this.get('preventinteractionstatus')) return;
                         this._resetActivity();
+                    },
+
+                    formatTime: function(time) {
+                        time = Math.max(time || 0, 1);
+                        return TimeFormat.format(TimeFormat.ELAPSED_MINUTES_SECONDS, time * 1000);
                     },
 
                     message_click: function() {

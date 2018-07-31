@@ -1,53 +1,48 @@
 
 .#{$cssnoie8} .#{$css}-playbutton-container {
     @include absolute-center-center;
-    @include border-rgba($playbutton_frame_thickness, 255, 255, 255, $playbutton_default_opacity, #999);
-    @include box-shadow($cover_playbutton_shadow, 22);
     @include transition1(all, $playbutton_transition_time, ease-in-out);
     @include transform-translate(-50%, -50%);
+    @include background-rgba(255,255,255,0.4,#666666);
     border-radius: 50%;
     box-sizing: content-box;
     cursor: pointer;
     font-size: $playbutton_font_size;
-    height: 10em;
+    height: 48px;
     text-align: center;
-    width: 10em;
+    width: 48px;
+    opacity: 0.9;
+    box-shadow: none;
     &:focus {
         outline: none;
-        border-radius: 50%;
-        border-color: #1b8fcc;
-        @include box-outline-shadow(#1b8fcc, 2px);
-        &:hover, &:active {
-            border: none;
-        }
+        box-shadow: none;
     }
 }
 
 .#{$cssnoie8} .#{$css}-playbutton-container:hover {
-    @include box-shadow($cover_playbutton_hover_shadow, 22);
-   // border-color: $cover_playbutton_border_hover_color;
-    .#{$css}-playbutton-button::after {
-        @include text-shadow($cover_playbutton_hover_shadow, 4);
-    }
+    opacity: 1;
+    box-shadow: none;
 }
 
 .#{$cssnoie8} .#{$css}-playbutton-button::after {
     @include fontello-icon;
-    @include text-shadow($cover_playbutton_shadow, 4);
     @include transition1(all, $playbutton_transition_time, ease-in-out);
     content: "\e805";
     color: $cover_playbutton_color;
-    font-size: 4.6em;
+    font-size: 23px;
+    box-shadow: none;
 }
 
 .#{$cssnoie8} .#{$css}-playbutton-button::after {
     line-height: 2.3em;
     margin-left: 0.1em;
     width: 100%;
+    box-shadow: none;
 }
 
 .#{$css}-playbutton-button:hover::after {
    // color: $cover_playbutton_hover_color;
+   box-shadow: none;
 }
 
 .#{$css}-rerecord-bar {
@@ -80,4 +75,9 @@
     font-size: $rerecord_primarybutton_font_size;
     padding: $rerecord_primarybutton_padding;
     letter-spacing: $rerecord_letter_spacing;
+    opacity: 0.9;
+
+    &:hover {
+        opacity: 1;
+    }
 }

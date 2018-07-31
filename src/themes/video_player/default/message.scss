@@ -2,6 +2,7 @@
 	@include absolute-align-all;
     background-color: $message_bgcolor;
     opacity: $message_opacity;
+    border-radius: 6px;
 }
 
 .#{$css}-message-message {

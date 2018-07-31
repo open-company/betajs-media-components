@@ -16,7 +16,11 @@
              ba-hotkey:up="{{set_volume(volume + 0.1)}}" ba-hotkey:down="{{set_volume(volume - 0.1)}}"
              ba-hotkey:space^enter="{{toggle_player()}}"
              ba-on:click="{{toggle_player()}}"
-        ></div>
+        >
+            <div class="{{css}}-player-static-duration" ba-if="{{!playing && totalduration && !controlbar_active}}">
+                <span>{{formatTime(totalduration)}}</span>
+            </div>
+        </div>
         <ba-{{dyncontrolbar}}
             ba-css="{{csscontrolbar || css}}"
             ba-themecolor="{{themecolor}}"

@@ -1,4 +1,8 @@
 
+.#{$css}-overlay {
+  border-radius: 6px;
+}
+
 .#{$css}-overlay div[tabindex] {
     @include transition1(all, 0.30s, ease-in-out);
 }
