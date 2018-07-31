@@ -2109,7 +2109,8 @@ Apache-2.0 Software License.
   height: 16%;
   background: linear-gradient(to bottom, black, transparent 100%); }
   .ba-videoplayer-player-toggle-overlay .ba-videoplayer-player-static-duration span {
-    margin: 8px;
+    margin-top: 8px;
+    margin-left: 8px;
     color: white;
     font-size: 14px; }
 
