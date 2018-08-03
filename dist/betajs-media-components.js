@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.123 - 2018-07-31
+betajs-media-components - v0.0.125 - 2018-08-03
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1006,7 +1006,7 @@ Public.exports();
 	return Public;
 }).call(this);
 /*!
-betajs-media-components - v0.0.123 - 2018-07-31
+betajs-media-components - v0.0.125 - 2018-08-03
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1022,7 +1022,7 @@ Scoped.binding('dynamics', 'global:BetaJS.Dynamics');
 Scoped.define("module:", function () {
 	return {
     "guid": "7a20804e-be62-4982-91c6-98eb096d2e70",
-    "version": "0.0.123"
+    "version": "0.0.125"
 };
 });
 Scoped.assumeVersion('base:version', '~1.0.96');
@@ -5898,7 +5898,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Imagegallery", [
         }, function(inherited) {
             return {
 
-                template: "<div data-selector=\"slider-left-button\" class=\"{{css}}-imagegallery-leftbutton\">\n\t<div tabindex=\"0\" data-selector=\"slider-left-inner-button\"\n\t\t ba-hotkey:space^enter^left=\"{{left()}}\" onmouseout=\"this.blur()\"\n\t\t class=\"{{css}}-imagegallery-button-inner\" onclick=\"{{left()}}\"\n\t>\n\t\t<i class=\"{{css}}-icon-left_arrow\"></i>\n\t</div>\n</div>\n\n<div data-selector=\"images-imagegallery-container\" ba-repeat=\"{{image::images}}\"\n\t class=\"{{css}}-imagegallery-container\" data-gallery-container>\n     <div tabindex=\"0\" class=\"{{css}}-imagegallery-image\"\n\t\t  ba-hotkey:space^enter=\"{{select(image)}}\" onmouseout=\"this.blur()\"\n          ba-styles=\"{{{left: image.left + 'px', top: image.top + 'px', width: image.width + 'px', height: image.height + 'px'}}}\"\n          onclick=\"{{select(image)}}\"\n\t >\n\t\t <div class=\"{{css}}-imagegallery-image-compat\" ba-show=\"{{ie10below}}\"></div>\n     </div>\n</div>\n\n<div data-selector=\"slider-right-button\" class=\"{{css}}-imagegallery-rightbutton\">\n\t<div tabindex=\"0\" data-selector=\"slider-right-inner-button\"\n\t\t ba-hotkey:space^enter^right=\"{{right()}}\" onmouseout=\"this.blur()\"\n\t\t class=\"{{css}}-imagegallery-button-inner\" onclick=\"{{right()}}\"\n\t>\n\t\t<i class=\"{{css}}-icon-right_arrow\"></i>\n\t</div>\n</div>\n",
+                template: "<div data-selector=\"slider-left-button\" class=\"{{css}}-imagegallery-leftbutton\">\n\t<div tabindex=\"0\" data-selector=\"slider-left-inner-button\"\n\t\t ba-hotkey:space^enter^left=\"{{left()}}\" onmouseout=\"this.blur()\"\n\t\t class=\"{{css}}-imagegallery-button-inner\" onclick=\"{{left()}}\"\n\t>\n\t\t<i class=\"{{css}}-icon-left_arrow-1\"></i>\n\t</div>\n</div>\n\n<div data-selector=\"images-imagegallery-container\" ba-repeat=\"{{image::images}}\"\n\t class=\"{{css}}-imagegallery-container\" data-gallery-container>\n     <div tabindex=\"0\" class=\"{{css}}-imagegallery-image\"\n\t\t  ba-hotkey:space^enter=\"{{select(image)}}\" onmouseout=\"this.blur()\"\n          ba-styles=\"{{{left: image.left + 'px', top: image.top + 'px', width: image.width + 'px', height: image.height + 'px'}}}\"\n          onclick=\"{{select(image)}}\"\n\t >\n\t\t <div class=\"{{css}}-imagegallery-image-compat\" ba-show=\"{{ie10below}}\"></div>\n     </div>\n</div>\n\n<div data-selector=\"slider-right-button\" class=\"{{css}}-imagegallery-rightbutton\">\n\t<div tabindex=\"0\" data-selector=\"slider-right-inner-button\"\n\t\t ba-hotkey:space^enter^right=\"{{right()}}\" onmouseout=\"this.blur()\"\n\t\t class=\"{{css}}-imagegallery-button-inner\" onclick=\"{{right()}}\"\n\t>\n\t\t<i class=\"{{css}}-icon-right_arrow-1\"></i>\n\t</div>\n</div>\n",
 
                 attrs: {
                     "css": "ba-videorecorder",

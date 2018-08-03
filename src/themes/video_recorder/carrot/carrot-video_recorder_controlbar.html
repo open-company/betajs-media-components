@@ -45,7 +45,7 @@
 		<div class="{{css}}-timer-container" ba-show="{{stopvisible}}">
 			<div class="{{css}}-label-container" ba-show="{{controlbarlabel}}">
 				<div data-selector="record-label-block" class="{{css}}-label {{css}}-button-primary">
-					{{controlbarlabel}}
+					<i class="{{css}}-icon-circle"></i>&nbsp;{{controlbarlabel}}
 				</div>
 			</div>
 		</div>
@@ -64,7 +64,6 @@
 					 onclick="{{rerecord()}}"
 				>
           <i class="{{css}}-icon-rerecord"></i>
-					{{string('rerecord')}}
 				</div>
 			</div>
 
@@ -81,11 +80,9 @@
 			<div class="{{css}}-primary-button-container" ba-show="{{recordvisible}}">
 				<div tabindex="0"
 					 ba-hotkey:space^enter="{{record()}}" onmouseout="this.blur()"
-					 data-selector="record-primary-button" class="{{css}}-button-primary"
+					 data-selector="record-primary-button" class="{{css}}-button-primary {{css}}-button-record-start"
 					 onclick="{{record()}}"
 				>
-          <i class="{{css}}-icon-videocam"></i>
-					{{string('record')}}
 				</div>
 			</div>
 
@@ -96,26 +93,14 @@
 			<div class="{{css}}-stop-button-container">
 				<div tabindex="0"
 					 ba-hotkey:space^enter="{{stop()}}" onmouseout="this.blur()"
-					 data-selector="stop-primary-button" class="{{css}}-button-primary {{mintimeindicator ? css + '-disabled': ''}}"
+					 data-selector="stop-primary-button" class="{{css}}-button-primary {{css}}-button-record-stop {{mintimeindicator ? css + '-disabled': ''}}"
 					 title="{{mintimeindicator ? string('stop-available-after').replace('%d', timeminlimit) : string('stop-tooltip')}}"
 					 onclick="{{stop()}}"
 				>
           <i class="{{css}}-icon-check"></i>
-					{{string('stop')}}
 				</div>
 			</div>
 		</div>
-
-        <div class="{{css}}-centerbutton-container" ba-show="{{skipvisible}}">
-            <div tabindex="0"
-				 ba-hotkey:space^enter="{{skip()}}" onmouseout="this.blur()"
-				 data-selector="skip-primary-button" class="{{css}}-button-primary {{css}}-button-skip"
-                 onclick="{{skip()}}"
-			>
-                {{string('skip')}}
-            </div>
-        </div>
-
 
         <div class="{{css}}-rightbutton-container" ba-if="{{uploadcovershotvisible}}">
             <div data-selector="covershot-primary-button" class="{{css}}-button-primary"

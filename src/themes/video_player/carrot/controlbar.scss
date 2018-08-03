@@ -1,6 +1,6 @@
 
 .#{$css}-overlay {
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .#{$css}-overlay div[tabindex] {
@@ -24,8 +24,7 @@
     overflow: hidden;
     padding: 0 $controlbar_side_padding;
     background: linear-gradient(to bottom, black, transparent 60px);
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    border-radius: 8px;
 }
 
 .#{$css}-dashboard-hidden {

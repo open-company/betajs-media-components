@@ -109,14 +109,9 @@
     content: '\e815';
 }
 
-.#{$css}-icon-right_arrow:before {
+.#{$css}-icon-dot:before {
     @include fontello-icon;
     content: '\e816';
-}
-
-.#{$css}-icon-left_arrow:before {
-    @include fontello-icon;
-    content: '\e817';
 }
 
 .#{$css}-icon-uploading:before {
@@ -127,6 +122,16 @@
 .#{$css}-icon-rerecord:before {
     @include fontello-icon;
     content: '\e819';
+}
+
+.#{$css}-icon-left_arrow-1:before {
+    @include fontello-icon;
+    content: '\e81a';
+}
+
+.#{$css}-icon-right_arrow-1:before {
+    @include fontello-icon;
+    content: '\e81b';
 }
 
 .#{$css}-icon-twitter:before {
@@ -167,6 +172,11 @@
 .#{$css}-icon-angle-down:before {
     @include fontello-icon;
     content: '\f107';
+}
+
+.#{$css}-icon-circle:before {
+    @include fontello-icon;
+    content: '\f111';
 }
 
 .#{$css}-icon-crop:before {

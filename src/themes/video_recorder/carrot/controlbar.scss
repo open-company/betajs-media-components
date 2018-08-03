@@ -1,6 +1,5 @@
 .#{$css}-overlay {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px; 
+  border-radius: 8px;
 }
 
 .#{$css}-overlay div[tabindex] {
@@ -19,9 +18,9 @@
 .#{$css}-dashboard {
   @include absolute-align-all();
   height: 100%;
-  background: linear-gradient(to bottom, black, transparent 60px);
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  /* Rectangle 2 Copy: */
+  background-image: linear-gradient(to bottom, #1B2026 0%, rgba(27,32,38,0.00) 40px, transparent 100%);
+  border-radius: 8px;
 }
 
 .#{$css}-settings-right-sidebar {
@@ -39,8 +38,7 @@
 
 .#{$css}-controlbar-middle-section {
   height: 100%;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  @include border-radius(8px);
   .#{$css}-timer-container {
     display: table;
     cursor: default;
@@ -57,13 +55,16 @@
       .#{$css}-button-primary{
         margin: 10px 0 0;
         padding: 7px 16px;
-        font-size: 14px;
+        font-size: 12px;
         color: white;
         opacity: 1;
         background-color: transparent;
 
-        i {
-          font-size: 18px;
+        &.#{$css}-label {
+          i.#{$css}-icon-circle {
+            color: $theme_color_red;
+            font-size: 8px;
+          }
         }
       }
     }
@@ -71,13 +72,11 @@
 }
 
 .#{$css}-controlbar {
-  @include absolute-align-full-bottom-below-control-bar($controlbar_footer_height);
+  @include absolute-align-full-bottom();
   width: 100%;
   height: $controlbar_footer_height;
-  margin-top: $controlbar_footer_height;
-  background-color: $controlbar_background_color;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .#{$css}-long-rounded-button {
@@ -154,24 +153,48 @@
 }
 
 .#{$css}-button-primary {
-  @include border-radius($controlbar_primarybutton_radius);
   display: inline-block;
-  font-family: $bold_font_family;
-  font-weight: $font_weight;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: $text_fontsize;
-  margin-top: 24px;
-  min-width: $controlbar_primarybutton_min_width;
-  padding: 16px 16px;
   @include relative-align-all();
   @include transform-translate(0, 0);
+  padding: 12px;
   z-index: 10;
   opacity: 0.9;
 
   &:hover {
     opacity: 1;
+  }
+
+  &.#{$css}-button-record-start {
+    background-color: $theme_color_red;
+    width: $controlbar_primarybutton_size;
+    height: $controlbar_primarybutton_size;
+    @include border-radius(50%);
+    @include border-rgba(4px, 255, 255, 255, 0.2, #FFFFFF);
+    @include border-padding-box();
+    padding: unset;
+
+    &:hover {
+      border-color: #FFFFFF;
+    }
+  }
+
+  &.#{$css}-button-record-stop {
+    background-color: $theme_color_green;
+    color: white;
+    width: $controlbar_primarybutton_size;
+    height: $controlbar_primarybutton_size;
+    @include border-radius(50%);
+    @include border-rgba(4px, 255, 255, 255, 0.2, #FFFFFF);
+    @include border-padding-box();
+    padding: unset;
+
+    &:hover {
+      border-color: #FFFFFF;
+    }
+
+    i:before {
+      line-height: 32px;
+    }
   }
 
   &.#{$css}-disabled {
@@ -229,9 +252,8 @@
   float: left;
   text-align: right;
   width: 50%;
-  opacity: 0.25;
   .#{$css}-button-primary {
-    color: $text_color;
+    color: white;
     @include background-rgba(0, 0, 0, .4, #979797);
   }
 }
