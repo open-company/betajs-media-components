@@ -6,8 +6,7 @@
         color: $value;
       }
 
-      .#{$css}-chooser-button-0, .#{$css}-button-primary,
-      .#{$css}-settings span {
+      .#{$css}-chooser-button-0, .#{$css}-button-primary {
         background-color: $value;
       }
 

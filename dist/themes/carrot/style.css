@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.125 - 2018-08-03
+betajs-media-components - v0.0.126 - 2018-08-07
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -2046,7 +2046,7 @@ Apache-2.0 Software License.
   height: 48px;
   overflow: hidden;
   padding-left: 16px;
-  padding-right: 0px;
+  padding-right: 0;
   padding-top: 6px;
   text-align: center; }
 
@@ -3827,24 +3827,21 @@ div.ba-videorecorder-theme-carrot-disabled {
 
 .ba-videorecorder-theme-carrot-red-color .ba-videorecorder-theme-carrot-button-circle-selected, .ba-videorecorder-theme-carrot-red-color .ba-videorecorder-theme-carrot-loader-label {
   color: #fb5e48; }
-.ba-videorecorder-theme-carrot-red-color .ba-videorecorder-theme-carrot-chooser-button-0, .ba-videorecorder-theme-carrot-red-color .ba-videorecorder-theme-carrot-button-primary,
-.ba-videorecorder-theme-carrot-red-color .ba-videorecorder-theme-carrot-settings span {
+.ba-videorecorder-theme-carrot-red-color .ba-videorecorder-theme-carrot-chooser-button-0, .ba-videorecorder-theme-carrot-red-color .ba-videorecorder-theme-carrot-button-primary {
   background-color: #fb5e48; }
 .ba-videorecorder-theme-carrot-red-color .ba-videorecorder-theme-carrot-message-message a {
   color: #fb5e48; }
 
 .ba-videorecorder-theme-carrot-blue-color .ba-videorecorder-theme-carrot-button-circle-selected, .ba-videorecorder-theme-carrot-blue-color .ba-videorecorder-theme-carrot-loader-label {
   color: #2a74eb; }
-.ba-videorecorder-theme-carrot-blue-color .ba-videorecorder-theme-carrot-chooser-button-0, .ba-videorecorder-theme-carrot-blue-color .ba-videorecorder-theme-carrot-button-primary,
-.ba-videorecorder-theme-carrot-blue-color .ba-videorecorder-theme-carrot-settings span {
+.ba-videorecorder-theme-carrot-blue-color .ba-videorecorder-theme-carrot-chooser-button-0, .ba-videorecorder-theme-carrot-blue-color .ba-videorecorder-theme-carrot-button-primary {
   background-color: #2a74eb; }
 .ba-videorecorder-theme-carrot-blue-color .ba-videorecorder-theme-carrot-message-message a {
   color: #2a74eb; }
 
 .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-button-circle-selected, .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-loader-label {
   color: #3fbd7c; }
-.ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-chooser-button-0, .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-button-primary,
-.ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-settings span {
+.ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-chooser-button-0, .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-button-primary {
   background-color: #3fbd7c; }
 .ba-videorecorder-theme-carrot-green-color .ba-videorecorder-theme-carrot-message-message a {
   color: #3fbd7c; }
@@ -3984,14 +3981,22 @@ div.ba-videorecorder-theme-carrot-disabled {
     line-height: inherit; }
 
 .ba-videorecorder-theme-carrot-settings {
-  position: inherit; }
+  position: absolute;
+  left: unset;
+  right: 12px;
+  top: 0;
+  color: #FFFFFF;
+  margin: 4px;
+  width: 24px;
+  height: 40px; }
   .ba-videorecorder-theme-carrot-settings label {
     font-family: AvenirLTStd-Medium, Muli, Arial, sans-serif;
     font-weight: normal;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 12px; }
+    font-size: 12px;
+    width: 130px; }
   .ba-videorecorder-theme-carrot-settings li {
     padding: 0 8px; }
   .ba-videorecorder-theme-carrot-settings input[type=radio]:checked + span {
@@ -3999,7 +4004,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   .ba-videorecorder-theme-carrot-settings span {
     background-color: #000000; }
   .ba-videorecorder-theme-carrot-settings .ba-videorecorder-theme-carrot-circle-button {
-    margin: 6px 0; }
+    margin: 0; }
 
 .ba-videorecorder-theme-carrot-button-primary {
   display: inline-block;
@@ -4158,7 +4163,6 @@ div.ba-videorecorder-theme-carrot-disabled {
   display: table;
   height: 100%;
   width: 100%;
-  border-radius: 8px;
   border-radius: 8px; }
   .ba-videorecorder-theme-carrot-message-container .ba-videorecorder-theme-carrot-top-inner-message-container {
     display: table-cell;
