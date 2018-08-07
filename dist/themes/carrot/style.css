@@ -4136,7 +4136,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   text-align: center; }
   .ba-videorecorder-theme-carrot-imagegallery-image.ba-videorecorder-theme-carrot-selected-snapshot i.ba-videorecorder-theme-carrot-icon-check {
     display: block;
-    line-height: 40px; }
+    line-height: 7em; }
 
 .ba-videorecorder-theme-carrot-imagegallery-rightbutton, .ba-videorecorder-theme-carrot-imagegallery-leftbutton {
   border-radius: 50%;
