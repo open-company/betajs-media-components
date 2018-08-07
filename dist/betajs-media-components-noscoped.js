@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.126 - 2018-08-07
+betajs-media-components - v0.0.128 - 2018-08-07
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -15,7 +15,7 @@ Scoped.binding('dynamics', 'global:BetaJS.Dynamics');
 Scoped.define("module:", function () {
 	return {
     "guid": "7a20804e-be62-4982-91c6-98eb096d2e70",
-    "version": "0.0.126"
+    "version": "0.0.128"
 };
 });
 Scoped.assumeVersion('base:version', '~1.0.96');
@@ -6467,6 +6467,14 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.RecordPrepare", [
         _locals: ["preparePromise"],
 
         _started: function() {
+            this.dyn.set("message", "");
+            this.dyn.set("loaderlabel", "");
+            this.dyn._accessing_camera = true;
+            this._preparePromise = this._preparePromise || this.dyn._prepareRecording();
+            this._startRecording();
+        },
+
+        _startedOld: function() {
             this.dyn.set("message", "");
             this.dyn.set("loaderlabel", "");
             var startedRecording = false;

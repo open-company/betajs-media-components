@@ -477,6 +477,14 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.RecordPrepare", [
         _started: function() {
             this.dyn.set("message", "");
             this.dyn.set("loaderlabel", "");
+            this.dyn._accessing_camera = true;
+            this._preparePromise = this._preparePromise || this.dyn._prepareRecording();
+            this._startRecording();
+        },
+
+        _startedOld: function() {
+            this.dyn.set("message", "");
+            this.dyn.set("loaderlabel", "");
             var startedRecording = false;
             this.dyn._accessing_camera = true;
             this._preparePromise = this._preparePromise || this.dyn._prepareRecording();
