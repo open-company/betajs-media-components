@@ -61,8 +61,8 @@
           @include background-rgba(0, 0, 0, 0.2, #000);
           @include border-radius(24px);
           i.#{$css}-icon-circle {
-            animation: blink-animation 1s step-start 0s infinite;
-            -webkit-animation: blink-animation 1s step-start 0s infinite;
+            animation: blink 1s step-start 0s infinite;
+            -webkit-animation: blink 1s step-start 0s infinite;
             color: $theme_color_red;
             font-size: 8px;
           }
@@ -72,15 +72,14 @@
   }
 }
 
-@keyframes blink-animation {
-  to {
-    visibility: hidden;
+@keyframes blink {
+  50% {
+    opacity: 0.0;
   }
 }
-
-@-webkit-keyframes blink-animation {
-  to {
-    visibility: hidden;
+@-webkit-keyframes blink {
+  50% {
+    opacity: 0.0;
   }
 }
 

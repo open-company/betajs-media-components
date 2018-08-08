@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.130 - 2018-08-08
+betajs-media-components - v0.0.131 - 2018-08-09
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -4043,17 +4043,17 @@ div.ba-videorecorder-theme-carrot-disabled {
           -webkit-border-radius: 24px;
           border-radius: 24px; }
           .ba-videorecorder-theme-carrot-controlbar-middle-section .ba-videorecorder-theme-carrot-timer-container .ba-videorecorder-theme-carrot-label-container .ba-videorecorder-theme-carrot-button-primary.ba-videorecorder-theme-carrot-record-timer i.ba-videorecorder-theme-carrot-icon-circle {
-            animation: blink-animation 1s step-start 0s infinite;
-            -webkit-animation: blink-animation 1s step-start 0s infinite;
+            animation: blink 1s step-start 0s infinite;
+            -webkit-animation: blink 1s step-start 0s infinite;
             color: #fb5e48;
             font-size: 8px; }
 
-@keyframes blink-animation {
-  to {
-    visibility: hidden; } }
-@-webkit-keyframes blink-animation {
-  to {
-    visibility: hidden; } }
+@keyframes blink {
+  50% {
+    opacity: 0.0; } }
+@-webkit-keyframes blink {
+  50% {
+    opacity: 0.0; } }
 .ba-videorecorder-theme-carrot-controlbar {
   position: absolute;
   left: 0;
