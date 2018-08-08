@@ -1,6 +1,6 @@
 
 .#{$css}-overlay {
-  border-radius: 8px;
+
 }
 
 .#{$css}-overlay div[tabindex] {
@@ -23,7 +23,6 @@
     height: $controlbar_height;
     overflow: hidden;
     padding: 0 $controlbar_side_padding;
-    border-radius: 8px;
 }
 
 .#{$css}-dashboard-hidden {
@@ -40,12 +39,12 @@
         //outline: none;
         i.#{$css}-icon-play {
             outline: none;
-            @inclue background-rgba(0, 0, 0, 0.2, #000000);
+            @include background-rgba(0, 0, 0, 0.2, #000000);
             color: white;
             font-size: 23px;
 
             &:hover, &:active {
-                @inclue background-rgba(0, 0, 0, 0.5, #000000);
+                @include background-rgba(0, 0, 0, 0.5, #000000);
                 border: none;
             }
         }

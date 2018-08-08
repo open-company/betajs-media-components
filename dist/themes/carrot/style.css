@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.129 - 2018-08-08
+betajs-media-components - v0.0.130 - 2018-08-08
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1174,8 +1174,7 @@ Apache-2.0 Software License.
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0;
-  border-radius: 8px; }
+  bottom: 0; }
 
 .ba-videoplayer-carrot-theme-video {
   width: 100%;
@@ -1555,9 +1554,6 @@ Apache-2.0 Software License.
 .ba-videoplayer-carrot-theme-white-color .ba-videoplayer-carrot-theme-airplay-container svg path {
   fill: #ffffff; }
 
-.ba-videoplayer-carrot-theme-overlay {
-  border-radius: 8px; }
-
 .ba-videoplayer-carrot-theme-overlay div[tabindex] {
   transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -1588,8 +1584,7 @@ Apache-2.0 Software License.
   -ms-transition: opacity 0.5s ease-in-out;
   height: 100%;
   overflow: hidden;
-  padding: 0 4%;
-  border-radius: 8px; }
+  padding: 0 4%; }
 
 .ba-videoplayer-carrot-theme-dashboard-hidden {
   opacity: 0; }
@@ -1602,11 +1597,13 @@ Apache-2.0 Software License.
   color: #eeeeee; }
   .ba-videoplayer-carrot-theme-button-container[data-selector='button-icon-play']:focus i.ba-videoplayer-carrot-theme-icon-play, .ba-videoplayer-carrot-theme-button-container[data-selector='button-icon-pause']:focus i.ba-videoplayer-carrot-theme-icon-play {
     outline: none;
-    @inclue background-rgba(0, 0, 0, 0.2, #000000);
+    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.2);
     color: white;
     font-size: 23px; }
     .ba-videoplayer-carrot-theme-button-container[data-selector='button-icon-play']:focus i.ba-videoplayer-carrot-theme-icon-play:hover, .ba-videoplayer-carrot-theme-button-container[data-selector='button-icon-play']:focus i.ba-videoplayer-carrot-theme-icon-play:active, .ba-videoplayer-carrot-theme-button-container[data-selector='button-icon-pause']:focus i.ba-videoplayer-carrot-theme-icon-play:hover, .ba-videoplayer-carrot-theme-button-container[data-selector='button-icon-pause']:focus i.ba-videoplayer-carrot-theme-icon-play:active {
-      @inclue background-rgba(0, 0, 0, 0.5, #000000);
+      background-color: #000000;
+      background-color: rgba(0, 0, 0, 0.5);
       border: none; }
 
 /* Control Bar Header*/
@@ -3446,8 +3443,7 @@ Apache-2.0 Software License.
   width: 100%;
   height: 100%;
   display: block;
-  background-color: #000000;
-  border-radius: 8px; }
+  background-color: #000000; }
 
 .ba-videorecorder-theme-carrot-norecorder {
   background-color: black; }
@@ -4001,8 +3997,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   top: 0;
   bottom: 0;
   height: 100%;
-  /* Rectangle 2 Copy: */
-  border-radius: 8px; }
+  /* Rectangle 2 Copy: */ }
 
 .ba-videorecorder-theme-carrot-settings-right-sidebar {
   display: table;
@@ -4020,10 +4015,7 @@ div.ba-videorecorder-theme-carrot-disabled {
       margin: 2px auto; }
 
 .ba-videorecorder-theme-carrot-controlbar-middle-section {
-  height: 100%;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px; }
+  height: 100%; }
   .ba-videorecorder-theme-carrot-controlbar-middle-section .ba-videorecorder-theme-carrot-timer-container {
     display: table;
     cursor: default;
@@ -4051,8 +4043,8 @@ div.ba-videorecorder-theme-carrot-disabled {
           -webkit-border-radius: 24px;
           border-radius: 24px; }
           .ba-videorecorder-theme-carrot-controlbar-middle-section .ba-videorecorder-theme-carrot-timer-container .ba-videorecorder-theme-carrot-label-container .ba-videorecorder-theme-carrot-button-primary.ba-videorecorder-theme-carrot-record-timer i.ba-videorecorder-theme-carrot-icon-circle {
-            animation: blink-animation 1s steps(5, start) infinite;
-            -webkit-animation: blink-animation 1s steps(5, start) infinite;
+            animation: blink-animation 1s step-start 0s infinite;
+            -webkit-animation: blink-animation 1s step-start 0s infinite;
             color: #fb5e48;
             font-size: 8px; }
 
@@ -4068,9 +4060,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   right: 0;
   bottom: 0;
   width: 100%;
-  height: 56px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px; }
+  height: 56px; }
 
 .ba-videorecorder-theme-carrot-long-rounded-button {
   -moz-border-radius: 100px;
@@ -4267,9 +4257,9 @@ div.ba-videorecorder-theme-carrot-disabled {
   text-align: center; }
 
 .ba-videorecorder-theme-carrot-imagegallery-image, .ba-videorecorder-theme-carrot-overlay img {
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px; }
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0; }
 
 .ba-videorecorder-theme-carrot-imagegallery-image i.ba-videorecorder-theme-carrot-icon-check {
   display: none;
@@ -4317,8 +4307,7 @@ div.ba-videorecorder-theme-carrot-disabled {
   opacity: 1;
   display: table;
   height: 100%;
-  width: 100%;
-  border-radius: 8px; }
+  width: 100%; }
   .ba-videorecorder-theme-carrot-message-container .ba-videorecorder-theme-carrot-top-inner-message-container {
     display: table-cell;
     vertical-align: middle; }
@@ -7610,8 +7599,6 @@ div.ba-videorecorder-theme-carrot-disabled {
 
 .ba-audioplayer-carrot-theme-size-small .ba-audioplayer-carrot-theme-volumebar {
   display: none; }
-.ba-audioplayer-carrot-theme-size-small .ba-audioplayer-carrot-theme-controlbar-header {
-  top: 7px; }
 .ba-audioplayer-carrot-theme-size-small .ba-audioplayer-carrot-theme-controlbar-top-block .ba-audioplayer-carrot-theme-button-container .ba-audioplayer-carrot-theme-button-inner {
   font-size: 1.8em; }
 .ba-audioplayer-carrot-theme-size-small .ba-audioplayer-carrot-theme-controlbar-middle-block {

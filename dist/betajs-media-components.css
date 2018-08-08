@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.129 - 2018-08-08
+betajs-media-components - v0.0.130 - 2018-08-08
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -2067,8 +2067,7 @@ Apache-2.0 Software License.
   top: 0;
   bottom: 0;
   background-color: black;
-  opacity: 0.75;
-  border-radius: 8px; }
+  opacity: 0.75; }
 
 .ba-videoplayer-message-message {
   -webkit-transform: translateY(-50%);
@@ -2220,8 +2219,7 @@ Apache-2.0 Software License.
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0;
-  border-radius: 8px; }
+  bottom: 0; }
 
 .ba-videoplayer-video {
   width: 100%;
@@ -3947,9 +3945,7 @@ Apache-2.0 Software License.
   top: 0;
   bottom: 0;
   background-color: black;
-  opacity: 0.75;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px; }
+  opacity: 0.75; }
 
 .ba-videorecorder-message-message {
   -webkit-transform: translateY(-50%);
@@ -3993,8 +3989,7 @@ Apache-2.0 Software License.
   width: 100%;
   height: 100%;
   display: block;
-  background-color: #FDFDFD;
-  border-radius: 8px; }
+  background-color: #FDFDFD; }
 
 .ba-videorecorder-norecorder {
   background-color: black; }
@@ -5470,9 +5465,7 @@ div.ba-videorecorder-disabled {
   top: 0;
   bottom: 0;
   background-color: black;
-  opacity: 0.75;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px; }
+  opacity: 0.75; }
 
 .ba-imageviewer-message-message {
   -webkit-transform: translateY(-50%);
