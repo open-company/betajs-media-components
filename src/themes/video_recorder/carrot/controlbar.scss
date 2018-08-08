@@ -19,7 +19,6 @@
   @include absolute-align-all();
   height: 100%;
   /* Rectangle 2 Copy: */
-  background-image: linear-gradient(to bottom, #1B2026 0%, rgba(27,32,38,0.00) 40px, transparent 100%);
   border-radius: 8px;
 }
 
@@ -60,14 +59,29 @@
         opacity: 1;
         background-color: transparent;
 
-        &.#{$css}-label {
+        &.#{$css}-record-timer {
+          @include background-rgba(0, 0, 0, 0.2, #000);
+          @include border-radius(24px);
           i.#{$css}-icon-circle {
+            animation: blink-animation 1s steps(5, start) infinite;
+            -webkit-animation: blink-animation 1s steps(5, start) infinite;
             color: $theme_color_red;
             font-size: 8px;
           }
         }
       }
     }
+  }
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
   }
 }
 
@@ -104,12 +118,8 @@
 
 .#{$css}-button-circle-unselected, .#{$css}-button-inner {
   color: white;
-  opacity: 0.5;
+  opacity: 1;
   cursor: pointer;
-
-  &:hover {
-    opacity: 1;
-  }
 }
 
 .#{$css}-button-circle-selected, .#{$css}-button-inner:hover, .#{$css}-button-selected {
@@ -124,20 +134,28 @@
   font-size: inherit;
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 40px;
+  height: 40px;
+  @include background-rgba(0, 0, 0, 0.2, #000);
+
+  &:hover {
+    @include background-rgba(0, 0, 0, 0.5, #000);
+  }
+
   i:before {
-    line-height: inherit;
+    line-height: 40px;
   }
 }
 
 .#{$css}-settings {
   position: absolute;
   left: unset;
-  right: 12px;
+  right: 0;
   top: 0;
   color: $text_color;
   margin: $settings_margin;
-  width: $settings_size;
+  padding: 0;
+  width: 40px;
   height: 40px;
   label {
     font-family: $font_family;
@@ -166,10 +184,12 @@
   @include transform-translate(0, 0);
   padding: 12px;
   z-index: 10;
-  opacity: 0.9;
+  opacity: 1;
+  @include border-radius(50%);
+  @include background-rgba(0, 0, 0, 0.2, #000);
 
   &:hover {
-    opacity: 1;
+    @include background-rgba(0, 0, 0, 0.5, #000);
   }
 
   &.#{$css}-button-record-start {
@@ -177,12 +197,12 @@
     width: $controlbar_primarybutton_size;
     height: $controlbar_primarybutton_size;
     @include border-radius(50%);
-    @include border-rgba(4px, 255, 255, 255, 0.2, #FFFFFF);
+    @include border-rgba(4px, 0, 0, 0, 0.2, #FFFFFF);
     @include border-padding-box();
     padding: unset;
 
     &:hover {
-      border-color: #FFFFFF;
+      @include border-rgba(4px, 0, 0, 0, 0.5, #FFFFFF);
     }
   }
 
@@ -192,12 +212,12 @@
     width: $controlbar_primarybutton_size;
     height: $controlbar_primarybutton_size;
     @include border-radius(50%);
-    @include border-rgba(4px, 255, 255, 255, 0.2, #FFFFFF);
+    @include border-rgba(4px, 0, 0, 0, 0.2, #FFFFFF);
     @include border-padding-box();
     padding: unset;
 
     &:hover {
-      border-color: #FFFFFF;
+      @include border-rgba(4px, 0, 0, 0, 0.5, #FFFFFF);
     }
 
     i:before {
@@ -206,23 +226,18 @@
   }
 
   &.#{$css}-disabled {
-    @include background-rgba(255, 255, 255, .1, #1a1a1a);
-    @include color-rgba(255, 255, 255, .5, #808080);
+    @include background-rgba(0, 0, 0, .1, #1a1a1a);
+    @include color-rgba(0, 0, 0, .5, #808080);
   }
 
   &.#{$css}-button-skip {
-    @include background-rgba(255, 255, 255, .2, #333333);
+    @include background-rgba(0, 0, 0, .2, #333333);
     color: white; 
   }
 
   &.#{$css}-rerecord-button {
-    background-color: transparent;
     color: white;
-    opacity: 0.5;
-
-    &:hover {
-      opacity: 1;
-    }
+    opacity: 1;
   }
 }
 

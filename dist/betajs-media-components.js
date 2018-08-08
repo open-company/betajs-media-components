@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.128 - 2018-08-07
+betajs-media-components - v0.0.129 - 2018-08-08
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1006,7 +1006,7 @@ Public.exports();
 	return Public;
 }).call(this);
 /*!
-betajs-media-components - v0.0.128 - 2018-08-07
+betajs-media-components - v0.0.129 - 2018-08-08
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1022,7 +1022,7 @@ Scoped.binding('dynamics', 'global:BetaJS.Dynamics');
 Scoped.define("module:", function () {
 	return {
     "guid": "7a20804e-be62-4982-91c6-98eb096d2e70",
-    "version": "0.0.128"
+    "version": "0.0.129"
 };
 });
 Scoped.assumeVersion('base:version', '~1.0.96');
@@ -5898,11 +5898,11 @@ Scoped.define("module:VideoRecorder.Dynamics.Imagegallery", [
         }, function(inherited) {
             return {
 
-                template: "<div data-selector=\"slider-left-button\" class=\"{{css}}-imagegallery-leftbutton\">\n\t<div tabindex=\"0\" data-selector=\"slider-left-inner-button\"\n\t\t ba-hotkey:space^enter^left=\"{{left()}}\" onmouseout=\"this.blur()\"\n\t\t class=\"{{css}}-imagegallery-button-inner\" onclick=\"{{left()}}\"\n\t>\n\t\t<i class=\"{{css}}-icon-left_arrow-1\"></i>\n\t</div>\n</div>\n\n<div data-selector=\"images-imagegallery-container\" ba-repeat=\"{{image::images}}\"\n\t class=\"{{css}}-imagegallery-container\" data-gallery-container>\n     <div tabindex=\"0\" class=\"{{css}}-imagegallery-image\"\n\t\t  ba-hotkey:space^enter=\"{{select(image)}}\" onmouseout=\"this.blur()\"\n          ba-styles=\"{{{left: image.left + 'px', top: image.top + 'px', width: image.width + 'px', height: image.height + 'px'}}}\"\n          onclick=\"{{select(image)}}\"\n\t >\n\t\t <div class=\"{{css}}-imagegallery-image-compat\" ba-show=\"{{ie10below}}\"></div>\n     </div>\n</div>\n\n<div data-selector=\"slider-right-button\" class=\"{{css}}-imagegallery-rightbutton\">\n\t<div tabindex=\"0\" data-selector=\"slider-right-inner-button\"\n\t\t ba-hotkey:space^enter^right=\"{{right()}}\" onmouseout=\"this.blur()\"\n\t\t class=\"{{css}}-imagegallery-button-inner\" onclick=\"{{right()}}\"\n\t>\n\t\t<i class=\"{{css}}-icon-right_arrow-1\"></i>\n\t</div>\n</div>\n",
+                template: "<div data-selector=\"slider-left-button\" class=\"{{css}}-imagegallery-leftbutton\">\n\t<div tabindex=\"0\" data-selector=\"slider-left-inner-button\"\n\t\t ba-hotkey:space^enter^left=\"{{left()}}\" onmouseout=\"this.blur()\"\n\t\t class=\"{{css}}-imagegallery-button-inner\" onclick=\"{{left()}}\"\n\t>\n\t\t<i class=\"{{css}}-icon-left-dir\"></i>\n\t</div>\n</div>\n\n<div data-selector=\"images-imagegallery-container\" ba-repeat=\"{{image::images}}\"\n\t class=\"{{css}}-imagegallery-container\" data-gallery-container>\n     <div tabindex=\"0\" class=\"{{css}}-imagegallery-image\"\n\t\t  ba-hotkey:space^enter=\"{{select(image)}}\" onmouseout=\"this.blur()\"\n          ba-styles=\"{{{left: image.left + 'px', top: image.top + 'px', width: image.width + 'px', height: image.height + 'px'}}}\"\n          onclick=\"{{select(image)}}\"\n\t >\n\t\t <div class=\"{{css}}-imagegallery-image-compat\" ba-show=\"{{ie10below}}\"></div>\n     </div>\n</div>\n\n<div data-selector=\"slider-right-button\" class=\"{{css}}-imagegallery-rightbutton\">\n\t<div tabindex=\"0\" data-selector=\"slider-right-inner-button\"\n\t\t ba-hotkey:space^enter^right=\"{{right()}}\" onmouseout=\"this.blur()\"\n\t\t class=\"{{css}}-imagegallery-button-inner\" onclick=\"{{right()}}\"\n\t>\n\t\t<i class=\"{{css}}-icon-right-dir\"></i>\n\t</div>\n</div>\n",
 
                 attrs: {
                     "css": "ba-videorecorder",
-                    "imagecount": 3,
+                    "imagecount": 5,
                     "imagenativewidth": 0,
                     "imagenativeheight": 0,
                     "snapshotindex": 0,
@@ -6191,7 +6191,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                     "csschooser": "",
                     "width": "",
                     "height": "",
-                    "gallerysnapshots": 3,
+                    "gallerysnapshots": 5,
 
                     /* Themes */
                     "theme": "",
@@ -7474,29 +7474,22 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.RecordPrepare", [
         _locals: ["preparePromise"],
 
         _started: function() {
-            this.dyn.set("message", "");
-            this.dyn.set("loaderlabel", "");
-            this.dyn._accessing_camera = true;
-            this._preparePromise = this._preparePromise || this.dyn._prepareRecording();
-            this._startRecording();
-        },
-
-        _startedOld: function() {
+            var countdownSpeed = 700;
             this.dyn.set("message", "");
             this.dyn.set("loaderlabel", "");
             var startedRecording = false;
             this.dyn._accessing_camera = true;
             this._preparePromise = this._preparePromise || this.dyn._prepareRecording();
-            var countdown = this.dyn.get("countdown") ? this.dyn.get("countdown") * 1000 : 0;
+            var countdown = this.dyn.get("countdown") ? this.dyn.get("countdown") * countdownSpeed : 0;
             var delay = this.dyn.recorder.recordDelay(this.dyn.get("uploadoptions")) || 0;
             if (countdown) {
-                var displayDenominator = 1000;
+                var displayDenominator = countdownSpeed;
                 var silentTime = 0;
                 var startTime = Time.now();
                 var endTime = startTime + Math.max(delay, countdown);
                 if (delay > countdown) {
                     silentTime = Math.min(500, delay - countdown);
-                    displayDenominator = (delay - silentTime) / countdown * 1000;
+                    displayDenominator = (delay - silentTime) / countdown * countdownSpeed;
                 } else
                     this.dyn.set("loaderlabel", "" + this.dyn.get("countdown") + "...");
                 var timer = new Timer({
@@ -7507,7 +7500,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.RecordPrepare", [
                         var time_left = Math.max(0, endTime - now);
                         if (now > silentTime + startTime) {
                             this.dyn.set("loaderlabel", "" + Math.ceil((time_left - silentTime) / displayDenominator) + "...");
-                            this.dyn.trigger("countdown", Math.round((time_left - silentTime) / displayDenominator * 1000));
+                            this.dyn.trigger("countdown", Math.round((time_left - silentTime) / displayDenominator * countdownSpeed));
                         }
                         if (endTime <= now) {
                             this.dyn.set("loaderlabel", "");

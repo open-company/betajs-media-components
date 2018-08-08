@@ -114,6 +114,11 @@
     content: '\e816';
 }
 
+.#{$css}-icon-left-dir:before {
+    @include fontello-icon;
+    content: '\e817';
+}
+
 .#{$css}-icon-uploading:before {
     @include fontello-icon;
     content: '\e818';
@@ -132,6 +137,11 @@
 .#{$css}-icon-right_arrow-1:before {
     @include fontello-icon;
     content: '\e81b';
+}
+
+.#{$css}-icon-right-dir:before {
+    @include fontello-icon;
+    content: '\e81c';
 }
 
 .#{$css}-icon-twitter:before {

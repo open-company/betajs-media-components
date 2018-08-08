@@ -44,7 +44,7 @@ $rerecord_text_color: #eeeeee;
 $rerecord_font_family: sans-serif;
 
 $rerecord_height: 48px;
-$rerecord_opacity: 0.5;
+$rerecord_opacity: 1;
 $rerecord_bgcolor: black;
 $rerecord_padding: 24px;
 $rerecord_padding: 16px;
@@ -62,10 +62,12 @@ $rerecord_letter_spacing: .1em;
 $theme_color_blue: #2a74eb;
 $theme_color_red: #eb6a74;
 $theme_color_green: #5daa96;
+$theme_color_white: #ffffff;
 
 $colors: (
   'red': $theme_color_red,
   'blue': $theme_color_blue,
   'green': $theme_color_green,
+  'white': $theme_color_white,
   'default': ''
 );

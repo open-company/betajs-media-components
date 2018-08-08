@@ -40,11 +40,6 @@
     position: absolute;
     box-sizing: border-box;
     cursor:pointer;
-  border: 2px solid transparent;
-}
-
-.#{$css}-imagegallery-image:hover {
-	border: 2px solid white;
 }
 
 .#{$css}-imagegallery-image-compat {

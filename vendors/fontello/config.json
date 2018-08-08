@@ -303,6 +303,18 @@
       "src": "fontawesome"
     },
     {
+      "uid": "9dc654095085167524602c9acc0c5570",
+      "css": "left-dir",
+      "code": 59415,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "fb1c799ffe5bf8fb7f8bcb647c8fe9e6",
+      "css": "right-dir",
+      "code": 59420,
+      "src": "fontawesome"
+    },
+    {
       "uid": "2e51cdc3553a78ec16fc5f5a09f9930c",
       "css": "right_arrow",
       "code": 59414,

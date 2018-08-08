@@ -475,29 +475,22 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.RecordPrepare", [
         _locals: ["preparePromise"],
 
         _started: function() {
-            this.dyn.set("message", "");
-            this.dyn.set("loaderlabel", "");
-            this.dyn._accessing_camera = true;
-            this._preparePromise = this._preparePromise || this.dyn._prepareRecording();
-            this._startRecording();
-        },
-
-        _startedOld: function() {
+            var countdownSpeed = 700;
             this.dyn.set("message", "");
             this.dyn.set("loaderlabel", "");
             var startedRecording = false;
             this.dyn._accessing_camera = true;
             this._preparePromise = this._preparePromise || this.dyn._prepareRecording();
-            var countdown = this.dyn.get("countdown") ? this.dyn.get("countdown") * 1000 : 0;
+            var countdown = this.dyn.get("countdown") ? this.dyn.get("countdown") * countdownSpeed : 0;
             var delay = this.dyn.recorder.recordDelay(this.dyn.get("uploadoptions")) || 0;
             if (countdown) {
-                var displayDenominator = 1000;
+                var displayDenominator = countdownSpeed;
                 var silentTime = 0;
                 var startTime = Time.now();
                 var endTime = startTime + Math.max(delay, countdown);
                 if (delay > countdown) {
                     silentTime = Math.min(500, delay - countdown);
-                    displayDenominator = (delay - silentTime) / countdown * 1000;
+                    displayDenominator = (delay - silentTime) / countdown * countdownSpeed;
                 } else
                     this.dyn.set("loaderlabel", "" + this.dyn.get("countdown") + "...");
                 var timer = new Timer({
@@ -508,7 +501,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.RecordPrepare", [
                         var time_left = Math.max(0, endTime - now);
                         if (now > silentTime + startTime) {
                             this.dyn.set("loaderlabel", "" + Math.ceil((time_left - silentTime) / displayDenominator) + "...");
-                            this.dyn.trigger("countdown", Math.round((time_left - silentTime) / displayDenominator * 1000));
+                            this.dyn.trigger("countdown", Math.round((time_left - silentTime) / displayDenominator * countdownSpeed));
                         }
                         if (endTime <= now) {
                             this.dyn.set("loaderlabel", "");

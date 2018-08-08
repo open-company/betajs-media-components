@@ -23,7 +23,6 @@
     height: $controlbar_height;
     overflow: hidden;
     padding: 0 $controlbar_side_padding;
-    background: linear-gradient(to bottom, black, transparent 60px);
     border-radius: 8px;
 }
 
@@ -40,8 +39,13 @@
     &[data-selector='button-icon-play']:focus, &[data-selector='button-icon-pause']:focus {
         //outline: none;
         i.#{$css}-icon-play {
-            outline: 1px solid #8BC2F9;
+            outline: none;
+            @inclue background-rgba(0, 0, 0, 0.2, #000000);
+            color: white;
+            font-size: 23px;
+
             &:hover, &:active {
+                @inclue background-rgba(0, 0, 0, 0.5, #000000);
                 border: none;
             }
         }
@@ -233,7 +237,8 @@
 
 .#{$css}-progressbar-button {
     @include border-radius(50%);
-    background-color: $progressbar_button_overflow;
+    background-color: white;
+    color: white;
     box-sizing: content-box;
     border: none;
     position: absolute;
@@ -255,8 +260,9 @@
 }
 
 .#{$css}-time-container {
-    @include color-rgba(255, 255, 255, 0.7, #b2b2b2);
-    background-color: #676f76;
+    color: white;
+    @include background-rgba(0, 0, 0, 0.5, #000000);
+    border-radius: 6px;
     float: left;
     font-size: .8em;
     letter-spacing: .1em;

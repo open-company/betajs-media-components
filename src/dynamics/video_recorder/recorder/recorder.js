@@ -55,7 +55,7 @@ Scoped.define("module:VideoRecorder.Dynamics.Recorder", [
                     "csschooser": "",
                     "width": "",
                     "height": "",
-                    "gallerysnapshots": 3,
+                    "gallerysnapshots": 5,
 
                     /* Themes */
                     "theme": "",

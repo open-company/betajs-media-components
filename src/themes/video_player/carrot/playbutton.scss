@@ -3,7 +3,7 @@
     @include absolute-center-center;
     @include transition1(all, $playbutton_transition_time, ease-in-out);
     @include transform-translate(-50%, -50%);
-    @include background-rgba(255,255,255,0.4,#666666);
+    @include background-rgba(0, 0, 0, 0.2, #000000);
     border-radius: 50%;
     box-sizing: content-box;
     cursor: pointer;
@@ -24,14 +24,18 @@
     box-shadow: none;
 
     .#{$css}-playbutton-button {
-        background-color: white;
-        color: $theme_color_green;
+        @include background-rgba(0, 0, 0, 0.2, #000);
+        color: $theme_color_white;
         border-radius: 50%;
         &:before {
-            color: $theme_color_green;
+            color: $theme_color_white;
         }
         &:after {
-            color: $theme_color_green;
+            color: $theme_color_white;
+        }
+
+        &:hover {
+            @include background-rgba(0, 0, 0, 0.5, #000);
         }
     }
 }
@@ -79,18 +83,23 @@
 }
 
 .#{$css}-rerecord-button {
-    border-radius: 18px;
-    color: $rerecord_primarybutton_text_color;
-    background-color: transparent;
+    border-radius: 50%;
+    color: white;
+    @include background-rgba(0, 0, 0, 0.2, #000000);
     @include clickable;
-    font-family: $rerecord_font_family;
-    font-weight: $rerecord_primarybutton_font_weight;
     font-size: $rerecord_primarybutton_font_size;
-    padding: $rerecord_primarybutton_padding;
-    letter-spacing: $rerecord_letter_spacing;
-    opacity: 0.5;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    opacity: 1;
+
+    i:before {
+        line-height: 40px;
+    }
 
     &:hover {
-        opacity: 1;
+        @include background-rgba(0, 0, 0, 0.5, #000000);
     }
 }

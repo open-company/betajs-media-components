@@ -10,8 +10,7 @@
         color: $value;
       }
 
-      .#{$css}-volumebar-position, .#{$css}-stream-label, .#{$css}-progressbar-position,
-      .#{$css}-time-container, .#{$css}-progressbar-button,
+      .#{$css}-volumebar-position, .#{$css}-stream-label, .#{$css}-progressbar-position, .#{$css}-progressbar-button,
       .#{$css}-cc-inactive {
         background-color: $value;
       }

@@ -1,5 +1,4 @@
 .#{$css}-imagegallery-image, .#{$css}-overlay img  {
-  border: 2px solid transparent;
   @include border-radius($imagegallery_border_radius);
 }
 
@@ -12,30 +11,37 @@
 }
 
 .#{$css}-imagegallery-image.#{$css}-selected-snapshot {
-  border: 2px solid white;
   @include background-rgba(63, 189, 124, 0.8, #3FBD7C);
   text-align: center;
 
   i.#{$css}-icon-check {
     display: block;
-    line-height: 7em;
+    line-height: 4em;
   }
 }
 
 .#{$css}-imagegallery-rightbutton, .#{$css}-imagegallery-leftbutton {
-  border-radius: 50%;
+  @include border-radius(50%);
+  @include background-rgba(0, 0, 0, 0.2, #000);
   height: $imagegallery_buttonsize;
   width: $imagegallery_buttonsize;
-  bottom: 18px;
+  bottom: 8px;
   right: 0;
   z-index: 10;
   position: absolute;
   margin-left: $imagegallery_buttonmargin;
   margin-right: $imagegallery_buttonmargin;
 
+  &:hover {
+    @include background-rgba(0, 0, 0, 0.5, #000);
+  }
+
   i {
     color: white;
-    font-size: 24px;
+    font-size: 18px;
+    &:before {
+      line-height: 40px;
+    }
   }
 }
 

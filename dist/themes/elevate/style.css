@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.128 - 2018-08-07
+betajs-media-components - v0.0.129 - 2018-08-08
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -578,6 +578,31 @@ Apache-2.0 Software License.
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e816'; }
 
+.ba-videoplayer-elevate-theme-icon-left-dir:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e817'; }
+
 .ba-videoplayer-elevate-theme-icon-uploading:before {
   font-family: "bjsmc";
   font-style: normal;
@@ -677,6 +702,31 @@ Apache-2.0 Software License.
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e81b'; }
+
+.ba-videoplayer-elevate-theme-icon-right-dir:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e81c'; }
 
 .ba-videoplayer-elevate-theme-icon-twitter:before {
   font-family: "bjsmc";
@@ -1111,7 +1161,6 @@ Apache-2.0 Software License.
 .ba-videoplayer-elevate-theme-player-toggle-overlay .ba-videoplayer-elevate-theme-player-static-duration {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, black, transparent 16%);
   position: relative; }
   .ba-videoplayer-elevate-theme-player-toggle-overlay .ba-videoplayer-elevate-theme-player-static-duration span {
     position: absolute;
@@ -2730,6 +2779,31 @@ Apache-2.0 Software License.
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e816'; }
 
+.ba-videorecorder-theme-elevate-icon-left-dir:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e817'; }
+
 .ba-videorecorder-theme-elevate-icon-uploading:before {
   font-family: "bjsmc";
   font-style: normal;
@@ -2829,6 +2903,31 @@ Apache-2.0 Software License.
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e81b'; }
+
+.ba-videorecorder-theme-elevate-icon-right-dir:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e81c'; }
 
 .ba-videorecorder-theme-elevate-icon-twitter:before {
   font-family: "bjsmc";
@@ -3465,11 +3564,7 @@ div.ba-videorecorder-theme-elevate-disabled {
   z-index: 2;
   position: absolute;
   box-sizing: border-box;
-  cursor: pointer;
-  border: 2px solid transparent; }
-
-.ba-videorecorder-theme-elevate-imagegallery-image:hover {
-  border: 2px solid white; }
+  cursor: pointer; }
 
 .ba-videorecorder-theme-elevate-imagegallery-image-compat {
   cursor: pointer;
@@ -4722,6 +4817,31 @@ div.ba-videorecorder-theme-elevate-disabled {
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e816'; }
 
+.ba-imageviewer-elevate-theme-icon-left-dir:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e817'; }
+
 .ba-imageviewer-elevate-theme-icon-uploading:before {
   font-family: "bjsmc";
   font-style: normal;
@@ -4821,6 +4941,31 @@ div.ba-videorecorder-theme-elevate-disabled {
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e81b'; }
+
+.ba-imageviewer-elevate-theme-icon-right-dir:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e81c'; }
 
 .ba-imageviewer-elevate-theme-icon-twitter:before {
   font-family: "bjsmc";
@@ -6135,6 +6280,31 @@ div.ba-videorecorder-theme-elevate-disabled {
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e816'; }
 
+.ba-audioplayer-elevate-theme-icon-left-dir:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e817'; }
+
 .ba-audioplayer-elevate-theme-icon-uploading:before {
   font-family: "bjsmc";
   font-style: normal;
@@ -6234,6 +6404,31 @@ div.ba-videorecorder-theme-elevate-disabled {
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
   content: '\e81b'; }
+
+.ba-audioplayer-elevate-theme-icon-right-dir:before {
+  font-family: "bjsmc";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  content: '\e81c'; }
 
 .ba-audioplayer-elevate-theme-icon-twitter:before {
   font-family: "bjsmc";
