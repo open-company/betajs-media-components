@@ -16,6 +16,7 @@ Scoped.define("module:VideoPlayer.Dynamics.Tracks", [
                 attrs: {
                     "css": "ba-videoplayer",
                     "csscommon": "ba-commoncss",
+                    "cssplayer": "ba-player",
                     "trackcuetext": null,
                     "acceptedtracktexts": "text/vtt,application/ttml+xml,type/subtype",
                     "trackselectorhovered": false,
@@ -31,6 +32,9 @@ Scoped.define("module:VideoPlayer.Dynamics.Tracks", [
                     },
 
                     hover_cc: function(ev, hover) {
+                        // Not show CC on hover during settings block is open
+                        if (this.parent().get("settingsoptionsvisible")) return;
+
                         // Don't lose focus on clicking move between sliders
                         // After if element has an focus not close it till next mouseover/mouseleave
                         if (!hover && ev[0].target === document.activeElement) {

@@ -1,8 +1,10 @@
 <div itemscope itemtype="http://schema.org/AudioObject"
-    class="{{css}}-container {{css}}-size-{{csssize}} {{iecss}}-{{ie8 ? 'ie8' : 'noie8'}} {{csstheme}} {{css}}-normal-view {{css}}-common-browser
-    {{css}}-{{themecolor}}-color {{stretch ? css + '-stretch' : ''}}"
+    class="{{css}}-container {{cssplayer}}-size-{{csssize}} {{iecss}}-{{ie8 ? 'ie8' : 'noie8'}} {{csstheme}}
+    {{cssplayer}}-normal-view {{cssplayer}}-common-browser {{cssplayer}}-{{themecolor}}-color {{stretch ? css + '-stretch' : ''}}
+    {{cssplayer}}-{{title ? 'has-title' : 'no-title'}} {{visualeffectvisible ? cssplayer + '-visual-effect-applied' : ''}}"
 	ba-styles="{{widthHeightStyles}}"
 >
+	<canvas data-selector="audio-canvas" class="{{csstheme}}-audio-canvas"></canvas>
     <audio tabindex="-1" class="{{css}}-audio" data-audio="audio"></audio>
     <div class="{{css}}-overlay">
 		<div tabindex="-1" class="{{css}}-player-toggle-overlay" data-selector="player-toggle-overlay"
@@ -13,6 +15,9 @@
 		</div>
 	    <ba-{{dyncontrolbar}}
 		    ba-css="{{csscontrolbar || css}}"
+			ba-cssplayer="{{cssplayer || css}}"
+			ba-csscommon="{{csscommon || css}}"
+			ba-csstheme="{{csstheme || css}}"
 			ba-themecolor="{{themecolor}}"
 		    ba-template="{{tmplcontrolbar}}"
 		    ba-show="{{controlbar_active}}"
@@ -43,6 +48,8 @@
 
 		<ba-{{dynloader}}
 		    ba-css="{{cssloader || css}}"
+			ba-cssplayer="{{cssplayer || css}}"
+			ba-csscommon="{{csscommon || css}}"
 			ba-theme-color="{{themecolor}}"
 		    ba-template="{{tmplloader}}"
 			ba-playwhenvisible="{{playwhenvisible}}"
@@ -51,6 +58,8 @@
 
 		<ba-{{dynmessage}}
 		    ba-css="{{cssmessage || css}}"
+			ba-cssplayer="{{cssplayer || css}}"
+			ba-csscommon="{{csscommon || css}}"
 			ba-theme-color="{{themecolor}}"
 		    ba-template="{{tmplmessage}}"
 		    ba-show="{{message_active}}"

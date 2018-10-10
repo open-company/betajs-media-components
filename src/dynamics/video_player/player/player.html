@@ -1,14 +1,20 @@
 <div itemscope itemtype="http://schema.org/VideoObject"
-     class="{{css}}-container {{css}}-size-{{csssize}} {{iecss}}-{{ie8 ? 'ie8' : 'noie8'}} {{csstheme}} {{css}}-{{ fullscreened ? 'fullscreen' : 'normal' }}-view {{css}}-{{ firefox ? 'firefox' : 'common'}}-browser
-    {{css}}-{{themecolor}}-color"
+     class="{{css}}-container {{cssplayer}}-size-{{csssize}} {{iecss}}-{{ie8 ? 'ie8' : 'noie8'}} {{csstheme}}
+     {{cssplayer}}-{{ fullscreened ? 'fullscreen' : 'normal' }}-view {{cssplayer}}-{{ firefox ? 'firefox' : 'common'}}-browser
+     {{cssplayer}}-{{themecolor}}-color"
      ba-on:mousemove="{{user_activity()}}"
      ba-on:mousedown="{{user_activity(true)}}"
      ba-on:touchstart="{{user_activity(true)}}"
      ba-styles="{{widthHeightStyles}}"
 >
-    <video tabindex="-1" class="{{css}}-video" data-video="video"
-           ba-toggle:playsinline="{{!playfullscreenonmobile}}"
-    ></video>
+    <div ba-show="{{videoelement_active}}">
+        <video tabindex="-1" class="{{css}}-video" data-video="video"
+               ba-toggle:playsinline="{{!playfullscreenonmobile}}"
+        ></video>
+    </div>
+    <div ba-show="{{imageelement_active && !videoelement_active}}">
+        <img tabindex="-1" class="{{css}}-video" data-image="image" />
+    </div>
     <div class="{{css}}-overlay">
         <div tabindex="-1" class="{{css}}-player-toggle-overlay" data-selector="player-toggle-overlay"
              ba-hotkey:right="{{seek(position + skipseconds)}}" ba-hotkey:left="{{seek(position - skipseconds)}}"
@@ -23,11 +29,15 @@
         </div>
         <ba-{{dyncontrolbar}}
             ba-css="{{csscontrolbar || css}}"
+            ba-cssplayer="{{cssplayer || css}}"
+            ba-csstheme="{{csstheme || css}}"
             ba-themecolor="{{themecolor}}"
             ba-template="{{tmplcontrolbar}}"
             ba-show="{{controlbar_active}}"
             ba-playing="{{playing}}"
             ba-playwhenvisible="{{playwhenvisible}}"
+            ba-playerspeeds="{{playerspeeds}}"
+            ba-playercurrentspeed="{{playercurrentspeed}}"
             ba-airplay="{{airplay}}"
             ba-airplaybuttonvisible="{{airplaybuttonvisible}}"
             ba-chromecast="{{chromecast}}"
@@ -38,6 +48,8 @@
             ba-event:pause="pause"
             ba-event:position="seek"
             ba-event:volume="set_volume"
+            ba-event:set_speed="set_speed"
+            ba-event:toggle_settings="toggle_settings"
             ba-event:fullscreen="toggle_fullscreen"
             ba-event:toggle_player="toggle_player"
             ba-event:tab_index_move="tab_index_move"
@@ -68,10 +80,14 @@
             ba-disableseeking="{{disableseeking}}"
             ba-skipseconds="{{skipseconds}}"
             ba-skipinitial="{{skipinitial}}"
+            ba-showsettings="{{showsettings}}"
+            ba-settingsoptionsvisible="{{settingsoptionsvisible}}"
         ></ba-{{dyncontrolbar}}>
 
         <ba-{{dyntracks}}
             ba-css="{{csstracks || css}}"
+            ba-csstheme="{{csstheme || css}}"
+            ba-cssplayer="{{cssplayer || css}}"
             ba-show="{{tracktagssupport || allowtexttrackupload}}"
             ba-tracksshowselection="{{tracksshowselection}}"
             ba-trackselectorhovered="{{trackselectorhovered}}"
@@ -82,6 +98,8 @@
             ba-uploadtexttracksvisible="{{uploadtexttracksvisible}}"
             ba-acceptedtracktexts="{{acceptedtracktexts}}"
             ba-uploadlocales="{{uploadlocales}}"
+            ba-activitydelta="{{activity_delta}}"
+            ba-hideoninactivity="{{hideoninactivity}}"
             ba-event:selected_label_value="selected_label_value"
             ba-event:upload-text-tracks="upload_text_tracks"
             ba-event:move_to_option="move_to_option"
@@ -89,6 +107,8 @@
 
         <ba-{{dynplaybutton}}
             ba-css="{{cssplaybutton || css}}"
+            ba-csstheme="{{csstheme || css}}"
+            ba-cssplayer="{{cssplayer || css}}"
             ba-theme-color="{{themecolor}}"
             ba-template="{{tmplplaybutton}}"
             ba-show="{{playbutton_active}}"
@@ -102,6 +122,8 @@
 
         <ba-{{dynloader}}
             ba-css="{{cssloader || css}}"
+            ba-csstheme="{{csstheme || css}}"
+            ba-cssplayer="{{cssplayer || css}}"
             ba-theme-color="{{themecolor}}"
             ba-template="{{tmplloader}}"
             ba-playwhenvisible="{{playwhenvisible}}"
@@ -110,6 +132,8 @@
 
         <ba-{{dynshare}}
             ba-css="{{cssshare || css}}"
+            ba-csstheme="{{csstheme || css}}"
+            ba-cssplayer="{{cssplayer || css}}"
             ba-theme-color="{{themecolor}}"
             ba-template="{{tmplshare}}"
             ba-show="{{sharevideourl && sharevideo.length > 0}}"
@@ -119,6 +143,8 @@
 
         <ba-{{dynmessage}}
             ba-css="{{cssmessage || css}}"
+            ba-csstheme="{{csstheme || css}}"
+            ba-cssplayer="{{cssplayer || css}}"
             ba-theme-color="{{themecolor}}"
             ba-template="{{tmplmessage}}"
             ba-show="{{message_active}}"
@@ -128,6 +154,8 @@
 
         <ba-{{dyntopmessage}}
             ba-css="{{csstopmessage || css}}"
+            ba-csstheme="{{csstheme || css}}"
+            ba-cssplayer="{{cssplayer || css}}"
             ba-theme-color="{{themecolor}}"
             ba-template="{{tmpltopmessage}}"
             ba-show="{{topmessage}}"
@@ -138,5 +166,5 @@
         <meta itemprop="thumbnailUrl" content="{{poster}}"/>
         <meta itemprop="contentUrl" content="{{source}}"/>
     </div>
-    <div class="{{css}}-overlay" data-video="ad" style="display:none"></div>
+    <div class="{{cssplayer}}-overlay" data-video="ad" style="display:none"></div>
 </div>

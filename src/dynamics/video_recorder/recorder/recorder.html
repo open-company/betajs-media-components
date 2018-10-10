@@ -1,17 +1,19 @@
 
-<div data-selector="recorder-container" ba-show="{{!player_active}}"
-     class="{{css}}-container {{css}}-size-{{csssize}} {{iecss}}-{{ie8 ? 'ie8' : 'noie8'}} {{csstheme}}
-     	{{css}}-{{ fullscreened ? 'fullscreen' : 'normal' }}-view {{css}}-{{ firefox ? 'firefox' : 'common'}}-browser
-    	{{css}}-{{themecolor}}-color"
+<div data-selector="video-recorder-container" ba-show="{{!player_active}}"
+     class="{{css}}-container {{csstheme}} {{css}}-size-{{csssize}}
+     {{iecss}}-{{ie8 ? 'ie8' : 'noie8'}} {{css}}-{{ fullscreened ? 'fullscreen' : 'normal' }}-view
+     {{cssrecorder}}-{{ firefox ? 'firefox' : 'common'}}-browser
+     {{cssrecorder}}-{{themecolor}}-color"
      ba-styles="{{widthHeightStyles}}"
 >
 
     <video tabindex="-1" data-selector="recorder-status" class="{{css}}-video {{css}}-{{hasrecorder ? 'hasrecorder' : 'norecorder'}}" data-video="video" playsinline></video>
-	<ba-recorderfaceoutline class="{{css}}-overlay" ba-if="{{faceoutline && hasrecorder}}">
-	</ba-recorderfaceoutline>
-    <div data-selector="recorder-overlay" class='{{css}}-overlay' ba-show="{{!hideoverlay}}" data-overlay="overlay">
+	<ba-videorecorder-faceoutline class="{{css}}-overlay" ba-if="{{faceoutline && hasrecorder}}">
+	</ba-videorecorder-faceoutline>
+    <div data-selector="recorder-overlay" class='{{cssrecorder}}-overlay' ba-show="{{!hideoverlay}}" data-overlay="overlay">
 		<ba-{{dynloader}}
 		    ba-css="{{cssloader || css}}"
+			ba-cssrecorder="{{cssrecorder || css}}"
 			ba-themecolor="{{themecolor}}"
 		    ba-template="{{tmplloader}}"
 		    ba-show="{{loader_active}}"
@@ -23,6 +25,7 @@
 		<ba-{{dynmessage}}
 		    ba-css="{{cssmessage || css}}"
 			ba-themecolor="{{themecolor}}"
+			ba-cssrecorder="{{cssrecorder || css}}"
 		    ba-template="{{tmplmessage}}"
 		    ba-show="{{message_active}}"
 		    ba-message="{{message}}"
@@ -35,6 +38,7 @@
 		<ba-{{dyntopmessage}}
 		    ba-css="{{csstopmessage || css}}"
 			ba-themecolor="{{themecolor}}"
+			ba-cssrecorder="{{cssrecorder || css}}"
 		    ba-template="{{tmpltopmessage}}"
 		    ba-show="{{topmessage_active && (topmessage || hovermessage)}}"
 		    ba-topmessage="{{hovermessage || topmessage}}"
@@ -45,6 +49,7 @@
 			ba-recordviafilecapture="{{recordviafilecapture}}"
 		    ba-css="{{csschooser || css}}"
 			ba-themecolor="{{themecolor}}"
+			ba-cssrecorder="{{cssrecorder || css}}"
 		    ba-template="{{tmplchooser}}"
 			ba-allowscreen="{{allowscreen}}"
 		    ba-if="{{chooser_active && !is_initial_state}}"
@@ -62,6 +67,7 @@
 		<ba-{{dynimagegallery}}
 		    ba-css="{{cssimagegallery || css}}"
 			ba-themecolor="{{themecolor}}"
+			ba-cssrecorder="{{cssrecorder || css}}"
 		    ba-template="{{tmplimagegallery}}"
 		    ba-if="{{imagegallery_active}}"
         ba-snapshotindex={{snapshotindex}}
@@ -75,6 +81,8 @@
 
 		<ba-{{dyncontrolbar}}
 		    ba-css="{{csscontrolbar || css}}"
+			ba-cssrecorder="{{cssrecorder || css}}"
+			ba-csstheme="{{csstheme || css}}"
 			ba-themecolor="{{themecolor}}"
 		    ba-template="{{tmplcontrolbar}}"
 		    ba-show="{{controlbar_active}}"
@@ -114,6 +122,7 @@
 	<ba-{{dynvideoplayer}}
 	    ba-theme="{{theme || 'default'}}"
         ba-themecolor="{{themecolor}}"
+		ba-cssrecorder="{{cssrecorder || css}}"
         ba-source="{{playbacksource}}"
         ba-poster="{{playbackposter}}"
         ba-hideoninactivity="{{false}}"

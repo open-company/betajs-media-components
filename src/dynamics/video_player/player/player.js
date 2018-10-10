@@ -14,6 +14,7 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
     "base:States.Host",
     "base:Classes.ClassRegistry",
     "base:Async",
+    "module:Settings",
     "module:VideoPlayer.Dynamics.PlayerStates.Initial",
     "module:VideoPlayer.Dynamics.PlayerStates",
     "module:Ads.AbstractVideoAdProvider",
@@ -31,7 +32,7 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
     "dynamics:Partials.StylesPartial",
     "dynamics:Partials.TemplatePartial",
     "dynamics:Partials.HotkeyPartial"
-], function(Class, Assets, Info, Dom, VideoPlayerWrapper, Broadcasting, Types, Objs, Strings, Time, Timers, TimeFormat, Host, ClassRegistry, Async, InitialState, PlayerStates, AdProvider, DomEvents, scoped) {
+], function(Class, Assets, Info, Dom, VideoPlayerWrapper, Broadcasting, Types, Objs, Strings, Time, Timers, TimeFormat, Host, ClassRegistry, Async, Settings, InitialState, PlayerStates, AdProvider, DomEvents, scoped) {
     return Class.extend({
             scoped: scoped
         }, function(inherited) {
@@ -43,6 +44,7 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                     /* CSS */
                     "css": "ba-videoplayer",
                     "csscommon": "ba-commoncss",
+                    "cssplayer": "ba-player",
                     "iecss": "ba-videoplayer",
                     "cssplaybutton": "",
                     "cssloader": "",
@@ -89,6 +91,7 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                     "sharevideo": [],
                     "sharevideourl": "",
                     "visibilityfraction": 0.8,
+                    "unmuted": false, // Reference to Chrome renewed policy, we have to setup mute for auto plyed players.
 
                     /* Configuration */
                     "forceflash": false,
@@ -137,6 +140,66 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                     "initialoptions": {
                         "hideoninactivity": null
                     },
+                    "showsettings": true,
+                    "settingsoptionsvisible": false, // If settings are open and visible
+                    "settingsoptions": [{
+                            id: 'playerspeeds',
+                            label: 'player-speed',
+                            defaultValue: 1.0,
+                            visible: 'media-all',
+                            flashSupport: false,
+                            mobileSupport: true,
+                            className: 'player-speed',
+                            options: [{
+                                    label: 0.50,
+                                    value: 0.50
+                                },
+                                {
+                                    label: 0.75,
+                                    value: 0.75
+                                },
+                                {
+                                    label: 1.00,
+                                    value: 1.00
+                                },
+                                {
+                                    label: 1.25,
+                                    value: 1.25
+                                },
+                                {
+                                    label: 1.50,
+                                    value: 1.50
+                                },
+                                {
+                                    label: 1.75,
+                                    value: 1.75
+                                },
+                                {
+                                    label: 2.00,
+                                    value: 2.00
+                                }
+                            ],
+                            events: [{
+                                type: 'click touchstart',
+                                method: 'set_speed',
+                                argument: true
+                            }]
+                        }
+                        // INFO: left here just as an example
+                        // ,{
+                        //     id: 'fullscreen',
+                        //     label: '<i class="ba-commoncss-icon-resize-full"></i>',
+                        //     visible: 'media-all',
+                        //     flashSupport: true,
+                        //     mobileSupport: true,
+                        //     className: 'full-screen',
+                        //     events: [{
+                        //         type: 'click touchstart',
+                        //         method: 'toggle_fullscreen',
+                        //         argument: false
+                        //     }]
+                        // }
+                    ],
                     "allowtexttrackupload": false,
                     "uploadtexttracksvisible": false,
                     "acceptedtracktexts": null,
@@ -198,7 +261,10 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                     "allowtexttrackupload": "boolean",
                     "uploadtexttracksvisible": "boolean",
                     "acceptedtracktexts": "string",
-                    "uploadlocales": "array"
+                    "uploadlocales": "array",
+                    "playerspeeds": "array",
+                    "playercurrentspeed": "float",
+                    "showsettings": "boolean"
                 },
 
                 extendables: ["states"],
@@ -222,13 +288,13 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                 remove_on_destroy: true,
 
                 create: function() {
-                    if (Info.isMobile() && (this.get("autoplay") || this.get("playwhenvisible"))) {
+                    if ( /*Info.isMobile() && */ (this.get("autoplay") || this.get("playwhenvisible"))) {
                         this.set("volume", 0.0);
                         this.set("volumeafterinteraction", true);
-                        if (!(Info.isiOS() && Info.iOSversion().major >= 10)) {
-                            this.set("autoplay", false);
-                            this.set("loop", false);
-                        }
+                        //if (!(Info.isiOS() && Info.iOSversion().major >= 10)) {
+                        //this.set("autoplay", false);
+                        //this.set("loop", false);
+                        //}
                     }
 
                     if (this.get("theme") in Assets.playerthemes) {
@@ -296,7 +362,8 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                     this.set("initialoptions", {
                         hideoninactivity: this.get("hideoninactivity")
                     });
-                    if (this.activeElement().onkeydown)
+
+                    if (document.onkeydown)
                         this.activeElement().onkeydown = this._keyDownActivity.bind(this, this.activeElement());
 
                     this.on("change:tracktags", this.__initializeTrackTags);
@@ -499,6 +566,28 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                     this.__error = null;
                 },
 
+                _detachImage: function() {
+                    this.set("imageelement_active", false);
+                },
+
+                _attachImage: function() {
+                    if (!this.get("poster")) {
+                        this.trigger("error:poster");
+                        return;
+                    }
+                    var img = this.activeElement().querySelector("[data-image='image']");
+                    this._clearError();
+                    var self = this;
+                    img.onerror = function() {
+                        self.trigger("error:poster");
+                    };
+                    img.onload = function() {
+                        self.set("imageelement_active", true);
+                        self.trigger("image-attached");
+                    };
+                    img.src = this.get("poster");
+                },
+
                 _detachVideo: function() {
                     this.set("playing", false);
                     if (this.player)
@@ -507,6 +596,7 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                         this._prerollAd.weakDestroy();
                     this.player = null;
                     this.__video = null;
+                    this.set("videoelement_active", false);
                 },
 
                 _attachVideo: function() {
@@ -517,6 +607,7 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                         return;
                     }
                     this.__attachRequested = false;
+                    this.set("videoelement_active", true);
                     var video = this.activeElement().querySelector("[data-video='video']");
                     this._clearError();
                     VideoPlayerWrapper.create(Objs.extend(this._getSources(), {
@@ -614,25 +705,18 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                         }
 
                         if (this.get("playwhenvisible")) {
-                            var _self;
-                            _self = this;
                             this.set("skipinitial", true);
-                            if (Dom.isElementVisible(video, this.get("visibilityfraction"))) {
-                                this.player.play();
+                            if (Info.isChromiumBased() && !this.get("unmuted")) {
+                                video.isMuted = true;
+                                Dom.userInteraction(function() {
+                                    video.isMuted = true;
+                                    this.set("unmuted", true);
+                                    this.set("volumeafterinteraction", false);
+                                    this._playWhenVisible(video);
+                                }, this);
+                            } else {
+                                this._playWhenVisible(video);
                             }
-
-                            this._visiblityScrollEvent = this.auto_destroy(new DomEvents());
-                            this._visiblityScrollEvent.on(document, "scroll", function() {
-                                if (!_self.get('playedonce') && !_self.get("manuallypaused")) {
-                                    if (Dom.isElementVisible(video, _self.get("visibilityfraction"))) {
-                                        _self.player.play();
-                                    } else if (_self.get("playing")) {
-                                        _self.player.pause();
-                                    }
-                                } else if (_self.get("playing") && !Dom.isElementVisible(video, _self.get("visibilityfraction"))) {
-                                    _self.player.pause();
-                                }
-                            });
                         }
                         this.player.on("fullscreen-change", function(inFullscreen) {
                             this.set("fullscreened", inFullscreen);
@@ -706,7 +790,29 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                         this._attachVideo();
                 },
 
-                /* In the feature if require to use promise player, Supports >Chrome50, >FireFox53
+                _playWhenVisible: function(video) {
+                    var _self = this;
+
+                    if (Dom.isElementVisible(video, this.get("visibilityfraction"))) {
+                        this.player.play();
+                    }
+
+                    this._visiblityScrollEvent = this.auto_destroy(new DomEvents());
+                    this._visiblityScrollEvent.on(document, "scroll", function() {
+                        if (!_self.get('playedonce') && !_self.get("manuallypaused")) {
+                            if (Dom.isElementVisible(video, _self.get("visibilityfraction"))) {
+                                _self.player.play();
+                            } else if (_self.get("playing")) {
+                                _self.player.pause();
+                            }
+                        } else if (_self.get("playing") && !Dom.isElementVisible(video, _self.get("visibilityfraction"))) {
+                            _self.player.pause();
+                        }
+                    });
+
+                },
+
+                /* In the future if require to use promise player, Supports >Chrome50, >FireFox53
                 _playWithPromise: function(dyn) {
                     var _player, _promise, _autoplayAllowed;
                     _player = dyn.player;
@@ -738,6 +844,11 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                     this.set("reloadonplay", true);
                     this._detachVideo();
                     this._attachVideo();
+                },
+
+                reattachImage: function() {
+                    this._detachImage();
+                    this._attachImage();
                 },
 
                 _keyDownActivity: function(element, ev) {
@@ -828,6 +939,7 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                     user_activity: function(strong) {
                         if (strong && this.get("volumeafterinteraction")) {
                             this.set_volume(1.0);
+                            this.set("volumeafterinteraction", false);
                         }
                         if (this.get('preventinteractionstatus')) return;
                         this._resetActivity();
@@ -932,6 +1044,10 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                         }
                     },
 
+                    set_speed: function(speed) {
+                        this.player.setSpeed(speed);
+                    },
+
                     set_volume: function(volume) {
                         if (this.get("preventinteractionstatus")) return;
                         if (this._delegatedPlayer) {
@@ -939,7 +1055,13 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                             return;
                         }
                         volume = Math.min(1.0, volume);
-                        volume = volume <= 0 ? 0 : volume; // Don't allow negative value
+
+                        if (!this.get("volumeafterinteraction"))
+                            volume = volume <= 0 ? 0 : volume; // Don't allow negative value
+                        else {
+                            this.set("volumeafterinteraction", false);
+                            volume = 0;
+                        }
 
                         if (this.player && this.player._broadcastingState && this.player._broadcastingState.googleCastConnected) {
                             this._broadcasting.player.trigger("change-google-cast-volume", volume);
@@ -949,6 +1071,14 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                         if (this.videoLoaded()) {
                             this.player.setVolume(volume);
                             this.player.setMuted(volume <= 0);
+                        }
+                    },
+
+                    toggle_settings: function() {
+                        if (this.get('settingsoptions')) {
+                            if (!this.settings)
+                                this.settings = new Settings(this.get('settingsoptions'), this);
+                            this.settings.toggle_settings_block();
                         }
                     },
 
@@ -1086,7 +1216,7 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                             var _now = Time.now();
                             this.set("activity_delta", _now - this.get("last_activity"));
                             var new_position = this.player.position();
-                            if (new_position != this.get("position") || this.get("last_position_change"))
+                            if (new_position !== this.get("position") || this.get("last_position_change"))
                                 this.set("last_position_change", _now);
                             // In case if prevent interaction with controller set to true
                             if (this.get('preventinteraction')) {
@@ -1129,11 +1259,21 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
                 },
 
                 videoHeight: function() {
-                    return this.videoAttached() ? this.player.videoHeight() : NaN;
+                    if (this.videoAttached())
+                        return this.player.videoHeight();
+                    var img = this.activeElement().querySelector("img");
+                    if (img && img.height)
+                        return img.height;
+                    return NaN;
                 },
 
                 videoWidth: function() {
-                    return this.videoAttached() ? this.player.videoWidth() : NaN;
+                    if (this.videoAttached())
+                        return this.player.videoWidth();
+                    var img = this.activeElement().querySelector("img");
+                    if (img && img.width)
+                        return img.width;
+                    return NaN;
                 },
 
                 aspectRatio: function() {
@@ -1203,6 +1343,9 @@ Scoped.define("module:VideoPlayer.Dynamics.Player", [
         .registerFunctions({ /*<%= template_function_cache(dirname + '/player.html') %>*/ })
         .attachStringTable(Assets.strings)
         .addStrings({
-            "video-error": "An error occurred, please try again later. Click to retry."
+            "video-error": "An error occurred, please try again later. Click to retry.",
+            "all-settings": "All settings",
+            "player-speed": "Player speed",
+            "full-screen": "Full screen"
         });
 });

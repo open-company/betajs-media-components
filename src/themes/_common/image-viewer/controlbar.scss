@@ -1,0 +1,59 @@
+
+.#{$cssimageviewer}-overlay div[tabindex] {
+  @include transition1(all, 0.30s, ease-in-out);
+}
+
+.#{$cssimageviewer}-overlay div[tabindex]:focus {
+  @include box-outline-shadow(#1b8fcc, 2px);
+  @include remove-outline;
+}
+
+.#{$cssimageviewer}-overlay div[tabindex]:hover, .#{$cssimageviewer}-overlay div[tabindex]:focus:hover {
+  box-shadow: none;
+}
+
+.#{$cssie8} {
+  .#{$cssimageviewer}-overlay {
+    height: 100%;
+  }
+}
+
+.#{$cssimageviewer}-image-viewer-wrapper {
+  @include absolute-max-max();
+  z-index: 1005;
+}
+
+.#{$cssimageviewer}-image-viewer-expanded {
+  @include transform-translate(-50%, -50%);
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  z-index: 1003;
+}
+
+.#{$cssimageviewer}-title, .#{$cssimageviewer}-close-button {
+  @include background-rgba(0, 0, 0, .7, #777777);
+  @include transform-translate-x(-50%);
+  box-sizing: content-box;
+  color: #eeeeee;
+  padding: 8px;
+  position: fixed;
+  z-index: 99999;
+}
+
+.#{$cssimageviewer}-title {
+  bottom: 3%;
+  left:50%;
+}
+
+.#{$cssimageviewer}-close-button {
+  @include border-radius(50%);
+  cursor: pointer;
+  font-size: 22px;
+  right: 3%;
+  &:before {
+    @include fontello-icon;
+    content: '\e814';
+  }
+}

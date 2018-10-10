@@ -269,13 +269,26 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.Chooser", [
             this.dyn._prepareRecording().success(function() {
                 this.dyn.trigger("upload_selected", file);
                 this.dyn._uploadVideoFile(file);
+                this._setValueToEmpty(file);
                 this.next("Uploading");
             }, this).error(function(s) {
+                this._setValueToEmpty(file);
                 this.next("FatalError", {
                     message: s,
                     retry: "Chooser"
                 });
             }, this);
+        },
+
+        /**
+         * Try to fix twice file upload behaviour, (on change event won't be executed twice with the same file)
+         * Don't set null to value, will not solve an issue
+         * @param {HTMLInputElement} file
+         */
+        _setValueToEmpty: function(file) {
+            try {
+                file.value = '';
+            } catch (e) {}
         }
 
     });

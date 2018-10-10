@@ -1,10 +1,11 @@
-$css: "ba-audioplayer-cube-theme";
+$css: "ba-audioplayer";
+$csstheme: "ba-player-cube-theme";
+$cssplayer: "ba-player";
+$csscommon: "ba-commoncss";
 $cssie8: "ba-audioplayer-ie8";
 $cssnoie8: "ba-audioplayer-noie8";
 $fontello_name: "bjsmc";
 
-$loader_size: 5px;
-$loader_frame_thickness: 0.6em;
 $text_letter_spacing: 0.1em;
 
 $message_bgcolor: black;
@@ -25,6 +26,7 @@ $controlbar_background: rgba(0, 0, 0, 0.35);
 $title_font_size: 12px;
 $title_padding: 10px 15px;
 $title_text_color: #eeeeee;
+$topmessage_height: 30px;
 
 $button_fontsize: 13px;
 $button_width: 40px;

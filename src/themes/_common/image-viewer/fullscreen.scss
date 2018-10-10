@@ -1,0 +1,15 @@
+/* Full screen options */
+
+.#{$cssimageviewer}-fullscreen-view {
+
+    .#{$cssimageviewer}-overlay {
+        background-color: #000000;
+        bottom:0;
+        height: 100%;
+        position:fixed;
+        top:0;
+        width: 100%;
+        z-index: 1001;
+    }
+
+}

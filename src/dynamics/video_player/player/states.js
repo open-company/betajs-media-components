@@ -184,6 +184,8 @@ Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.Initial", [
         dynamics: ["loader"],
 
         _started: function() {
+            this.dyn.set("imageelement_active", false);
+            this.dyn.set("videoelement_active", false);
             if (this.dyn.get("ready"))
                 this.next("LoadPlayer");
             else {
@@ -197,6 +199,29 @@ Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.Initial", [
 
 
 Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.LoadPlayer", [
+    "module:VideoPlayer.Dynamics.PlayerStates.State"
+], function(State, scoped) {
+    return State.extend({
+        scoped: scoped
+    }, {
+
+        dynamics: ["loader"],
+
+        _started: function() {
+            this.listenOn(this.dyn, "error:poster", function() {
+                this.next("LoadPlayerDirectly");
+            }, this);
+            this.listenOn(this.dyn, "image-attached", function() {
+                this.next("PosterReady");
+            }, this);
+            this.dyn.reattachImage();
+        }
+
+    });
+});
+
+
+Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.LoadPlayerDirectly", [
     "module:VideoPlayer.Dynamics.PlayerStates.State"
 ], function(State, scoped) {
     return State.extend({
@@ -223,7 +248,6 @@ Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.LoadPlayer", [
 });
 
 
-
 Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.LoadError", [
     "module:VideoPlayer.Dynamics.PlayerStates.State"
 ], function(State, scoped) {
@@ -242,7 +266,6 @@ Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.LoadError", [
 
     });
 });
-
 
 
 Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.PosterReady", [
@@ -345,8 +368,10 @@ Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.PosterError", [
 
 Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.LoadVideo", [
     "module:VideoPlayer.Dynamics.PlayerStates.State",
+    "browser:Info",
+    "browser:Dom",
     "base:Timers.Timer"
-], function(State, Timer, scoped) {
+], function(State, Info, Dom, Timer, scoped) {
     return State.extend({
         scoped: scoped
     }, {
@@ -354,6 +379,23 @@ Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.LoadVideo", [
         dynamics: ["loader"],
 
         _started: function() {
+            if (!this.dyn.get("videoelement_active")) {
+                this.listenOn(this.dyn, "error:attach", function() {
+                    this.next("LoadError");
+                }, this);
+                this.listenOn(this.dyn, "error:poster", function() {
+                    if (!this.dyn.get("states").poster_error.ignore)
+                        this.next("PosterError");
+                }, this);
+                this.listenOn(this.dyn, "attached", function() {
+                    this.__loadVideo();
+                }, this);
+                this.dyn.reattachVideo();
+            } else
+                this.__loadVideo();
+        },
+
+        __loadVideo: function() {
             this.listenOn(this.dyn, "error:video", function() {
                 this.next("ErrorVideo");
             }, this);
@@ -367,6 +409,14 @@ Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.LoadVideo", [
             if (this.dyn.get("skipinitial") && !this.dyn.get("autoplay"))
                 this.next("PlayVideo");
             else {
+                if (Info.isChromiumBased() && !this.dyn.get("skipinitial")) {
+                    var video = this.dyn.__video;
+                    video.isMuted = true;
+                    Dom.userInteraction(function() {
+                        video.isMuted = false;
+                    }, this);
+                }
+
                 var counter = 10;
                 this.auto_destroy(new Timer({
                     context: this,
@@ -382,7 +432,6 @@ Scoped.define("module:VideoPlayer.Dynamics.PlayerStates.LoadVideo", [
                 }));
             }
         }
-
     });
 });
 

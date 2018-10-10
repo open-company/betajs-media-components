@@ -1,0 +1,36 @@
+.#{$csstheme} {
+
+	.#{$css}-settings {
+		position: absolute;
+		left: 0;
+		bottom: $controlbar_height;
+		color: $text_color;
+		margin: $settings_margin;
+		padding: $settings_padding;
+	}
+
+	.#{$css}-settings-backbar {
+		@include absolute-align-all;
+		border-radius: $settings_radius;
+		background-color: $settings_bgcolor;
+		opacity: $settings_opacity;
+		border: $settings_border;
+	}
+
+	.#{$css}-settings hr {
+		border-top: none;
+		border-bottom-color: $text_color;
+		margin: 2px;
+		margin-left: $settings_horizontal_margin;
+		margin-right: $settings_horizontal_margin;
+	}
+
+	.#{$css}-settings li {
+		list-style-type: none;
+		padding: $settings_item_padding;
+	}
+
+	.#{$css}-settings input[type=radio]:checked + span  {
+		border: 3px solid $settings_radio_color_selected;
+	}
+}

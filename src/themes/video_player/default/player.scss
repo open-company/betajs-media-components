@@ -72,7 +72,7 @@
 	width:100%;
 }
 
-.#{$css}-disabled {
+.#{$cssplayer}-disabled {
 	@include disabled_element();
 	& * {cursor: not-allowed}
 }

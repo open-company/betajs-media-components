@@ -1,6 +1,6 @@
 
 <div class="{{css}}-dashboard">
-	<div tabindex="2" data-selector="progress-bar-inner" class="{{css}}-progressbar {{disableseeking ? css + '-disabled' : ''}}"
+	<div tabindex="2" data-selector="progress-bar-inner" class="{{css}}-progressbar {{disableseeking ? cssplayer + '-disabled' : ''}}"
 		 ba-hotkey:right="{{seek(position + skipseconds)}}"
 		 ba-hotkey:left="{{seek(position - skipseconds)}}"
          ba-hotkey:alt+right="{{seek(position + skipseconds * 3)}}"
@@ -35,7 +35,7 @@
 			 ba-click="{{rerecord()}}" title="{{string('rerecord-audio')}}"
 		>
             <div class="{{css}}-button-inner">
-                <i class="{{css}}-icon-ccw"></i>
+                <i class="{{csscommon}}-icon-ccw"></i>
             </div>
         </div>
 
@@ -45,18 +45,18 @@
 			 onkeydown="{{tab_index_move(domEvent, null, 'button-icon-pause')}}" ba-if="{{!playing}}" ba-click="{{play()}}"
 		>
             <div class="{{css}}-button-inner">
-                <i class="{{css}}-icon-play"></i>
+                <i class="{{csscommon}}-icon-play"></i>
             </div>
         </div>
 
         <div tabindex="0" data-selector="button-icon-pause"
 			 onmouseout="this.blur()"
-			 class="{{css}}-leftbutton-container {{disablepause ? css + '-disabled' : ''}}"
+			 class="{{css}}-leftbutton-container {{disablepause ? cssplayer + '-disabled' : ''}}"
 			 onkeydown="{{tab_index_move(domEvent, null, 'button-icon-play')}}" ba-if="{{playing}}" ba-click="{{pause()}}"
 			 title="{{disablepause ? string('pause-audio-disabled') : string('pause-audio')}}"
 		>
             <div class="{{css}}-button-inner">
-                <i class="{{css}}-icon-pause"></i>
+                <i class="{{csscommon}}-icon-pause"></i>
             </div>
         </div>
 
@@ -66,8 +66,8 @@
 			<div class="{{css}}-time-value" title="{{string('total-time')}}">{{formatTime(duration || position)}}</div>
 		</div>
 
-		<div data-selector="audio-title-block" class="{{css}}-audio-title-container" ba-if="{{title}}">
-			<p class="{{css}}-audio-title">
+		<div data-selector="audio-title-block" class="{{css}}-title-container" ba-if="{{title}}">
+			<p class="{{css}}-title">
 				{{title}}
 			</p>
 		</div>
@@ -94,7 +94,7 @@
 			 class="{{css}}-rightbutton-container"
 			 ba-click="{{toggle_volume()}}" title="{{string(volume > 0 ? 'volume-mute' : 'volume-unmute')}}">
 			<div class="{{css}}-button-inner">
-				<i class="{{css + '-icon-volume-' + (volume >= 0.5 ? 'up' : (volume > 0 ? 'down' : 'off')) }}"></i>
+				<i class="{{csscommon + '-icon-volume-' + (volume >= 0.5 ? 'up' : (volume > 0 ? 'down' : 'off')) }}"></i>
 			</div>
 		</div>
 

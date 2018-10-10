@@ -1,6 +1,7 @@
 Scoped.define("module:AudioPlayer.Dynamics.Player", [
     "dynamics:Dynamic",
     "module:Assets",
+    "module:AudioVisualisation",
     "browser:Info",
     "browser:Dom",
     "media:AudioPlayer.AudioPlayerWrapper",
@@ -25,7 +26,7 @@ Scoped.define("module:AudioPlayer.Dynamics.Player", [
     "dynamics:Partials.StylesPartial",
     "dynamics:Partials.TemplatePartial",
     "dynamics:Partials.HotkeyPartial"
-], function(Class, Assets, Info, Dom, AudioPlayerWrapper, Types, Objs, Strings, Time, Timers, Host, ClassRegistry, Async, InitialState, PlayerStates, DomEvents, scoped) {
+], function(Class, Assets, AudioVisualisation, Info, Dom, AudioPlayerWrapper, Types, Objs, Strings, Time, Timers, Host, ClassRegistry, Async, InitialState, PlayerStates, DomEvents, scoped) {
     return Class.extend({
             scoped: scoped
         }, function(inherited) {
@@ -36,6 +37,8 @@ Scoped.define("module:AudioPlayer.Dynamics.Player", [
                 attrs: {
                     /* CSS */
                     "css": "ba-audioplayer",
+                    "csscommon": "ba-commoncss",
+                    "cssplayer": "ba-player",
                     "iecss": "ba-audioplayer",
                     "cssloader": "",
                     "cssmessage": "",
@@ -63,6 +66,7 @@ Scoped.define("module:AudioPlayer.Dynamics.Player", [
                     "title": "",
                     "initialseek": null,
                     "visibilityfraction": 0.8,
+                    "unmuted": false, // Reference to Chrome renewed policy, we have to setup mute for auto plyed players.
 
                     /* Configuration */
                     "forceflash": false,
@@ -83,6 +87,10 @@ Scoped.define("module:AudioPlayer.Dynamics.Player", [
                     "manuallypaused": false,
                     "disablepause": false,
                     "disableseeking": false,
+                    "postervisible": false,
+                    "visualeffectvisible": false,
+                    "visualeffectsupported": false,
+                    "visualeffectheight": 120,
                     "skipseconds": 5
                 },
 
@@ -105,7 +113,9 @@ Scoped.define("module:AudioPlayer.Dynamics.Player", [
                     "disablepause": "boolean",
                     "disableseeking": "boolean",
                     "playonclick": "boolean",
-                    "skipseconds": "integer"
+                    "skipseconds": "integer",
+                    "visualeffectvisible": "boolean",
+                    "visualeffectheight": "integer"
                 },
 
                 extendables: ["states"],
@@ -123,6 +133,18 @@ Scoped.define("module:AudioPlayer.Dynamics.Player", [
                     },
                     "buffering:buffered,position,last_position_change_delta,playing": function() {
                         return this.get("playing") && this.get("buffered") < this.get("position") && this.get("last_position_change_delta") > 1000;
+                    }
+                },
+
+                events: {
+                    "change:visualeffectsupported": function(value) {
+                        if (!value) {
+                            // If after checking we found that AudioAnalyzer not supported we should remove canvas
+                            if (this.audioVisualisation) {
+                                this.audioVisualisation.destroy();
+                                this.audioVisualisation.canvas.remove();
+                            }
+                        }
                     }
                 },
 
@@ -250,26 +272,34 @@ Scoped.define("module:AudioPlayer.Dynamics.Player", [
 
                         this.player = instance;
                         this.__audio = audio;
-
-                        if (this.get("playwhenvisible")) {
-                            var _self;
-                            _self = this;
-                            if (Dom.isElementVisible(audio, this.get("visibilityfraction"))) {
-                                this.player.play();
-                            }
-
-                            this._visiblityScrollEvent = this.auto_destroy(new DomEvents());
-                            this._visiblityScrollEvent.on(document, "scroll", function() {
-                                if (!_self.get('playedonce') && !_self.get("manuallypaused")) {
-                                    if (Dom.isElementVisible(audio, _self.get("visibilityfraction"))) {
-                                        _self.player.play();
-                                    } else if (_self.get("playing")) {
-                                        _self.player.pause();
-                                    }
-                                } else if (_self.get("playing") && !Dom.isElementVisible(audio, _self.get("visibilityfraction"))) {
-                                    _self.player.pause();
-                                }
+                        // Draw audio visualisation effect
+                        if (this.get("visualeffectvisible") && AudioVisualisation.supported()) {
+                            this.audioVisualisation = new AudioVisualisation(audio, {
+                                height: this.get('visualeffectheight'),
+                                element: this.activeElement()
                             });
+
+                            // To be able set width of the canvas element
+                            Async.eventually(function() {
+                                try {
+                                    this.audioVisualisation.initializeVisualEffect();
+                                    this.set("visualeffectsupported", true);
+                                } catch (e) {
+                                    this.set("visualeffectsupported", false);
+                                    console.warn(e);
+                                }
+                            }, this, 100);
+                        }
+                        if (this.get("playwhenvisible")) {
+                            if (Info.isChromiumBased() && !this.get("unmuted")) {
+                                audio.isMuted = true;
+                                Dom.userInteraction(function() {
+                                    audio.isMuted = false;
+                                    this.set("unmuted", true);
+                                    this._playWhenVisible(audio);
+                                });
+                            } else
+                                this._playWhenVisible(audio);
                         }
                         this.player.on("playing", function() {
                             this.set("playing", true);
@@ -325,6 +355,28 @@ Scoped.define("module:AudioPlayer.Dynamics.Player", [
                         this._attachAudio();
                 },
 
+                _playWhenVisible: function(audio) {
+                    var _self = this;
+
+                    if (Dom.isElementVisible(audio, this.get("visibilityfraction"))) {
+                        this.player.play();
+                    }
+
+                    this._visiblityScrollEvent = this.auto_destroy(new DomEvents());
+                    this._visiblityScrollEvent.on(document, "scroll", function() {
+                        if (!_self.get('playedonce') && !_self.get("manuallypaused")) {
+                            if (Dom.isElementVisible(audio, _self.get("visibilityfraction"))) {
+                                _self.player.play();
+                            } else if (_self.get("playing")) {
+                                _self.player.pause();
+                            }
+                        } else if (_self.get("playing") && !Dom.isElementVisible(audio, _self.get("visibilityfraction"))) {
+                            _self.player.pause();
+                        }
+                    });
+
+                },
+
                 reattachAudio: function() {
                     this.set("reloadonplay", true);
                     this._detachAudio();
@@ -336,17 +388,12 @@ Scoped.define("module:AudioPlayer.Dynamics.Player", [
                     // Prevent whitespace browser center scroll and arrow buttons behaviours
                     if (_keyCode === 32 || _keyCode === 37 || _keyCode === 38 || _keyCode === 39 || _keyCode === 40) ev.preventDefault();
 
-                    if (_keyCode === 32 || _keyCode === 13 || _keyCode === 9) {
-                        this._resetActivity();
-                    }
 
                     if (_keyCode === 9 && ev.shiftKey) {
-                        this._resetActivity();
                         this._findNextTabStop(element, ev, function(target, index) {
                             target.focus();
                         }, -1);
                     } else if (_keyCode === 9) {
-                        this._resetActivity();
                         this._findNextTabStop(element, ev, function(target, index) {
                             target.focus();
                         });
@@ -408,6 +455,9 @@ Scoped.define("module:AudioPlayer.Dynamics.Player", [
 
                     play: function() {
                         this.host.state().play();
+                        // Draw visual effect
+                        if (this.get('visualeffectsupported'))
+                            this.audioVisualisation.renderFrame();
                     },
 
                     rerecord: function() {
@@ -429,6 +479,13 @@ Scoped.define("module:AudioPlayer.Dynamics.Player", [
 
                         if (this.get("playing")) {
                             this.player.pause();
+                        }
+
+                        if (this.get("visualeffectsupported") && this.audioVisualisation) {
+                            if (this.audioVisualisation.frameID)
+                                this.audioVisualisation.cancelFrame(this.audioVisualisation.frameID);
+                            else
+                                this.set("visualeffectsupported", false);
                         }
 
                         if (this.get("playwhenvisible"))

@@ -1,10 +1,10 @@
-$css: "ba-audioplayer-elevate-theme";
+$css: "ba-audioplayer";
+$csstheme: "ba-player-elevate-theme";
+$cssplayer: "ba-player";
+$csscommon: "ba-commoncss";
 $cssie8: "ba-audioplayer-ie8";
 $cssnoie8: "ba-audioplayer-noie8";
 $fontello_name: "bjsmc";
-
-$loader_size: 5px;
-$loader_frame_thickness: 0.6em;
 
 $message_bgcolor: #000000;
 $message_opacity: 0.75;
@@ -28,6 +28,7 @@ $controlbar_center_block_width: 75%;
 $controlbar_right_block_width: 12%;
 $controlbar_audio_title_color: #000000;
 $controlbar_audio_title_font_size: 12px;
+$controlbar_side_padding: 2.5%;
 
 $button_fontsize: 13px;
 $button_width: 40px;

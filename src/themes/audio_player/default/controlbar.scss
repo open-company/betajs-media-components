@@ -1,23 +1,20 @@
-.#{$css}-overlay div[tabindex] {
-    @include transition1(all, 0.30s, ease-in-out);
+.#{$css}-container {
+    box-sizing: border-box;
+    height: 45px;
+    min-height: 45px;
+    min-width: 320px;
 }
 
-.#{$css}-overlay div[tabindex]:focus {
-    @include box-outline-shadow(#1b8fcc, 2px);
-    @include remove-outline;
-}
-
-.#{$css}-overlay div[tabindex]:hover, .#{$css}-overlay div[tabindex]:focus:hover {
-    box-shadow: none;
+.#{$css}-audio-canvas {
+    display: none;
+    position: absolute;
+    bottom: $controlbar_height;
+    background-color: #000000;
 }
 
 .#{$css}-dashboard {
     @include absolute-align-full-bottom;
     @include transition1(opacity, $dashboard_transition, ease-in-out);
-}
-
-.#{$css}-dashboard-hidden {
-    opacity: 0;
 }
 
 .#{$css}-progressbar {
@@ -27,7 +24,7 @@
     background-color: $progressbar_bgcolor;
 }
 
-.#{$css}-progressbar-inner.#{$css}-disabled {
+.#{$css}-progressbar-inner.#{$cssplayer}-disabled {
     & .#{$css}-progressbar-cache, .#{$css}-progressbar-position, & {cursor: not-allowed}
 }
 
@@ -196,7 +193,7 @@
     height: $progressbar_height + 2 * $progressbar_button_overflow;
 }
 
-.#{$css}-audio-title {
+.#{$css}-title {
     color: $audio_title_font_color;
     font-family: $audio_title_font_family;
     font-weight: $audio_title_font_weight;

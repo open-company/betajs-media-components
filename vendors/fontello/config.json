@@ -297,6 +297,12 @@
       "src": "entypo"
     },
     {
+      "uid": "8663320a860b00f26e94d3d15c9ba99a",
+      "css": "clock",
+      "code": 59414,
+      "src": "entypo"
+    },
+    {
       "uid": "130380e481a7defc690dfb24123a1f0c",
       "css": "circle",
       "code": 61713,
@@ -355,6 +361,18 @@
       "search": [
         "recording-dot"
       ]
+    },
+    {
+            "uid": "5211af474d3a9848f67f945e2ccaf143",
+      "css": "cancel",
+      "code": 59412,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "14017aae737730faeda4a6fd8fb3a5f0",
+      "css": "check",
+      "code": 59415,
+      "src": "entypo"
     }
   ]
 }
