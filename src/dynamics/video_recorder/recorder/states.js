@@ -583,7 +583,7 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.Recording", [
             var current = Time.now();
             var display = Math.max(0, (current - this._startTime));
             this.dyn.trigger("recording_progress", current - this._startTime);
-            this.dyn.set("controlbarlabel", this.dyn.get("display-timer") ? TimeFormat.format(TimeFormat.ELAPSED_MINUTES_SECONDS, display) + " / " + TimeFormat.format(TimeFormat.ELAPSED_MINUTES_SECONDS, limit) : "");
+            this.dyn.set("controlbarlabel", this.dyn.get("display-timer") ? TimeFormat.format(TimeFormat.ELAPSED_MINUTES_SECONDS, display) + " /  " + TimeFormat.format(TimeFormat.ELAPSED_MINUTES_SECONDS, limit * 1000) : "");
 
             if (this.dyn.get("timeminlimit"))
                 this.dyn.set("mintimeindicator", (Time.now() - this._startTime) / 1000 <= this.dyn.get("timeminlimit"));

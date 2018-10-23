@@ -1,5 +1,5 @@
 /*!
-betajs-media-components - v0.0.132 - 2018-09-26
+betajs-media-components - v0.0.133 - 2018-10-23
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1006,7 +1006,7 @@ Public.exports();
 	return Public;
 }).call(this);
 /*!
-betajs-media-components - v0.0.132 - 2018-09-26
+betajs-media-components - v0.0.133 - 2018-10-23
 Copyright (c) Ziggeo,Oliver Friedmann
 Apache-2.0 Software License.
 */
@@ -1022,7 +1022,8 @@ Scoped.binding('dynamics', 'global:BetaJS.Dynamics');
 Scoped.define("module:", function () {
 	return {
     "guid": "7a20804e-be62-4982-91c6-98eb096d2e70",
-    "version": "0.0.132"
+    "version": "0.0.133",
+    "datetime": 1540318723072
 };
 });
 Scoped.assumeVersion('base:version', '~1.0.96');
@@ -7580,9 +7581,9 @@ Scoped.define("module:VideoRecorder.Dynamics.RecorderStates.Recording", [
         _timerFire: function() {
             var limit = this.dyn.get("timelimit");
             var current = Time.now();
-            var display = Math.max(0, limit ? (this._startTime + limit * 1000 - current) : (current - this._startTime));
+            var display = Math.max(0, (current - this._startTime));
             this.dyn.trigger("recording_progress", current - this._startTime);
-            this.dyn.set("controlbarlabel", this.dyn.get("display-timer") ? TimeFormat.format(TimeFormat.ELAPSED_MINUTES_SECONDS, display) : "");
+            this.dyn.set("controlbarlabel", this.dyn.get("display-timer") ? TimeFormat.format(TimeFormat.ELAPSED_MINUTES_SECONDS, display) + " /  " + TimeFormat.format(TimeFormat.ELAPSED_MINUTES_SECONDS, limit * 1000) : "");
 
             if (this.dyn.get("timeminlimit"))
                 this.dyn.set("mintimeindicator", (Time.now() - this._startTime) / 1000 <= this.dyn.get("timeminlimit"));
